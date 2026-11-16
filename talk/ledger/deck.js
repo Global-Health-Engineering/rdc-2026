@@ -210,6 +210,8 @@
       var y = d3.scaleLinear().domain([0, d3.max(rows, function (d) { return d.n; })]).range([0, H]);
       var lastYear = years[years.length - 1], snap = +D.snapshot_date.slice(0, 4);
       svg.append("line").attr("x1", X0).attr("x2", X1).attr("y1", BASE).attr("y2", BASE).attr("stroke", C.ink).attr("stroke-width", 2);
+      // the PhD columns were read as students supervised by doctoral students
+      svg.append("text").attr("class", "t32").attr("x", X0).attr("y", 150).text("PhD: doctorates started in that year");
       var bars = [];
       years.forEach(function (yr, yi) {
         var gx = X0 + yi * GW + (GW - (3 * BW + 2 * GAP)) / 2;

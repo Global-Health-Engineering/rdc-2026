@@ -4155,6 +4155,15 @@
     "questions_to_authors": 50,
     "days_until_answered": 3
   },
+  "reach": {
+    "note": "From the ghedata table zenodo_records.",
+    "zenodo": {
+      "records": 68,
+      "views": 14113,
+      "downloads": 4326,
+      "snapshot_date": "2026-11-16"
+    }
+  },
   "talk": {
     "title": "Embedded data stewardship and research intelligence: five years of practice at a research group at ETH Zurich",
     "authors": "Lars Schöbitz, Colin Walder, Adriana Clavijo Daza, Elizabeth Tilley",

@@ -262,6 +262,15 @@ data <- list(
     questions_to_authors = 50,
     days_until_answered = 3
   ),
+  reach = list(
+    note = "From the ghedata table zenodo_records.",
+    zenodo = list(
+      records = nrow(zenodo_records),
+      views = sum(zenodo_records$views),
+      downloads = sum(zenodo_records$downloads),
+      snapshot_date = as.character(unique(zenodo_records$snapshot_date))
+    )
+  ),
   talk = list(
     title = "Embedded data stewardship and research intelligence: five years of practice at a research group at ETH Zurich",
     authors = "Lars Schöbitz, Colin Walder, Adriana Clavijo Daza, Elizabeth Tilley",
