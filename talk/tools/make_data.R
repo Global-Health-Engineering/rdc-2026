@@ -221,6 +221,14 @@ data <- list(
     assisted_share_members = round(
       sum(github_commits_by_person$commits_assisted) / sum(github_commits_by_person$commits), 2
     ),
+    first_person_share_pct = round(
+      100 * github_commits_by_person$commits[1] / sum(github_commits_by_person$commits)
+    ),
+    persons_with_agent = sum(github_commits_by_person$commits_assisted > 0),
+    trained_practising_with_agent = sum(
+      github_commits_by_person$workshop == "participant" &
+        github_commits_by_person$commits_assisted > 0
+    ),
     trained = sum(github_commits_by_person$workshop == "participant"),
     trained_practising = sum(
       github_commits_by_person$workshop == "participant" & github_commits_by_person$commits > 0

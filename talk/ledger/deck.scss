@@ -146,6 +146,7 @@ html.is-print .reveal .fragment { opacity: 1 !important; visibility: visible !im
 .reveal .s-fund .cur { position: absolute; left: 80px; top: 180px; font-size: 64px; font-weight: 800; letter-spacing: 0.02em; }
 .reveal .s-fund .fnum { position: absolute; left: 80px; top: 250px; font-size: 300px; font-weight: 800; line-height: 1; letter-spacing: -0.02em; color: var(--accent); white-space: nowrap; }
 .reveal .s-fund .fsub { position: absolute; left: 80px; top: 600px; width: 1440px; font-size: 48px; font-weight: 700; }
+.reveal .s-fund .fsub2 { position: absolute; left: 80px; top: 680px; width: 1440px; font-size: 48px; font-weight: 400; }
 // The claim on indigo, and the close.
 .reveal .s-claim .key { top: 150px; color: var(--paper); }
 .reveal .s-claim .three { position: absolute; left: 80px; top: 700px; font-size: 56px; font-weight: 700; color: var(--paper); }
