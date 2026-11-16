@@ -396,12 +396,6 @@
       var d0 = data[0], lx = xi(0) + BW + 14;
       svg.append("text").attr("class", "t40 b tn").attr("x", lx).attr("y", BASE - y(d0.commits) + 34).text(fInt(d0.commits) + " commits");
       svg.append("text").attr("class", "t32 b").attr("x", lx).attr("y", BASE - y(d0.assisted) + 34).text("with an agent");
-      // the findings, set in the empty part of the plot
-      svg.append("text").attr("class", "b").style("font-size", "64px").attr("x", 620).attr("y", 300).text(fInt(gh.trained) + " took a workshop");
-      svg.append("text").attr("class", "t40").attr("x", 620).attr("y", 370)
-        .text(fInt(gh.trained_practising) + " commit in their research repositories since.");
-      svg.append("text").attr("class", "t40 b").attr("x", 620).attr("y", 426)
-        .text(fInt(gh.trained_not_yet) + " not yet.");
     }
   });
 
