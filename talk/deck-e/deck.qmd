@@ -1,0 +1,241 @@
+---
+pagetitle: "Embedded data stewardship"
+lang: en-GB
+format:
+  revealjs:
+    theme: [default, deck.scss]
+    width: 1600
+    height: 900
+    margin: 0
+    min-scale: 0.2
+    max-scale: 3
+    controls: false
+    menu: false
+    progress: false
+    slide-number: false
+    hash: true
+    transition: none
+    background-transition: none
+    pdf-separate-fragments: false
+    embed-resources: true
+    center: false
+    include-in-header:
+      - file: ../shared/font-face.html
+      - text: |
+          <script src="../shared/d3.v7.min.js"></script>
+          <script src="../shared/data.js"></script>
+    include-after-body:
+      - text: |
+          <script src="deck.js"></script>
+---
+
+## {#s-number .s .field .landed background-color="#ffb224"}
+
+```{=html}
+<div class="draft-flag">placeholder</div>
+<div class="n1-cur">CHF</div>
+<div class="n1-num" id="n1-num"></div>
+<div class="n1-sub"><span id="n1-written"></span> written, <span id="n1-funded"></span> funded</div>
+```
+
+::: commit
+[count:]{.k} five years of proposals
+:::
+
+::: notes
+35 million, 452 thousand Swiss francs and 50 Rappen. That is the funding our group would have received if every proposal of the last five years had been funded. We wrote 30. Four were funded. I can tell you this to the Rappen because I sit inside the group.
+:::
+
+## {#s-key .s}
+
+```{=html}
+<div class="key">Put a data steward <span class="a">inside</span> the research group.</div>
+<div class="titleblock">
+  <div class="tb-title" id="tb-title"></div>
+  <div class="tb-meta" id="tb-authors"></div>
+  <div class="tb-meta" id="tb-event"></div>
+</div>
+```
+
+::: commit
+[add:]{.k} one data steward to the research group
+:::
+
+::: notes
+That is my one point for the next eight minutes. Put a data steward inside the research group.
+:::
+
+## {#s-who .s}
+
+```{=html}
+<div class="photo-slot" id="slot-eight">
+  <div class="ps-label">Photo: Lars at eight with his first computer</div>
+  <div class="ps-file">drop in as deck-e/img/lars-at-eight.jpg</div>
+</div>
+<div class="who">I got the computer.<br><span class="a">My sister, the dolls.</span></div>
+```
+
+::: commit
+[grow:]{.k} access and practice
+:::
+
+::: notes
+I have no doctorate. I have no degree in statistics or computer science. I am an environmental engineer who likes computers. When I was eight, my dad gave me a computer and my sister the dolls. I believe that if it had been the other way round, she would be standing here today. Nobody is born a data steward. You become one through access and practice, inside a group.
+:::
+
+## {#s-role .s}
+
+```{=html}
+<div class="role-num" id="role-num"></div>
+<div class="role-cap">theses, projects and positions</div>
+<svg id="role-chart" class="chart" viewBox="0 0 1600 900"></svg>
+```
+
+::: commit
+[add:]{.k} one layer between professor and staff
+:::
+
+::: notes
+I am the layer between the professor and everyone else. Since 2021 our group has counted 186 theses, semester projects and positions, from bachelor students to senior scientists. Each person arrives with different skills and different gaps. A course cannot cover that. Sitting next to them can.
+:::
+
+## {#s-ghedata .s}
+
+```{=html}
+<div class="head"><span id="repo-all"></span> repositories, <span class="a"><span id="repo-dp"></span> data packages</span></div>
+<svg id="repo-chart" class="chart" viewBox="0 0 1600 900"></svg>
+```
+
+::: commit
+[add:]{.k} ghedata, the group as data
+:::
+
+::: notes
+The number at the start came out of a data package. We call it ghedata. It holds our proposals, our repositories, our people. 345 repositories, and 97 of them are data packages. We treat our own group as a dataset.
+:::
+
+## {#s-bridge .s}
+
+```{=html}
+<img class="bridge-photo" src="../shared/img/workshop-hackathon-2024.jpeg" alt="Six people of the group at laptops during a workshop">
+<div class="bridge-fade"></div>
+<div class="bridge-text">AI tools arrived everywhere.<div class="fragment a">Here, someone was inside.</div></div>
+```
+
+::: commit
+[branch:]{.k} the AI year
+:::
+
+::: notes
+Then the AI tools arrived. They arrived everywhere. In our group they became daily practice within a year, because someone inside ran the workshops, set the rules and sat next to each person.
+:::
+
+## {#s-agent .s}
+
+```{=html}
+<div class="agent-head"><span id="ag-prev"></span> to <span class="a" id="ag-cur"></span></div>
+<div class="agent-sub">commits made with agents</div>
+<svg id="agent-chart" class="chart" viewBox="0 0 1600 900"></svg>
+```
+
+::: commit
+[rule:]{.k} agent commits say so
+:::
+
+::: notes
+Two workshops. One rule: everything goes through Git, and every commit made with an agent says so. That rule lets us count. In the twelve months before, 8 percent of our commits were made with an agent. In the last twelve months it is 42 percent, and 72 percent in our data packages.
+:::
+
+## {#s-types .s}
+
+```{=html}
+<div class="head"><span id="cm-prev"></span> to <span id="cm-cur"></span> commits. Factor <span id="cm-fac"></span></div>
+<svg id="types-chart" class="chart" viewBox="0 0 1600 900"></svg>
+```
+
+::: commit
+[note:]{.k} a commit is activity
+:::
+
+::: notes
+We also commit more, 2.2 times as much. But look at the types: the biggest jump is in hardware projects, where agents play a small part. More commits and agent use are two different things. A commit is activity. It does not tell you the research is better.
+:::
+
+## {#s-gulu .s}
+
+```{=html}
+<div class="head gulu-head">From files to DOI in <span class="a"><span id="gulu-days"></span> days</span></div>
+<svg id="gulu-chart" class="chart" viewBox="0 0 1600 900"></svg>
+<div class="source" id="gulu-source"></div>
+```
+
+::: commit
+[release:]{.k} guluswm, before the manuscript
+:::
+
+::: notes
+So here is one result. On 30 October, colleagues in Uganda sent me three files on household waste in Gulu City. We sent back 50 questions. They answered all of them in three days. On 3 November the data had a DOI, before the paper is submitted. Every number in the manuscript was checked against the data, and the full trail is on GitHub.
+:::
+
+## {#s-tradeoff .s}
+
+```{=html}
+<div class="trade"><span id="tr-persons"></span> person.<br><span class="a"><span id="tr-hours"></span> hours a week.</span></div>
+<svg id="trade-chart" class="chart" viewBox="0 0 1600 900"></svg>
+```
+
+::: commit
+[warn:]{.k} a single point of failure
+:::
+
+::: notes
+The trade-off: this is one person, 20 hours a week. If I leave, a lot leaves with me. An embedded steward is a single point of failure.
+:::
+
+## {#s-close .s .field .landed background-color="#ffb224"}
+
+```{=html}
+<div class="key">Put a data steward inside the research group.</div>
+```
+
+::: commit
+[merge:]{.k} both halves
+:::
+
+::: notes
+Put a data steward inside the research group.
+:::
+
+## {#s-question .s}
+
+```{=html}
+<div class="question">What would <span class="a">you</span> measure to show what stewardship changes?</div>
+```
+
+::: commit
+[open:]{.k} your answers
+:::
+
+::: notes
+And then help us with the open question: what would you measure to show what stewardship changes? Come and find me.
+:::
+
+## {#s-end .s}
+
+```{=html}
+<div class="end">
+  <div class="end-label">Tomorrow</div>
+  <div class="end-workshop" id="end-workshop"></div>
+  <div class="end-rows">
+    <div><span class="end-k">Data</span><span id="end-data"></span></div>
+    <div><span class="end-k">Slides</span><span id="end-slides"></span></div>
+    <div><span class="end-k">Authors</span><span id="end-authors"></span></div>
+    <div><span class="end-k"></span><span id="end-aff"></span></div>
+  </div>
+  <div class="end-decl">These slides were built with Claude Code. The full declaration is in the slides repository.</div>
+</div>
+```
+
+::: commit
+[end:]{.k} thank you
+:::

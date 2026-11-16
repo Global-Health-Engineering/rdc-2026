@@ -1,0 +1,230 @@
+---
+pagetitle: "Embedded data stewardship"
+lang: en-GB
+format:
+  revealjs:
+    theme: [default, deck.scss]
+    width: 1600
+    height: 900
+    margin: 0
+    min-scale: 0.1
+    max-scale: 4
+    controls: false
+    menu: false
+    progress: false
+    slide-number: false
+    hash: true
+    transition: none
+    background-transition: none
+    center: false
+    pdf-separate-fragments: false
+    embed-resources: true
+    include-in-header:
+      - file: ../shared/font-face.html
+      - text: |
+          <script src="../shared/d3.v7.min.js"></script>
+          <script src="../shared/data.js"></script>
+    include-after-body:
+      - text: |
+          <script src="deck.js"></script>
+---
+
+## {.bare data-scene="number"}
+
+```{=html}
+<!--
+Deck C, "Every dot is one thing".
+All marks are drawn by deck.js on one canvas behind the slides. Each slide
+names its scene with data-scene. Each empty <span class="fragment step">
+is one click of the clicker inside that slide. The labels of a scene are
+written by deck.js into <div class="labels">. All numbers come from
+../shared/data.js (window.TALK).
+-->
+<div class="chf">CHF</div>
+<div id="num" class="num"></div>
+<span class="draft-flag corner">placeholder</span>
+<div class="labels"></div>
+<span class="fragment step"></span><span class="fragment step"></span>
+```
+
+::: notes
+35 million, 452 thousand Swiss francs and 50 Rappen. That is the funding our group would have received if every proposal of the last five years had been funded.
+
+(click) We wrote 30.
+
+(click) Four were funded. I can tell you this to the Rappen because I sit inside the group.
+:::
+
+## {.bare data-scene="key"}
+
+```{=html}
+<p class="keyline">Put a<br><span class="acc">data steward</span><br>inside the<br>research group.</p>
+<div class="labels"></div>
+```
+
+::: notes
+That is my one point for the next eight minutes. Put a data steward inside the research group.
+:::
+
+## {.bare data-scene="who"}
+
+```{=html}
+<!-- Photo slot. To use the photo, replace the div with:
+     <img class="photo-round" src="lars-at-eight.jpg" alt="Lars at eight with his first computer"> -->
+<div class="photo-slot" data-label="Photo: Lars at eight with his first computer" data-file="lars-at-eight.jpg"></div>
+<div class="labels"></div>
+<span class="fragment step"></span><span class="fragment step"></span>
+```
+
+::: notes
+I have no doctorate. I have no degree in statistics or computer science. I am an environmental engineer who likes computers.
+
+(click) When I was eight, my dad gave me a computer and my sister the dolls. I believe that if it had been the other way round, she would be standing here today.
+
+(click) Nobody is born a data steward. You become one through access and practice, inside a group.
+:::
+
+## {.bare data-scene="role"}
+
+```{=html}
+<div class="labels"></div>
+<span class="fragment step"></span>
+```
+
+::: notes
+I am the layer between the professor and everyone else. Since 2021 our group has counted 186 theses, semester projects and positions, from bachelor students to senior scientists.
+
+(click) Each person arrives with different skills and different gaps. A course cannot cover that. Sitting next to them can.
+:::
+
+## {.bare data-scene="ghedata"}
+
+```{=html}
+<div class="labels"></div>
+<span class="fragment step"></span>
+```
+
+::: notes
+The number at the start came out of a data package. We call it ghedata. It holds our proposals, our repositories, our people.
+
+(click) 345 repositories, and 97 of them are data packages. We treat our own group as a dataset.
+:::
+
+## {.bare data-scene="bridge"}
+
+```{=html}
+<div class="labels"></div>
+<span class="fragment step"></span>
+```
+
+::: notes
+Then the AI tools arrived. They arrived everywhere.
+
+(click) In our group they became daily practice within a year, because someone inside ran the workshops, set the rules and sat next to each person.
+:::
+
+## {.bare data-scene="photo"}
+
+```{=html}
+<img class="bleed" src="../shared/img/workshop-hackathon-2024.jpeg" alt="Six people of the group at laptops around a table during a workshop in 2024">
+<div class="photo-text">
+<p class="l1"><span class="one-dot"></span>Two workshops. One rule.</p>
+<p class="l2">Every commit made with an agent says so.</p>
+</div>
+<div class="labels"></div>
+```
+
+::: notes
+Two workshops. One rule: everything goes through Git, and every commit made with an agent says so. That rule lets us count.
+
+(Photo: a workshop of the group in 2024, from the openwashdata website.)
+:::
+
+## {.bare data-scene="share"}
+
+```{=html}
+<div class="labels"></div>
+<span class="fragment step"></span><span class="fragment step"></span>
+```
+
+::: notes
+(Each square is one commit, month by month. Click: the commits with an agent trailer turn orange. Click: the two years side by side.)
+
+In the twelve months before, 8 percent of our commits were made with an agent. In the last twelve months it is 42 percent, and 72 percent in our data packages. We also commit more, 2.2 times as much.
+:::
+
+## {.bare data-scene="types"}
+
+```{=html}
+<div class="labels"></div>
+<span class="fragment step"></span>
+```
+
+::: notes
+But look at the types.
+
+(click) The biggest jump is in hardware projects, where agents play a small part. A commit is activity. It does not tell you the research is better.
+:::
+
+## {.bare data-scene="gulu"}
+
+```{=html}
+<div class="labels"></div>
+<span class="fragment step"></span><span class="fragment step"></span><span class="fragment step"></span>
+```
+
+::: notes
+So here is one result. On 30 October, colleagues in Uganda sent me three files on household waste in Gulu City.
+
+(click) We sent back 50 questions.
+
+(click) They answered all of them in three days.
+
+(click) On 3 November the data had a DOI, before the paper is submitted. Every number in the manuscript was checked against the data, and the full trail is on GitHub.
+:::
+
+## {.bare data-scene="tradeoff"}
+
+```{=html}
+<div class="labels"></div>
+<span class="fragment step"></span>
+```
+
+::: notes
+The trade-off: this is one person, 20 hours a week.
+
+(click) If I leave, a lot leaves with me. An embedded steward is a single point of failure.
+:::
+
+## {.bare data-scene="close"}
+
+```{=html}
+<div class="labels"></div>
+<span class="fragment step"></span>
+```
+
+::: notes
+Put a data steward inside the research group.
+
+(click) And then help us with the open question: what would you measure to show what stewardship changes? Come and find me.
+:::
+
+## {.bare data-scene="end"}
+
+```{=html}
+<div class="end">
+<p id="end-title" class="end-title"></p>
+<div id="end-authors" class="end-authors"></div>
+<p id="end-aff" class="end-aff"></p>
+<div class="end-right">
+<p class="end-head">Workshop tomorrow</p>
+<p id="end-workshop" class="end-big"></p>
+<p class="end-head">The data package</p>
+<p id="end-package" class="end-link"></p>
+<p class="end-head">These slides</p>
+<p id="end-slides" class="end-link"></p>
+<p class="end-decl">These slides were built with Claude Code. The full declaration is in the repository.</p>
+</div>
+</div>
+<div class="labels"></div>
+```

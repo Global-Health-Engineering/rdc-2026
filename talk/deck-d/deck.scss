@@ -1,0 +1,155 @@
+/*-- scss:defaults --*/
+$font-family-sans-serif: "Atkinson Hyperlegible Next", "Helvetica Neue", Arial, sans-serif;
+$presentation-font-size-root: 40px;
+$body-bg: #0b1a1c;
+$body-color: #f3efe6;
+
+/*-- scss:rules --*/
+// Deck D, "People in the room". One palette, one accent.
+:root {
+  --ink: #0b1a1c;      // deep green black: photo shadows, panels, text on amber
+  --panel: #10262a;    // calm dark panel for the data slides
+  --paper: #f3efe6;    // warm white: text over photos and panels
+  --muted: #a9bcbb;    // secondary text on dark (contrast above 7 to 1)
+  --mark: #55777a;     // neutral chart marks
+  --accent: #ffc02e;   // the one accent: amber
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+html, body, .reveal, .reveal .slides { background: #0b1a1c; }
+.reveal .slides section.bare { padding: 0; height: 900px; width: 1600px; text-align: left; }
+.reveal .slides section.bare > p:empty { display: none; }
+
+.stage {
+  position: absolute; left: 0; top: 0; width: 1600px; height: 900px; overflow: hidden;
+  background: var(--ink); color: var(--paper);
+  font-family: "Atkinson Hyperlegible Next", "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.08;
+}
+.stage.panel { background: var(--panel); }
+.stage svg { position: absolute; left: 0; top: 0; }
+.stage svg text { font-family: "Atkinson Hyperlegible Next", "Helvetica Neue", Arial, sans-serif; }
+
+/* ---------- photographs: one treatment for all ---------- */
+.stage img.photo {
+  position: absolute; left: 0; top: 0; width: 1600px; height: 900px; max-width: none; max-height: none; margin: 0;
+  object-fit: cover; object-position: var(--pos, 50% 50%);
+  transform-origin: var(--origin, 50% 50%);
+  transform: scale(var(--zoom, 1));
+  // duotone: grey, toned towards the green black of the palette, darkened
+  filter: grayscale(1) sepia(1) hue-rotate(135deg) saturate(.55) contrast(1.1) brightness(.52);
+}
+@keyframes kenburns {
+  from { transform: scale(var(--zoom, 1)); }
+  to   { transform: scale(calc(var(--zoom, 1) * 1.07)); }
+}
+.reveal .slides section.present .stage img.photo { animation: kenburns 45s linear both; }
+
+/* the scrim guarantees a dark ground behind the words */
+.scrim { position: absolute; left: 0; top: 0; width: 1600px; height: 900px; }
+// plateau of at least .8 wherever words sit: with the darkened duotone this keeps
+// white and amber text above a contrast of 7 to 1 on any photograph
+.scrim.bottom { background: linear-gradient(to top, rgba(11,26,28,.92) 0%, rgba(11,26,28,.84) 52%, rgba(11,26,28,0) 82%); }
+.scrim.top    { background: linear-gradient(to bottom, rgba(11,26,28,.92) 0%, rgba(11,26,28,.84) 40%, rgba(11,26,28,0) 66%); }
+.scrim.left   { background: linear-gradient(to right, rgba(11,26,28,.92) 0%, rgba(11,26,28,.84) 58%, rgba(11,26,28,0) 86%); }
+
+/* ---------- photo slots: where a photograph of Lars's goes ---------- */
+.photo-slot {
+  position: absolute; left: 0; top: 0; width: 1600px; height: 900px;
+  transform-origin: var(--origin, 50% 50%);
+  background:
+    repeating-linear-gradient(135deg, rgba(243,239,230,.045) 0 2px, transparent 2px 22px),
+    radial-gradient(1100px 700px at 74% 30%, #3d6a6c 0%, #24474a 45%, #122b2e 100%);
+}
+.photo-slot::before { // viewfinder frame
+  content: ""; position: absolute; left: 44px; top: 44px; right: 44px; bottom: 44px;
+  border: 3px dashed rgba(243,239,230,.38); border-radius: 6px;
+}
+.photo-slot { display: flex; flex-direction: column; align-items: flex-end; gap: 16px; padding: 96px; box-sizing: border-box; }
+.photo-slot b, .photo-slot i { max-width: 640px; text-align: right; font-style: normal; position: relative; z-index: 2; }
+.photo-slot b { font-size: 38px; font-weight: 700; line-height: 1.15; color: var(--paper); padding-top: 62px; }
+.photo-slot b::before { // small camera mark drawn in CSS
+  content: ""; position: absolute; right: 0; top: 0; width: 64px; height: 42px;
+  border: 4px solid var(--accent); border-radius: 8px; box-sizing: border-box;
+  background: radial-gradient(circle at 50% 50%, transparent 0 7px, var(--accent) 7px 11px, transparent 11px);
+}
+.photo-slot i { font-family: var(--mono); font-size: 28px; color: var(--accent); }
+
+/* ---------- words over photographs ---------- */
+.over { position: absolute; left: 96px; right: 96px; z-index: 3; }
+.stage > svg { z-index: 3; }
+.over.bl { bottom: 84px; }
+.over.tl { top: 84px; }
+.over.ml { top: 0; height: 900px; display: flex; flex-direction: column; justify-content: center; width: 800px; right: auto; }
+.kicker { font-family: var(--mono); font-size: 30px; letter-spacing: .04em; color: var(--accent); margin: 0 0 22px; }
+.line-xl { font-size: 118px; font-weight: 800; letter-spacing: -.02em; line-height: 1.0; margin: 0; max-width: 1300px; text-wrap: balance; }
+.line-l  { font-size: 84px; font-weight: 800; letter-spacing: -.015em; line-height: 1.04; margin: 0; max-width: 1250px; text-wrap: balance; }
+.line-m  { font-size: 44px; font-weight: 500; line-height: 1.2; margin: 0 0 26px; color: var(--paper); max-width: 1100px; }
+.line-s  { font-size: 30px; font-weight: 500; line-height: 1.25; margin: 20px 0 0; color: var(--paper); }
+.giant   { font-size: 290px; font-weight: 800; letter-spacing: -.04em; line-height: .86; margin: 0 0 14px -10px; font-variant-numeric: tabular-nums; }
+.giant .unit { font-size: 120px; letter-spacing: -.02em; margin-left: 22px; color: var(--paper); }
+.accent { color: var(--accent); }
+.source { position: absolute; right: 60px; bottom: 28px; font-size: 20px; color: var(--muted); margin: 0; }
+
+/* entry: words rise once when the slide is entered */
+@keyframes rise { from { opacity: 0; transform: translateY(34px); } to { opacity: 1; transform: none; } }
+.reveal .slides section.present .rise { animation: rise .9s cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(var(--i, 0) * .22s + .25s); }
+
+/* ---------- slide 1 and the question: the colour field ---------- */
+.stage.field { background: var(--accent); color: var(--ink); transition: background-color .16s linear, color .16s linear; }
+.stage.field.pre { background: var(--ink); color: var(--accent); }
+.field .chf { position: absolute; left: 84px; top: 176px; font-size: 64px; font-weight: 800; letter-spacing: .02em; }
+.field .num {
+  position: absolute; left: 0; top: 252px; width: 1600px; text-align: center; white-space: nowrap;
+  font-size: 212px; font-weight: 800; letter-spacing: -.035em; line-height: 1; font-variant-numeric: tabular-nums;
+  transform-origin: 50% 60%;
+}
+@keyframes pulse { 0% { transform: scale(1); } 35% { transform: scale(1.045); } 100% { transform: scale(1); } }
+.field .num.pulse { animation: pulse .75s cubic-bezier(.2,.7,.2,1) 1; }
+.field .sub { position: absolute; left: 84px; top: 690px; font-size: 50px; font-weight: 700; margin: 0; }
+.field svg rect { stroke: currentColor; }
+.field svg rect.on { fill: currentColor; }
+.field svg rect.off { fill: none; }
+.draft-flag {
+  position: absolute; right: 60px; top: 48px; font-family: var(--mono); font-size: 28px; line-height: 1;
+  padding: 10px 16px; border: 3px dashed currentColor; border-radius: 6px; text-transform: lowercase;
+}
+.field .question { position: absolute; left: 96px; top: 0; height: 900px; width: 1380px; display: flex; align-items: center; }
+.field .question p { font-size: 128px; font-weight: 800; letter-spacing: -.025em; line-height: 1.0; margin: 0; text-wrap: balance; }
+
+/* ---------- data panels ---------- */
+.panel .col { position: absolute; left: 84px; top: 84px; width: 500px; }
+.panel .big { font-size: 190px; font-weight: 800; letter-spacing: -.04em; line-height: .9; margin: 0; font-variant-numeric: tabular-nums; }
+.panel .lab { font-size: 44px; font-weight: 600; margin: 4px 0 44px; line-height: 1.1; }
+.panel .head { position: absolute; left: 84px; top: 64px; font-size: 56px; font-weight: 800; letter-spacing: -.015em; margin: 0; white-space: nowrap; }
+.panel .foot { position: absolute; left: 84px; bottom: 44px; font-size: 30px; font-weight: 600; margin: 0; color: var(--paper); }
+.share { position: absolute; left: 84px; top: 56px; }
+.share .pair { font-size: 200px; font-weight: 800; letter-spacing: -.04em; line-height: 1; margin: 0; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.share .pair .was { color: var(--muted); }
+.share .pair svg { position: static; width: 120px; height: 110px; margin: 0 34px; vertical-align: 6px; }
+.share p.l { font-size: 40px; font-weight: 600; margin: 10px 0 0; }
+.reveal .slides section .fragment.sv { transition: opacity .6s ease; }
+
+/* ---------- the unspoken last slide ---------- */
+.end .text { position: absolute; left: 84px; top: 70px; width: 930px; }
+.end h3 { font-family: var(--mono); font-size: 24px; font-weight: 400; letter-spacing: .04em; color: var(--accent); margin: 0 0 6px; text-transform: none; }
+.end p { font-size: 32px; line-height: 1.22; margin: 0 0 30px; color: var(--paper); }
+.end p.sm { font-size: 24px; color: var(--muted); margin-bottom: 0; }
+.end p code { font-family: var(--mono); font-size: 27px; color: var(--paper); background: none; padding: 0; }
+.end .side { position: absolute; right: 0; top: 0; width: 520px; height: 900px; overflow: hidden; }
+.end .side img.photo { width: 520px; }
+.end .side .scrim { width: 520px; background: linear-gradient(to right, rgba(16,38,42,1) 0%, rgba(16,38,42,0) 45%); }
+
+/* ---------- print and reduced motion: final state, nothing moves ---------- */
+html.is-print .reveal .slides section .rise,
+html.is-print .reveal .slides section img.photo,
+html.is-print .reveal .slides section .photo-slot,
+html.is-print .field .num { animation: none !important; }
+html.is-print .reveal .slides section .fragment { opacity: 1 !important; visibility: visible !important; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal .slides section .rise,
+  .reveal .slides section img.photo,
+  .reveal .slides section .photo-slot,
+  .field .num { animation: none !important; }
+  .stage.field, .reveal .slides section .fragment { transition: none !important; }
+}

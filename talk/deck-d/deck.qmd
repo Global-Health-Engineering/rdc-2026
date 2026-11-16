@@ -1,0 +1,477 @@
+---
+# DECK D, "People in the room"
+#
+# HOW TO SWAP A PHOTO SLOT FOR A REAL PHOTO (one line per slide)
+#
+#   Every slot is one line that starts with <div class="photo-slot"> and names the
+#   photo and the file. Save the photo under that file name in talk/deck-d/img/
+#   and replace the whole line with:
+#
+#       <img class="photo" src="img/FILE-NAME.jpg" alt="">
+#
+#   The duotone, the dark scrim under the words and the slow push in come from
+#   deck.scss and apply to every img with the class "photo". Optional, on the
+#   same line: style="--pos: 50% 30%" moves the crop, style="--zoom: 1.3" crops
+#   closer, style="--origin: 80% 60%" sets the point the push in moves towards.
+#   Landscape photos of 2000 pixels width or more work best. Then render again.
+#
+#   Slots waiting: slide 3 img/lars-at-eight.jpg, slide 4 img/coaching-one-to-one.jpg,
+#   slide 6 img/ai-workshop.jpg, slide 9 img/gulu-weighing-waste.jpg,
+#   slide 10 img/empty-chair.jpg.
+#
+# NUMBERS: every number on a slide is filled in from window.TALK
+# (../shared/data.js) through data-t attributes or by the chart scripts. Do not type numbers into slides.
+#
+# PLACEHOLDER: slide 1 carries <span class="draft-flag">. Delete that line once
+# the proposal numbers in the data file are final.
+pagetitle: "Embedded data stewardship"
+format:
+  revealjs:
+    theme: [default, deck.scss]
+    width: 1600
+    height: 900
+    margin: 0
+    controls: false
+    progress: false
+    slide-number: false
+    menu: false
+    hash: true
+    transition: fade
+    background-transition: none
+    embed-resources: true
+    center: false
+    auto-stretch: false
+    pdf-separate-fragments: false
+    include-in-header:
+      - file: ../shared/font-face.html
+      - text: |
+          <script src="../shared/d3.v7.min.js"></script>
+          <script src="../shared/data.js"></script>
+          <script>
+          // Shared helpers of the deck: number formats, data binding, slide entry hooks.
+          (function () {
+            var isPrint = /print-pdf/.test(location.search);
+            var reduced = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+            if (isPrint) document.documentElement.classList.add("is-print");
+            var still = isPrint || reduced, hooks = [];
+            var swiss = function (s) { return s.replace(/,/g, "'"); };
+            var fmt = {
+              chf: function (v) { return swiss(d3.format(",.2f")(v)); },
+              int: function (v) { return typeof v === "number" ? swiss(d3.format(",")(v)) : String(v); },
+              pct: function (v) { return Math.round(v * 100) + " %"; },
+              url: function (v) { return String(v).replace(/^https?:\/\//, ""); }
+            };
+            window.DECK = { still: still, fmt: fmt, onEnter: function (id, fn) { hooks.push([id, fn]); } };
+            // every element with data-t="path.in.TALK" gets its text from the data file
+            document.addEventListener("DOMContentLoaded", function () {
+              document.querySelectorAll("[data-t]").forEach(function (el) {
+                var v = el.getAttribute("data-t").split(".").reduce(function (o, k) { return o[k]; }, window.TALK);
+                el.textContent = fmt[el.getAttribute("data-f") || "int"](v);
+              });
+            });
+            // animations run when a slide is entered on screen; never in print or with reduced motion
+            window.addEventListener("load", function () {
+              var fire = function (slide) {
+                if (still || !slide) return;
+                hooks.forEach(function (h) { var el = document.getElementById(h[0]); if (el && slide.contains(el)) h[1](); });
+              };
+              Reveal.on("slidechanged", function (ev) { fire(ev.currentSlide); });
+              if (Reveal.isReady()) fire(Reveal.getCurrentSlide()); else Reveal.on("ready", function (ev) { fire(ev.currentSlide); });
+            });
+          })();
+          </script>
+---
+
+## {.bare}
+
+```{=html}
+<div class="stage field" id="s-number">
+<span class="draft-flag">placeholder</span>
+<div class="chf">CHF</div>
+<div class="num" id="num" data-t="proposals.amount_chf" data-f="chf"></div>
+<svg id="props" viewBox="0 0 1600 900" width="1600" height="900"></svg>
+<p class="sub"><span data-t="proposals.written"></span> proposals written. <span data-t="proposals.funded"></span> funded.</p>
+</div>
+<script>
+(function () {
+  const T = window.TALK.proposals, stage = document.getElementById("s-number"), el = document.getElementById("num");
+  // 30 squares, 4 filled
+  const n = T.written, size = 36, gap = (1432 - n * size) / (n - 1);
+  d3.select("#props").selectAll("rect").data(d3.range(n)).join("rect")
+    .attr("class", (i) => (i < T.funded ? "on" : "off"))
+    .attr("x", (i) => 84 + i * (size + gap) + 2).attr("y", 596).attr("width", size - 4).attr("height", size - 4)
+    .attr("stroke-width", 4);
+  // cold open: count up on the dark field, then one flash to amber and one pulse
+  let raf = 0, timer = 0;
+  DECK.onEnter("s-number", function () {
+    cancelAnimationFrame(raf); clearTimeout(timer);
+    el.classList.remove("pulse"); stage.classList.add("pre");
+    const t0 = performance.now(), dur = 1900;
+    (function tick(now) {
+      const p = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - p, 4);
+      el.textContent = DECK.fmt.chf(T.amount_chf * e);
+      if (p < 1) { raf = requestAnimationFrame(tick); return; }
+      el.textContent = DECK.fmt.chf(T.amount_chf);
+      timer = setTimeout(function () { stage.classList.remove("pre"); void el.offsetWidth; el.classList.add("pulse"); }, 250);
+    })(t0);
+  });
+})();
+</script>
+```
+
+::: notes
+35 million, 452 thousand Swiss francs and 50 Rappen. That is the funding our group would have received if every proposal of the last five years had been funded. We wrote 30. Four were funded. I can tell you this to the Rappen because I sit inside the group.
+:::
+
+## {.bare}
+
+```{=html}
+<div class="stage">
+<img class="photo" src="img/workshop-hackathon-2024.jpg" alt="Six people of the group at laptops around a table" style="--origin: 50% 80%">
+<div class="scrim top"></div>
+<div class="over tl">
+<p class="line-xl rise" style="font-size:100px;max-width:1420px">Put a data steward <span class="accent">inside</span><br>the research group.</p>
+<p class="line-s rise" style="--i:1">Lars Schöbitz, ETH Zurich</p>
+</div>
+</div>
+```
+
+::: notes
+That is my one point for the next eight minutes. Put a data steward inside the research group.
+:::
+
+## {.bare}
+
+```{=html}
+<div class="stage">
+<div class="photo-slot"><b>Photo: Lars at eight with his first computer</b><i>img/lars-at-eight.jpg</i></div>
+<div class="scrim bottom"></div>
+<div class="over bl">
+<p class="line-m rise">No doctorate. No computer science degree.</p>
+<p class="line-xl rise" style="--i:1">Nobody is born a data steward.</p>
+</div>
+</div>
+```
+
+::: notes
+I have no doctorate. I have no degree in statistics or computer science. I am an environmental engineer who likes computers. When I was eight, my dad gave me a computer and my sister the dolls. I believe that if it had been the other way round, she would be standing here today. Nobody is born a data steward. You become one through access and practice, inside a group.
+:::
+
+## {.bare}
+
+```{=html}
+<div class="stage">
+<div class="photo-slot"><b>Photo: one to one coaching at a laptop</b><i>img/coaching-one-to-one.jpg</i></div>
+<div class="scrim bottom"></div>
+<svg id="people" viewBox="0 0 1600 900" width="1600" height="900"></svg>
+<div class="over bl" style="width:820px;right:auto">
+<p class="giant accent rise" data-t="people.total"></p>
+<p class="line-m rise" style="--i:1;margin:0;font-size:40px;white-space:nowrap">theses, semester projects and positions</p>
+</div>
+</div>
+<script>
+(function () {
+  const P = window.TALK.people.by_year, svg = d3.select("#people");
+  const x0 = 960, pitchX = 96, per = 5, step = 17, base = 772;
+  const dots = [];
+  P.forEach((y, k) => d3.range(y.n).forEach((i) => dots.push({
+    x: x0 + k * pitchX + (i % per) * step + 8, y: base - Math.floor(i / per) * step, k, i })));
+  const c = svg.selectAll("circle").data(dots).join("circle")
+    .attr("cx", (d) => d.x).attr("cy", (d) => d.y).attr("r", 6).attr("fill", "#f3efe6");
+  svg.selectAll("text").data(P).join("text")
+    .attr("x", (d, k) => x0 + k * pitchX + (per * step) / 2 - 1).attr("y", base + 50)
+    .attr("text-anchor", "middle").attr("font-size", 28).attr("font-weight", 600).attr("fill", "#a9bcbb")
+    .text((d) => d.year);
+  DECK.onEnter("people", function () {
+    c.interrupt().attr("opacity", 0).transition().delay((d, j) => 500 + j * 9).duration(250).attr("opacity", 1);
+  });
+})();
+</script>
+```
+
+::: notes
+I am the layer between the professor and everyone else. Since 2021 our group has counted 186 theses, semester projects and positions, from bachelor students to senior scientists. Each person arrives with different skills and different gaps. A course cannot cover that. Sitting next to them can.
+:::
+
+## {.bare}
+
+```{=html}
+<div class="stage panel">
+<div class="col">
+<p class="kicker">ghedata</p>
+<p class="big" data-t="github.repositories_without_learners"></p>
+<p class="lab">repositories</p>
+<p class="big accent" id="n-dp"></p>
+<p class="lab accent">data packages</p>
+</div>
+<svg id="repos" viewBox="0 0 1600 900" width="1600" height="900"></svg>
+<p class="source">Source: ghedata, the group's own data package</p>
+</div>
+<script>
+(function () {
+  const R = window.TALK.github.repositories_by_type.slice().sort((a, b) => b.total - a.total);
+  document.getElementById("n-dp").textContent = R.find((d) => d.repository_type === "data package").total;
+  const svg = d3.select("#repos"), top = 78, row = 62, bx = 1010;
+  const x = d3.scaleLinear().domain([0, d3.max(R, (d) => d.total)]).range([0, 430]);
+  const g = svg.selectAll("g").data(R).join("g").attr("transform", (d, i) => `translate(0,${top + i * row})`);
+  const isDP = (d) => d.repository_type === "data package";
+  g.append("text").attr("x", bx - 18).attr("y", 30).attr("text-anchor", "end").attr("font-size", 30)
+    .attr("font-weight", (d) => (isDP(d) ? 800 : 500)).attr("fill", (d) => (isDP(d) ? "#ffc02e" : "#f3efe6"))
+    .text((d) => d.repository_type.charAt(0).toUpperCase() + d.repository_type.slice(1));
+  const bars = g.append("rect").attr("x", bx).attr("y", 2).attr("height", 38).attr("width", (d) => x(d.total))
+    .attr("fill", (d) => (isDP(d) ? "#ffc02e" : "#55777a"));
+  const vals = g.append("text").attr("x", (d) => bx + x(d.total) + 14).attr("y", 31).attr("font-size", 30).attr("font-weight", 700)
+    .attr("fill", (d) => (isDP(d) ? "#ffc02e" : "#f3efe6")).text((d) => d.total);
+  svg.append("line").attr("x1", bx).attr("x2", bx).attr("y1", top - 8).attr("y2", top + R.length * row - 12).attr("stroke", "#a9bcbb").attr("stroke-width", 2);
+  DECK.onEnter("repos", function () {
+    bars.interrupt().attr("width", 0).transition().delay((d, i) => 300 + i * 70).duration(800).ease(d3.easeCubicOut).attr("width", (d) => x(d.total));
+    vals.interrupt().attr("opacity", 0).transition().delay((d, i) => 900 + i * 70).duration(400).attr("opacity", 1);
+  });
+})();
+</script>
+```
+
+::: notes
+The number at the start came out of a data package. We call it ghedata. It holds our proposals, our repositories, our people. 345 repositories, and 97 of them are data packages. We treat our own group as a dataset.
+:::
+
+## {.bare}
+
+```{=html}
+<div class="stage">
+<div class="photo-slot"><b>Photo: the group at an AI workshop</b><i>img/ai-workshop.jpg</i></div>
+<div class="scrim bottom"></div>
+<div class="over bl">
+<p class="line-m rise">The AI tools arrived everywhere.</p>
+<p class="line-xl rise" style="--i:2">Here, someone was <span class="accent">inside</span>.</p>
+</div>
+</div>
+```
+
+::: notes
+Then the AI tools arrived. They arrived everywhere. In our group they became daily practice within a year, because someone inside ran the workshops, set the rules and sat next to each person.
+:::
+
+## {.bare}
+
+```{=html}
+<div class="stage panel">
+<div class="share">
+<p class="pair"><span class="was" data-t="github.assisted_share_previous" data-f="pct"></span><svg viewBox="0 0 120 110"><path d="M6 55 H104 M66 17 L106 55 L66 93" fill="none" stroke="#a9bcbb" stroke-width="14" stroke-linecap="square"/></svg><span class="accent" data-t="github.assisted_share_current" data-f="pct"></span></p>
+<p class="l">of commits carry an <span class="accent">agent trailer</span></p>
+<p class="l"><span class="accent" id="dp-share"></span> in data packages</p>
+</div>
+<svg id="months" viewBox="0 0 1600 900" width="1600" height="900"></svg>
+<p class="source">Commits per month, all repositories without learners. Source: ghedata</p>
+</div>
+<script>
+(function () {
+  const G = window.TALK.github, M = G.commits_per_month, n = M.length;
+  document.getElementById("dp-share").textContent =
+    DECK.fmt.pct(G.commits_by_type_two_windows.find((d) => d.repository_type === "data package").share_assisted_current);
+  const svg = d3.select("#months"), x0 = 84, x1 = 1516, base = 716, bw = (x1 - x0) / n;
+  const y = d3.scaleLinear().domain([0, d3.max(M, (d) => d.commits)]).range([0, 400]);
+  const all = svg.append("g").selectAll("rect").data(M).join("rect")
+    .attr("x", (d, i) => x0 + i * bw + 2).attr("width", bw - 4).attr("y", (d) => base - y(d.commits)).attr("height", (d) => y(d.commits)).attr("fill", "#55777a");
+  const ag = svg.append("g").selectAll("rect").data(M).join("rect")
+    .attr("x", (d, i) => x0 + i * bw + 2).attr("width", bw - 4).attr("y", (d) => base - y(d.assisted)).attr("height", (d) => y(d.assisted)).attr("fill", "#ffc02e");
+  svg.append("line").attr("x1", x0).attr("x2", x1).attr("y1", base).attr("y2", base).attr("stroke", "#a9bcbb").attr("stroke-width", 2);
+  // year labels at each January
+  M.forEach((d, i) => {
+    if (d.month.slice(5) !== "01") return;
+    svg.append("line").attr("x1", x0 + i * bw).attr("x2", x0 + i * bw).attr("y1", base).attr("y2", base + 10).attr("stroke", "#a9bcbb").attr("stroke-width", 2);
+    svg.append("text").attr("x", x0 + i * bw + 4).attr("y", base + 40).attr("font-size", 28).attr("fill", "#a9bcbb").text(d.month.slice(0, 4));
+  });
+  // the two windows of twelve months
+  const wins = [
+    { from: n - 24, label: "12 months before", v: G.commit_change_all.previous, extra: null },
+    { from: n - 12, label: "last 12 months", v: G.commit_change_all.current, extra: G.commit_change_all.factor + " times as many" },
+  ];
+  wins.forEach((w, k) => {
+    const a = x0 + w.from * bw + 3, b = x0 + (w.from + 12) * bw - 3, mid = (a + b) / 2, col = k ? "#f3efe6" : "#a9bcbb";
+    const peak = d3.max(M.slice(w.from, w.from + 12), (d) => d.commits);
+    svg.append("path").attr("d", `M${a} ${base + 52} V${base + 62} H${b} V${base + 52}`).attr("fill", "none").attr("stroke", col).attr("stroke-width", 3);
+    svg.append("text").attr("x", mid).attr("y", base + 100).attr("text-anchor", "middle").attr("font-size", 28).attr("font-weight", 600).attr("fill", col).text(w.label);
+    const g = svg.append("g").attr("class", "fragment sv").attr("data-fragment-index", 0);
+    const ty = base - y(peak) - (w.extra ? 62 : 24);
+    g.append("text").attr("x", mid).attr("y", ty).attr("text-anchor", "middle").attr("font-size", 38).attr("font-weight", 800).attr("fill", col)
+      .text(DECK.fmt.int(w.v) + " commits");
+    if (w.extra) g.append("text").attr("x", mid).attr("y", ty + 38).attr("text-anchor", "middle").attr("font-size", 30).attr("font-weight", 600).attr("fill", col).text(w.extra);
+  });
+  DECK.onEnter("months", function () {
+    all.interrupt().attr("y", base).attr("height", 0).transition().delay((d, i) => 200 + i * 14).duration(600).ease(d3.easeCubicOut)
+      .attr("y", (d) => base - y(d.commits)).attr("height", (d) => y(d.commits));
+    ag.interrupt().attr("y", base).attr("height", 0).transition().delay((d, i) => 1300 + i * 14).duration(700).ease(d3.easeCubicOut)
+      .attr("y", (d) => base - y(d.assisted)).attr("height", (d) => y(d.assisted));
+  });
+})();
+</script>
+```
+
+::: notes
+Two workshops. One rule: everything goes through Git, and every commit made with an agent says so. That rule lets us count. In the twelve months before, 8 percent of our commits were made with an agent. In the last twelve months it is 42 percent, and 72 percent in our data packages. [next] We also commit more, 2.2 times as much.
+:::
+
+## {.bare}
+
+```{=html}
+<div class="stage panel">
+<p class="head">More commits and agent use are two different things.</p>
+<svg id="types" viewBox="0 0 1600 900" width="1600" height="900"></svg>
+<p class="foot">Commits measure activity. They say nothing about research quality.</p>
+<p class="source">Six largest repository types. Source: ghedata</p>
+</div>
+<script>
+(function () {
+  const G = window.TALK.github;
+  const D = G.commits_by_type_two_windows.slice().sort((a, b) => b.current - a.current).slice(0, 6);
+  const svg = d3.select("#types"), top = 262, row = 88, bx = 470;
+  const x = d3.scaleLinear().domain([0, d3.max(D, (d) => d.current)]).range([0, 540]);
+  // key, drawn as direct labels above the first row
+  const key = svg.append("g").attr("transform", "translate(0,196)");
+  [["#55777a", 12, "12 months before", bx], ["#d9e2e0", 30, "last 12 months", bx + 330], ["#ffc02e", 30, "with agent trailer", bx + 640]].forEach(([c, h, t, kx]) => {
+    key.append("rect").attr("x", kx).attr("y", -h / 2 - 9).attr("width", 44).attr("height", h).attr("fill", c);
+    key.append("text").attr("x", kx + 56).attr("y", 0).attr("font-size", 28).attr("fill", "#a9bcbb").text(t);
+  });
+  key.append("text").attr("x", 1516).attr("y", 0).attr("text-anchor", "end").attr("font-size", 28).attr("fill", "#ffc02e").text("share");
+  const g = svg.selectAll("g.r").data(D).join("g").attr("class", "r").attr("transform", (d, i) => `translate(0,${top + i * row})`);
+  g.append("text").attr("x", bx - 18).attr("y", 36).attr("text-anchor", "end").attr("font-size", 30).attr("font-weight", 600).attr("fill", "#f3efe6")
+    .text((d) => d.repository_type.charAt(0).toUpperCase() + d.repository_type.slice(1));
+  const prev = g.append("rect").attr("x", bx).attr("y", 0).attr("height", 12).attr("width", (d) => x(d.previous)).attr("fill", "#55777a");
+  const cur = g.append("rect").attr("x", bx).attr("y", 16).attr("height", 34).attr("width", (d) => x(d.current)).attr("fill", "#d9e2e0");
+  const ag = g.append("rect").attr("x", bx).attr("y", 16).attr("height", 34).attr("width", (d) => x(d.assisted_current)).attr("fill", "#ffc02e");
+  const lab = g.append("text").attr("x", (d) => bx + x(Math.max(d.previous, d.current)) + 16).attr("y", 38).attr("font-size", 28).attr("fill", "#f3efe6");
+  lab.append("tspan").attr("fill", "#a9bcbb").text((d) => DECK.fmt.int(d.previous) + " to ");
+  lab.append("tspan").attr("font-weight", 800).text((d) => DECK.fmt.int(d.current));
+  lab.filter((d, i) => i === 0).append("tspan").attr("font-weight", 800).text((d) => ", " + d.factor + " times");
+  const sh = g.append("text").attr("x", 1516).attr("y", 44).attr("text-anchor", "end").attr("font-size", 46).attr("font-weight", 800).attr("fill", "#ffc02e")
+    .text((d) => DECK.fmt.pct(d.share_assisted_current));
+  svg.append("line").attr("x1", bx).attr("x2", bx).attr("y1", top - 12).attr("y2", top + D.length * row - 26).attr("stroke", "#a9bcbb").attr("stroke-width", 2);
+  DECK.onEnter("types", function () {
+    const dl = (d, i) => 300 + i * 90;
+    prev.interrupt().attr("width", 0).transition().delay(dl).duration(600).attr("width", (d) => x(d.previous));
+    cur.interrupt().attr("width", 0).transition().delay((d, i) => dl(d, i) + 500).duration(900).ease(d3.easeCubicOut).attr("width", (d) => x(d.current));
+    ag.interrupt().attr("width", 0).transition().delay((d, i) => dl(d, i) + 1500).duration(700).attr("width", (d) => x(d.assisted_current));
+    lab.interrupt().attr("opacity", 0).transition().delay((d, i) => dl(d, i) + 1100).duration(400).attr("opacity", 1);
+    sh.interrupt().attr("opacity", 0).transition().delay((d, i) => dl(d, i) + 1900).duration(400).attr("opacity", 1);
+  });
+})();
+</script>
+```
+
+::: notes
+But look at the types: the biggest jump is in hardware projects, where agents play a small part. A commit is activity. It does not tell you the research is better.
+:::
+
+## {.bare}
+
+```{=html}
+<div class="stage">
+<div class="photo-slot"><b>Photo: the Gulu team weighing waste</b><i>img/gulu-weighing-waste.jpg</i></div>
+<div class="scrim bottom"></div>
+<svg id="gulu" viewBox="0 0 1600 900" width="1600" height="900"></svg>
+<div class="over bl" style="width:700px;right:auto;bottom:70px">
+<p class="kicker rise" data-t="gulu.package"></p>
+<p class="giant rise" style="--i:1;margin-bottom:0"><span class="accent" data-t="gulu.days_to_release"></span><span class="unit">days</span></p>
+</div>
+</div>
+<script>
+(function () {
+  const U = window.TALK.gulu, svg = d3.select("#gulu"), parse = d3.utcParse("%Y-%m-%d"), f = d3.utcFormat("%-d %b");
+  const a = parse(U.files_received), b = parse(U.released);
+  const x = d3.scaleUtc().domain([a, b]).range([860, 1480]), yy = 716;
+  const answered = d3.utcDay.offset(a, U.days_until_answered);
+  const thin = svg.append("line").attr("x1", x(a)).attr("x2", x(b)).attr("y1", yy).attr("y2", yy).attr("stroke", "#f3efe6").attr("stroke-width", 4);
+  const thick = svg.append("line").attr("x1", x(a)).attr("x2", x(answered)).attr("y1", yy).attr("y2", yy).attr("stroke", "#f3efe6").attr("stroke-width", 14);
+  svg.selectAll("line.t").data(d3.utcDay.range(a, d3.utcDay.offset(b, 1))).join("line").attr("class", "t")
+    .attr("x1", (d) => x(d)).attr("x2", (d) => x(d)).attr("y1", yy - 16).attr("y2", yy + 16).attr("stroke", "#f3efe6").attr("stroke-width", 4);
+  svg.append("circle").attr("cx", x(a)).attr("cy", yy).attr("r", 15).attr("fill", "#f3efe6");
+  const end = svg.append("circle").attr("cx", x(b)).attr("cy", yy).attr("r", 22).attr("fill", "#ffc02e");
+  const t = (tx, ty, s, o) => svg.append("text").attr("x", tx).attr("y", ty).attr("font-size", o.size || 34).attr("font-weight", o.w || 800)
+    .attr("text-anchor", o.anchor || "start").attr("fill", o.fill || "#f3efe6").text(s);
+  t(x(a) - 14, yy - 44, f(a), {});
+  t(x(a) - 14, yy + 70, "files", { w: 500 });
+  const q = t((x(a) + x(answered)) / 2, yy + 70, U.questions_to_authors + " questions", { anchor: "middle", w: 500 });
+  t(x(b) + 22, yy - 44, f(b), { anchor: "end", fill: "#ffc02e" });
+  const doi = t(x(b) + 22, yy + 70, "DOI", { anchor: "end", fill: "#ffc02e" });
+  DECK.onEnter("gulu", function () {
+    thin.interrupt().attr("x2", x(a)).transition().delay(700).duration(1600).ease(d3.easeCubicInOut).attr("x2", x(b));
+    thick.interrupt().attr("x2", x(a)).transition().delay(700).duration(1200).ease(d3.easeCubicInOut).attr("x2", x(answered));
+    q.interrupt().attr("opacity", 0).transition().delay(1500).duration(500).attr("opacity", 1);
+    end.interrupt().attr("r", 0).transition().delay(2200).duration(500).ease(d3.easeBackOut).attr("r", 22);
+    doi.interrupt().attr("opacity", 0).transition().delay(2300).duration(500).attr("opacity", 1);
+  });
+})();
+</script>
+```
+
+::: notes
+So here is one result. On 30 October, colleagues in Uganda sent me three files on household waste in Gulu City. We sent back 50 questions. They answered all of them in three days. On 3 November the data had a DOI, before the paper is submitted. Every number in the manuscript was checked against the data, and the full trail is on GitHub.
+:::
+
+## {.bare}
+
+```{=html}
+<div class="stage">
+<div class="photo-slot"><b>Photo: an empty chair in the group office</b><i>img/empty-chair.jpg</i></div>
+<div class="scrim left"></div>
+<div class="over ml">
+<p class="line-l rise"><span data-t="steward.persons"></span> person.<br><span data-t="steward.hours_per_week"></span> hours a week.</p>
+<p class="line-l accent rise" style="--i:2;margin-top:44px">A single point of failure.</p>
+</div>
+</div>
+```
+
+::: notes
+The trade-off: this is one person, 20 hours a week. If I leave, a lot leaves with me. An embedded steward is a single point of failure.
+:::
+
+## {.bare}
+
+```{=html}
+<div class="stage">
+<img class="photo" src="img/workshop-hackathon-2024.jpg" alt="Six people of the group at laptops around a table, seen closer" style="--zoom: 1.12; --origin: 62% 100%">
+<div class="scrim top"></div>
+<div class="over tl">
+<p class="line-xl rise" style="font-size:100px;max-width:1420px">Put a data steward <span class="accent">inside</span><br>the research group.</p>
+</div>
+</div>
+```
+
+::: notes
+Put a data steward inside the research group.
+:::
+
+## {.bare}
+
+```{=html}
+<div class="stage field">
+<div class="question"><p class="rise">What would you measure to show what stewardship changes?</p></div>
+</div>
+```
+
+::: notes
+And then help us with the open question: what would you measure to show what stewardship changes? Come and find me.
+:::
+
+## {.bare}
+
+```{=html}
+<div class="stage panel end">
+<div class="text">
+<h3>Tomorrow</h3>
+<p data-t="talk.workshop"></p>
+<h3>The data package</h3>
+<p><code data-t="talk.package_url" data-f="url"></code></p>
+<h3>These slides</h3>
+<p><code data-t="talk.slides_repo" data-f="url"></code><br>Built with Claude Code. The full declaration is in the repository.</p>
+<h3>Authors</h3>
+<p><span data-t="talk.authors"></span><br><span data-t="talk.affiliation"></span></p>
+<p class="sm"><span data-t="talk.title"></span>. <span data-t="talk.event"></span>. Photo: a workshop of the group, openwashdata.</p>
+</div>
+<div class="side">
+<img class="photo" src="img/workshop-hackathon-2024.jpg" alt="" style="--pos: 12% 50%; --zoom: 1.5; --origin: 0% 85%">
+<div class="scrim"></div>
+</div>
+</div>
+```

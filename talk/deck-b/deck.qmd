@@ -1,0 +1,263 @@
+---
+# Deck B, "Ledger". Every number on a slide is read from window.TALK (../shared/data.js).
+# Elements with data-v are filled from that file when the deck loads; the text typed
+# in the slide is the same value and only a fallback. All figures are drawn in deck.js.
+pagetitle: "Embedded data stewardship"
+lang: en-GB
+format:
+  revealjs:
+    theme: [default, deck.scss]
+    width: 1600
+    height: 900
+    margin: 0
+    controls: false
+    progress: false
+    slide-number: false
+    menu: false
+    hash: true
+    transition: none
+    embed-resources: true
+    center: false
+    include-in-header:
+      - file: ../shared/font-face.html
+      - text: |
+          <script src="../shared/d3.v7.min.js"></script>
+          <script src="../shared/data.js"></script>
+    include-after-body:
+      - text: |
+          <script src="deck.js"></script>
+---
+
+## {#s-number .bare}
+
+```{=html}
+<div class="stage s-number">
+  <div class="pulse"></div>
+  <div class="draft-flag">placeholder</div>
+  <div class="cur">CHF</div>
+  <div class="bignum"><span class="uw"><span id="n-amount" data-v="proposals.amount_chf" data-f="chf">35,452,000.50</span><i></i></span></div>
+  <div class="tally fragment" data-act="tally">
+    <svg id="c-tally" viewBox="0 0 1440 60" width="1440" height="60"></svg>
+    <div class="tl"><span data-v="proposals.written">30</span> written</div>
+    <div class="tr"><span data-v="proposals.funded">4</span> funded</div>
+  </div>
+</div>
+```
+
+::: notes
+35 million, 452 thousand Swiss francs and 50 Rappen. That is the funding our group would have received if every proposal of the last five years had been funded. We wrote 30. Four were funded. I can tell you this to the Rappen because I sit inside the group.
+:::
+
+## {#s-key .bare}
+
+```{=html}
+<div class="stage s-key">
+  <div class="key">
+    <span class="ln land">Put a data steward</span>
+    <span class="ln land"><span class="uw">inside<i></i></span> the</span>
+    <span class="ln land">research group.</span>
+  </div>
+  <div class="byline land">
+    <div class="t" data-v="talk.title" data-f="raw">Embedded data stewardship and research intelligence: five years of practice at a research group at ETH Zurich</div>
+    <div data-v="talk.authors" data-f="raw">Lars Schöbitz, Colin Walder, Adriana Clavijo Daza, Elizabeth Tilley</div>
+    <div data-v="talk.event" data-f="raw">Research Data Conference 2026, Bern, 19 November 2026</div>
+  </div>
+</div>
+```
+
+::: notes
+That is my one point for the next eight minutes. Put a data steward inside the research group.
+:::
+
+## {#s-who .bare}
+
+```{=html}
+<div class="stage s-who">
+  <!-- Photo slot. When the photo exists, save it as img/lars-at-eight.jpg in this folder
+       and replace the whole div below with:
+       <img src="img/lars-at-eight.jpg" style="position:absolute;left:80px;top:62px;width:540px;height:776px;object-fit:cover"> -->
+  <div class="photo-slot">
+    <div class="lbl"><b>Photo: Lars at eight with his first computer</b>img/lars-at-eight.jpg</div>
+  </div>
+  <div class="hl">No doctorate.<br>No computer science degree.</div>
+  <svg id="c-who" viewBox="0 0 1600 900" width="1600" height="900"></svg>
+  <div class="out land"><span class="uw">Access and practice.<i></i></span></div>
+</div>
+```
+
+::: notes
+I have no doctorate. I have no degree in statistics or computer science. I am an environmental engineer who likes computers. When I was eight, my dad gave me a computer and my sister the dolls. I believe that if it had been the other way round, she would be standing here today. Nobody is born a data steward. You become one through access and practice, inside a group.
+:::
+
+## {#s-role .bare}
+
+```{=html}
+<div class="stage s-role">
+  <div class="hl">One steward between the professor and <span class="n" data-v="people.total">186</span> theses, projects and positions</div>
+  <svg id="c-role" viewBox="0 0 1600 900" width="1600" height="900"></svg>
+  <div class="src">Source: ghedata, people table, snapshot <span data-v="snapshot_date" data-f="date">11 November 2026</span></div>
+</div>
+```
+
+::: notes
+I am the layer between the professor and everyone else. Since 2021 our group has counted 186 theses, semester projects and positions, from bachelor students to senior scientists. Each person arrives with different skills and different gaps. A course cannot cover that. Sitting next to them can.
+:::
+
+## {#s-repos .bare}
+
+```{=html}
+<div class="stage s-repos">
+  <div class="hl">Data packages are the largest group among our <span class="n" data-v="github.repositories_without_learners">345</span> repositories</div>
+  <svg id="c-repos" viewBox="0 0 1600 900" width="1600" height="900"></svg>
+  <div class="src">Source: ghedata, repositories without learner repositories, snapshot <span data-v="snapshot_date" data-f="date">11 November 2026</span></div>
+</div>
+```
+
+::: notes
+The number at the start came out of a data package. We call it ghedata. It holds our proposals, our repositories, our people. 345 repositories, and 97 of them are data packages. We treat our own group as a dataset.
+:::
+
+## {#s-bridge .bare}
+
+```{=html}
+<div class="stage s-bridge">
+  <div class="band">
+    <div class="tx">
+      <div class="land">AI tools arrived everywhere.</div>
+      <div class="land">Here they landed, because someone was <span class="uw">inside<i></i></span><span>.</span></div>
+    </div>
+  </div>
+  <div class="ph"><img src="../shared/img/workshop-hackathon-2024.jpeg" alt="Six people at laptops around a table at a workshop of the group"></div>
+  <div class="cap">Photo: a workshop of the group, openwashdata</div>
+</div>
+```
+
+::: notes
+Then the AI tools arrived. They arrived everywhere. In our group they became daily practice within a year, because someone inside ran the workshops, set the rules and sat next to each person.
+:::
+
+## {#s-share .bare}
+
+```{=html}
+<div class="stage s-share">
+  <div class="hl">Commits made with an agent rose from <span class="n" data-v="github.assisted_share_previous" data-f="pct">8%</span> to <span class="n" data-v="github.assisted_share_current" data-f="pct">42%</span></div>
+  <svg id="c-share" viewBox="0 0 1600 900" width="1600" height="900"></svg>
+  <div class="src">Source: ghedata, commits per month with and without an agent trailer, snapshot <span data-v="snapshot_date" data-f="date">11 November 2026</span></div>
+</div>
+```
+
+::: notes
+Two workshops. One rule: everything goes through Git, and every commit made with an agent says so. That rule lets us count. In the twelve months before, 8 percent of our commits were made with an agent. In the last twelve months it is 42 percent, and 72 percent in our data packages.
+:::
+
+## {#s-types .bare}
+
+```{=html}
+<div class="stage s-types">
+  <div class="hl">The biggest jump is in hardware, where agents play a small part</div>
+  <svg id="c-types" viewBox="0 0 1600 900" width="1600" height="900"></svg>
+  <div class="src">Source: ghedata, the six repository types with the most commits, <span data-v="github.commit_windows.previous" data-f="raw">November 2024 to October 2025</span> against <span data-v="github.commit_windows.current" data-f="raw">November 2025 to October 2026</span></div>
+</div>
+```
+
+::: notes
+We also commit more, 2.2 times as much. But look at the types: the biggest jump is in hardware projects, where agents play a small part. A commit is activity. It does not tell you the research is better.
+:::
+
+## {#s-gulu .bare}
+
+```{=html}
+<div class="stage s-gulu">
+  <div class="hl">Published with a DOI in <span class="n" data-v="gulu.days_to_release">4</span> days, before the manuscript is submitted</div>
+  <svg id="c-gulu" viewBox="0 0 1600 900" width="1600" height="900"></svg>
+  <div class="src">Source: data package guluswm, openwashdata, snapshot <span data-v="snapshot_date" data-f="date">11 November 2026</span></div>
+</div>
+```
+
+::: notes
+So here is one result. On 30 October, colleagues in Uganda sent me three files on household waste in Gulu City. We sent back 50 questions. They answered all of them in three days. On 3 November the data had a DOI, before the paper is submitted. Every number in the manuscript was checked against the data, and the full trail is on GitHub.
+:::
+
+## {#s-trade .bare}
+
+```{=html}
+<div class="stage s-trade">
+  <div class="kick">The trade-off</div>
+  <div class="ledger">
+    <div class="lr land"><b data-v="steward.persons">1</b><span>person</span></div>
+    <div class="lr land"><b data-v="steward.hours_per_week">20</b><span>hours a week</span></div>
+    <div class="lr land"><b data-v="steward.persons">1</b><span><span class="uw">point of failure<i></i></span></span></div>
+  </div>
+  <svg id="c-trade" viewBox="0 0 1600 900" width="1600" height="900"></svg>
+  <span class="fragment" data-act="fail"></span>
+</div>
+```
+
+::: notes
+The trade-off: this is one person, 20 hours a week. If I leave, a lot leaves with me. An embedded steward is a single point of failure.
+:::
+
+## {#s-key2 .bare background-color="#0F4C81"}
+
+```{=html}
+<div class="stage s-key2">
+  <div class="key">
+    <span class="ln land">Put a data steward</span>
+    <span class="ln land"><span class="uw">inside<i></i></span> the</span>
+    <span class="ln land">research group.</span>
+  </div>
+</div>
+```
+
+::: notes
+Put a data steward inside the research group.
+:::
+
+## {#s-question .bare}
+
+```{=html}
+<div class="stage s-question">
+  <div class="key">
+    <span class="ln land">What would you</span>
+    <span class="ln land"><span class="uw">measure<i></i></span> to show what</span>
+    <span class="ln land">stewardship changes?</span>
+  </div>
+</div>
+```
+
+::: notes
+And then help us with the open question: what would you measure to show what stewardship changes? Come and find me.
+:::
+
+## {#s-end .bare}
+
+```{=html}
+<div class="stage s-end">
+  <div class="hl" data-v="talk.title" data-f="raw">Embedded data stewardship and research intelligence: five years of practice at a research group at ETH Zurich</div>
+  <div class="cols">
+    <div class="col">
+      <h4>Workshop tomorrow</h4>
+      <div class="big">Git for Scientists</div>
+      <div>Friday 20 November, 09:30</div>
+      <div>Room Wytsicht</div>
+    </div>
+    <div class="col">
+      <h4>The data package</h4>
+      <div class="url" data-v="talk.package_url" data-f="url">github.com/Global-Health-Engineering/ghedata</div>
+      <h4 class="second">These slides</h4>
+      <div class="url" data-v="talk.slides_repo" data-f="url">github.com/larnsce/rdc-2026</div>
+    </div>
+    <div class="col">
+      <h4>Authors</h4>
+      <div>Lars Schöbitz</div>
+      <div>Colin Walder</div>
+      <div>Adriana Clavijo Daza</div>
+      <div>Elizabeth Tilley</div>
+      <div style="margin-top:14px" data-v="talk.affiliation" data-f="raw">Global Health Engineering, ETH Zurich</div>
+    </div>
+  </div>
+  <div class="decl">
+    <div>These slides were built with Claude Code. The full declaration is in the slides repository.</div>
+  </div>
+</div>
+```

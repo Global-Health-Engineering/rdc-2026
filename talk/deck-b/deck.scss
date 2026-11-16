@@ -1,0 +1,152 @@
+/*-- scss:defaults --*/
+$font-family-sans-serif: "Atkinson Hyperlegible Next", "Helvetica Neue", Arial, sans-serif;
+$presentation-font-size-root: 40px;
+$body-bg: #F6F1E7;
+$body-color: #1A1714;
+$link-color: #0F4C81;
+
+/*-- scss:rules --*/
+// Deck B, "Ledger". Paper, ink, and the two colours of the group.
+// Orange is used for marks only (bars, dots, strokes), never for text,
+// because orange on paper stays below the 7 to 1 contrast the brief asks for.
+:root {
+  --paper: #F6F1E7;
+  --ink: #1A1714;
+  --grey: #4A453E;
+  --mark: #B9B0A0;
+  --orange: #ED6D37;
+  --blue: #0F4C81;
+}
+
+.reveal .slides section.bare { padding: 0; height: 900px; }
+.reveal .slides section .stage {
+  position: absolute; left: 0; top: 0; width: 1600px; height: 900px; overflow: hidden;
+  color: var(--ink); text-align: left; line-height: 1.1;
+  font-variant-numeric: lining-nums;
+}
+.reveal .stage svg { position: absolute; left: 0; top: 0; max-width: none; max-height: none; margin: 0; }
+.reveal .stage img { max-width: none; max-height: none; margin: 0; }
+.reveal .stage svg text { font-family: inherit; fill: var(--ink); }
+.reveal .stage svg .t28 { font-size: 28px; }
+.reveal .stage svg .t30 { font-size: 30px; }
+.reveal .stage svg .t34 { font-size: 34px; }
+.reveal .stage svg .t44 { font-size: 44px; }
+.reveal .stage svg .b { font-weight: 700; }
+.reveal .stage svg .g { fill: var(--grey); }
+.reveal .stage svg .bl { fill: var(--blue); }
+.reveal .stage svg .tn { font-variant-numeric: tabular-nums lining-nums; }
+
+// Headline of a figure: one sentence that states the finding, under a heavy rule.
+.reveal .hl {
+  position: absolute; left: 80px; top: 56px; width: 1440px;
+  border-top: 6px solid var(--ink); padding-top: 22px;
+  font-size: 54px; font-weight: 700; line-height: 1.12; letter-spacing: -0.012em;
+  text-wrap: balance;
+}
+.reveal .src {
+  position: absolute; left: 80px; bottom: 26px; width: 1440px;
+  font-size: 20px; color: var(--grey); letter-spacing: 0.01em;
+}
+.reveal .draft-flag {
+  position: absolute; right: 80px; top: 40px; z-index: 5;
+  font-size: 28px; line-height: 1; padding: 8px 16px 10px;
+  color: var(--blue); border: 2px dashed var(--blue); background: var(--paper);
+}
+
+// The drawn stroke under a word.
+.reveal .uw { position: relative; display: inline-block; isolation: isolate; }
+.reveal .uw i {
+  position: absolute; left: -1.5%; width: 103%; bottom: -0.06em; height: 0.11em;
+  background: var(--orange); border-radius: 0.06em; z-index: -1;
+  transform-origin: left center; transform: rotate(-0.35deg) scaleX(1);
+  transition: transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.reveal .uw.pre i { transform: rotate(-0.35deg) scaleX(0); transition: none; }
+
+// Text that lands.
+.reveal .land { transition: opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.reveal .land.pre { opacity: 0; transform: translateY(18px); transition: none; }
+.reveal .typing { box-shadow: 0.07em 0 0 var(--orange); }
+
+// 1 The number
+.reveal .s-number .cur { position: absolute; left: 80px; top: 118px; font-size: 64px; font-weight: 800; letter-spacing: 0.02em; }
+.reveal .s-number .bignum {
+  position: absolute; left: 80px; top: 196px; width: 1440px; white-space: nowrap;
+  font-size: 212px; font-weight: 800; line-height: 1; z-index: 2;
+}
+.reveal .s-number .bignum .uw i { height: 0.075em; bottom: -0.1em; left: 0; width: 100%; }
+.reveal .s-number .pulse {
+  position: absolute; left: 0; top: 176px; width: 1600px; height: 276px;
+  background: var(--orange); opacity: 0; z-index: 1;
+}
+.reveal .s-number .pulse.go { animation: ledger-pulse 0.75s ease-out 1; }
+@keyframes ledger-pulse { 0% { opacity: 0; } 14% { opacity: 1; } 100% { opacity: 0; } }
+.reveal .s-number .tally { position: absolute; left: 80px; top: 590px; width: 1440px; height: 220px; }
+.reveal .s-number .tally svg { position: absolute; left: 0; top: 0; }
+.reveal .s-number .tally .tl, .reveal .s-number .tally .tr {
+  position: absolute; top: 92px; font-size: 72px; font-weight: 700; line-height: 1;
+}
+.reveal .s-number .tally .tl { left: 0; }
+.reveal .s-number .tally .tr { right: 0; text-align: right; }
+
+// 2, 11, 12 The key and the question
+.reveal .key {
+  position: absolute; left: 80px; top: 88px; width: 1480px;
+  font-size: 146px; font-weight: 800; line-height: 1.04; letter-spacing: -0.022em;
+}
+.reveal .key .ln { display: block; white-space: nowrap; }
+.reveal .byline {
+  position: absolute; left: 80px; top: 640px; width: 1440px;
+  border-top: 2px solid var(--ink); padding-top: 24px;
+  font-size: 28px; line-height: 1.32;
+}
+.reveal .byline .t { font-weight: 700; margin-bottom: 10px; text-wrap: balance; }
+.reveal .s-key2 .key { top: 214px; color: var(--paper); }
+.reveal .s-question .key { top: 214px; font-size: 128px; }
+
+// 3 Who can do this
+.reveal .photo-slot {
+  position: absolute; left: 80px; top: 62px; width: 540px; height: 776px;
+  border: 3px dashed var(--ink);
+  background: repeating-linear-gradient(135deg, #EDE6D6 0 22px, #E6DECB 22px 44px);
+  display: flex; flex-direction: column; justify-content: flex-end;
+}
+.reveal .photo-slot .lbl { background: var(--paper); margin: 24px; padding: 20px 24px; font-size: 28px; line-height: 1.25; border: 2px solid var(--ink); }
+.reveal .photo-slot .lbl b { display: block; }
+.reveal .s-who .hl { left: 700px; width: 820px; font-size: 56px; top: 62px; white-space: nowrap; }
+.reveal .s-who .out {
+  position: absolute; left: 700px; top: 722px; width: 820px;
+  font-size: 84px; font-weight: 800; letter-spacing: -0.02em; color: var(--blue);
+}
+
+// 6 The bridge
+.reveal .s-bridge .band { position: absolute; left: 0; top: 0; width: 1600px; height: 262px; background: var(--paper); z-index: 2; }
+.reveal .s-bridge .band .tx { position: absolute; left: 80px; top: 56px; width: 1440px; font-size: 60px; font-weight: 800; line-height: 1.25; white-space: nowrap; letter-spacing: -0.015em; }
+.reveal .s-bridge .ph { position: absolute; left: 0; top: 262px; width: 1600px; height: 638px; overflow: hidden; }
+.reveal .s-bridge .ph img { position: absolute; left: 0; bottom: 0; width: 1600px; height: 900px; }
+.reveal .s-bridge .ph { transition: clip-path 0.9s cubic-bezier(0.2, 0.7, 0.2, 1); clip-path: inset(0 0 0 0); }
+.reveal .s-bridge .ph.pre { clip-path: inset(0 100% 0 0); transition: none; }
+.reveal .s-bridge .cap { position: absolute; right: 0; bottom: 0; z-index: 3; background: var(--paper); color: var(--grey); font-size: 20px; padding: 8px 80px 8px 16px; }
+
+// 10 The trade-off
+.reveal .kick { position: absolute; left: 80px; top: 56px; width: 1440px; border-top: 6px solid var(--ink); padding-top: 20px; font-size: 30px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+.reveal .ledger { position: absolute; left: 80px; top: 236px; width: 900px; }
+.reveal .ledger .lr { display: flex; align-items: baseline; border-bottom: 2px solid var(--ink); padding: 34px 0 30px; font-size: 84px; font-weight: 800; line-height: 1; letter-spacing: -0.015em; }
+.reveal .ledger .lr b { width: 150px; text-align: right; margin-right: 44px; font-weight: 800; font-variant-numeric: tabular-nums lining-nums; }
+
+// 13 The last slide
+.reveal .s-end .cols { position: absolute; left: 80px; top: 262px; width: 1440px; display: grid; grid-template-columns: 1.4fr 1.25fr 0.95fr; column-gap: 56px; }
+.reveal .s-end .col { border-top: 2px solid var(--ink); padding-top: 22px; font-size: 32px; line-height: 1.4; }
+.reveal .s-end .col h4 { font-size: 24px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--blue); margin: 0 0 18px; }
+.reveal .s-end .col .big { font-size: 52px; font-weight: 800; line-height: 1.08; margin-bottom: 14px; letter-spacing: -0.01em; }
+.reveal .s-end .col .url { font-weight: 700; overflow-wrap: anywhere; margin-bottom: 26px; }
+.reveal .s-end .col h4.second { margin-top: 40px; }
+.reveal .s-end .hl { font-size: 44px; }
+.reveal .s-end .decl { position: absolute; left: 80px; top: 770px; width: 1440px; border-top: 2px solid var(--ink); padding-top: 18px; font-size: 24px; line-height: 1.35; }
+.reveal .s-end .decl .t { font-weight: 700; }
+
+// Print and reduced motion: the final state of everything.
+html.is-print .reveal .fragment { opacity: 1 !important; visibility: visible !important; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal .stage *, .reveal .fragment { animation: none !important; transition: none !important; }
+}

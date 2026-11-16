@@ -1,0 +1,231 @@
+---
+pagetitle: "Embedded data stewardship"
+lang: en-GB
+format:
+  revealjs:
+    theme: [default, deck.scss]
+    width: 1600
+    height: 900
+    margin: 0
+    min-scale: 0.1
+    max-scale: 4
+    controls: false
+    progress: false
+    slide-number: false
+    menu: false
+    hash: true
+    transition: none
+    background-transition: none
+    pdf-separate-fragments: false
+    embed-resources: true
+    center: false
+    include-in-header:
+      - file: ../shared/font-face.html
+      - text: |
+          <script src="../shared/d3.v7.min.js"></script>
+          <script src="../shared/data.js"></script>
+          <script>if (/print-pdf/.test(location.search)) document.documentElement.classList.add("is-print");</script>
+    include-after-body:
+      - text: |
+          <script src="deck.js"></script>
+---
+
+## {.s-num}
+
+```{=html}
+<div class="draft-flag">placeholder</div>
+<div class="num-cur">CHF</div>
+<div class="num fit" id="num" data-w="1520" data-t="proposals.amount_chf" data-f="chf"></div>
+<div class="num-sub">Proposals, <span data-t="proposals.years"></span> years</div>
+<div class="num-row">
+  <div class="fragment hit w"><b data-t="proposals.written"></b><span>written</span></div>
+  <div class="fragment hit y"><b data-t="proposals.funded"></b><span>funded</span></div>
+</div>
+```
+
+::: notes
+35 million, 452 thousand Swiss francs and 50 Rappen. That is the funding our group would have received if every proposal of the last five years had been funded. We wrote 30. Four were funded. I can tell you this to the Rappen because I sit inside the group.
+:::
+
+## {.s-key}
+
+```{=html}
+<div class="key">
+  <div class="k k1 fit" data-w="1520">Put a data steward</div>
+  <div class="k k2"><span class="fit" data-w="1440">inside</span></div>
+  <div class="k k3 fit" data-w="1520">the research group.</div>
+</div>
+<div class="key-by">Lars Schöbitz, ETH Zurich</div>
+```
+
+::: notes
+That is my one point for the next eight minutes. Put a data steward inside the research group.
+:::
+
+## {.s-story}
+
+```{=html}
+<div class="photo-slot" data-label="Photo: Lars at eight with his first computer" data-file="File: deck-a/lars-first-computer.jpg"></div>
+<div class="st-row r1">
+  <div class="st-who">Me</div>
+  <div class="st-what"><span class="a y">Computer</span><span class="b">Dolls</span></div>
+</div>
+<div class="st-row r2">
+  <div class="st-who">My sister</div>
+  <div class="st-what"><span class="a">Dolls</span><span class="b y">Computer</span></div>
+</div>
+<div class="fragment st-tag">And the other way round?</div>
+```
+
+::: notes
+I have no doctorate. I have no degree in statistics or computer science. I am an environmental engineer who likes computers. When I was eight, my dad gave me a computer and my sister the dolls. I believe that if it had been the other way round, she would be standing here today.
+:::
+
+## {.s-no}
+
+```{=html}
+<div class="no n1 fit" data-w="1520">No doctorate.</div>
+<div class="no n2 fit" data-w="1520">No computer</div>
+<div class="no n3 fit" data-w="1520">science degree.</div>
+<div class="fragment no-band"><span class="fit" data-w="1440">A steward grows inside a group.</span></div>
+```
+
+::: notes
+Nobody is born a data steward. You become one through access and practice, inside a group.
+:::
+
+## {.s-role}
+
+```{=html}
+<div class="band prof">Professor</div>
+<div class="band stew">Steward</div>
+<svg id="people" viewBox="0 0 1600 450" width="1600" height="450"></svg>
+```
+
+::: notes
+I am the layer between the professor and everyone else. Since 2021 our group has counted 186 theses, semester projects and positions, from bachelor students to senior scientists. Each person arrives with different skills and different gaps. A course cannot cover that. Sitting next to them can.
+:::
+
+## {.s-repos}
+
+```{=html}
+<div class="tag">ghedata</div>
+<div class="rp-big"><b data-t="github.repositories_without_learners"></b><span>repositories</span></div>
+<svg id="repos" viewBox="0 0 960 820" width="960" height="820"></svg>
+```
+
+::: notes
+The number at the start came out of a data package. We call it ghedata. It holds our proposals, our repositories, our people. 345 repositories, and 97 of them are data packages. We treat our own group as a dataset.
+:::
+
+## {.s-bridge}
+
+```{=html}
+<img class="bw" src="../shared/img/workshop-hackathon-2024.jpeg" alt="Six people of the group at laptops during a workshop">
+<div class="br-a"><span>The AI tools arrived</span><b>everywhere.</b></div>
+<div class="fragment br-b"><span>Here they landed because someone was</span><b>inside.</b></div>
+```
+
+::: notes
+Then the AI tools arrived. They arrived everywhere. In our group they became daily practice within a year, because someone inside ran the workshops, set the rules and sat next to each person.
+:::
+
+## {.s-share}
+
+```{=html}
+<div class="sh-title">Commits with an agent</div>
+<div class="sh-n sh-prev"><b data-t="github.assisted_share_previous" data-f="pct"></b></div>
+<div class="sh-n sh-cur"><b data-t="github.assisted_share_current" data-f="pct"></b></div>
+<div class="fragment sh-dp"><b id="dp-share"></b><span>data packages</span></div>
+<svg id="months" viewBox="0 0 1600 400" width="1600" height="400"></svg>
+```
+
+::: notes
+Two workshops. One rule: everything goes through Git, and every commit made with an agent says so. That rule lets us count. In the twelve months before, 8 percent of our commits were made with an agent. In the last twelve months it is 42 percent, and 72 percent in our data packages.
+:::
+
+## {.s-types}
+
+```{=html}
+<svg id="types" viewBox="0 0 1600 900" width="1600" height="900"></svg>
+```
+
+::: notes
+We also commit more, 2.2 times as much. But look at the types: the biggest jump is in hardware projects, where agents play a small part. More commits and agent use are two different things. A commit is activity. It does not tell you the research is better.
+:::
+
+## {.s-gulu}
+
+```{=html}
+<div class="tag">guluswm</div>
+<div class="g-row g-a">
+  <div class="g-date" data-t="gulu.files_received" data-f="day"></div>
+  <div class="g-box">Files</div>
+</div>
+<div class="g-row g-b">
+  <div class="g-box"><span class="fit" data-w="1440"><span data-t="gulu.questions_to_authors"></span> answers in <span data-t="gulu.days_until_answered"></span> days</span></div>
+</div>
+<div class="g-row g-c">
+  <div class="g-date" data-t="gulu.released" data-f="day"></div>
+  <div class="g-box"><span class="fit" data-w="900">doi.org/<span data-t="gulu.doi"></span></span></div>
+</div>
+```
+
+::: notes
+So here is one result. On 30 October, colleagues in Uganda sent me three files on household waste in Gulu City. We sent back 50 questions. They answered all of them in three days. On 3 November the data had a DOI, before the paper is submitted. Every number in the manuscript was checked against the data, and the full trail is on GitHub.
+:::
+
+## {.s-one}
+
+```{=html}
+<div class="one"></div>
+<div class="o1 fit" data-w="1060"><span data-t="steward.persons"></span> person.</div>
+<div class="o2 fit" data-w="1060"><span data-t="steward.hours_per_week"></span> hours a week.</div>
+<div class="fragment o3">
+  <div class="fit" data-w="1400">Single point</div>
+  <div class="fit" data-w="1400">of failure.</div>
+</div>
+```
+
+::: notes
+The trade-off: this is one person, 20 hours a week. If I leave, a lot leaves with me. An embedded steward is a single point of failure.
+:::
+
+## {.s-key .s-close}
+
+```{=html}
+<div class="key">
+  <div class="k k1 fit" data-w="1520">Put a data steward</div>
+  <div class="k k2"><span class="fit" data-w="1440">inside</span></div>
+  <div class="k k3 fit" data-w="1520">the research group.</div>
+</div>
+<div class="fragment ask">
+  <div class="q1 fit" data-w="1520">What would</div>
+  <div class="q1 fit" data-w="1520">you measure</div>
+  <div class="q2 fit" data-w="1520">to show what stewardship changes?</div>
+</div>
+```
+
+::: notes
+Put a data steward inside the research group. And then help us with the open question: what would you measure to show what stewardship changes? Come and find me.
+:::
+
+## {.s-end}
+
+```{=html}
+<div class="e-left">
+  <div class="tag">Tomorrow</div>
+  <div class="e-ws" id="ws-name"></div>
+  <div class="e-when" id="ws-when"></div>
+</div>
+<div class="e-right">
+  <div class="e-link"><span data-t="talk.package_url" data-f="url"></span></div>
+  <div class="e-link"><span data-t="talk.slides_repo" data-f="url"></span></div>
+  <div class="e-small">These slides were built with Claude Code. The full declaration is in the repository.</div>
+</div>
+<div class="e-foot">
+  <div class="e-title" data-t="talk.title"></div>
+  <div class="e-auth" data-t="talk.authors"></div>
+  <div class="e-aff"><span data-t="talk.affiliation"></span>. <span data-t="talk.event"></span></div>
+</div>
+```
