@@ -113,9 +113,9 @@ $link-color: #1A1714;
 
 // The last slide: plain text in two columns
 .reveal .s-end .title { position: absolute; left: 80px; top: 70px; width: 1440px; font-size: 44px; font-weight: 700; line-height: 1.15; text-wrap: balance; }
-.reveal .s-end .cols { position: absolute; left: 80px; top: 240px; width: 1440px; display: grid; grid-template-columns: 1fr 1fr; column-gap: 80px; font-size: 30px; line-height: 1.36; }
+.reveal .s-end .cols { position: absolute; left: 80px; top: 240px; width: 1440px; display: grid; grid-template-columns: 0.9fr 1.1fr; column-gap: 80px; font-size: 30px; line-height: 1.36; }
 .reveal .s-end .cols p { margin: 0 0 30px; }
-.reveal .s-end .cols b { font-weight: 700; }
+.reveal .s-end .cols b { font-weight: 700; white-space: nowrap; }
 .reveal .s-end .foot { position: absolute; left: 80px; top: 800px; width: 1440px; font-size: 24px; line-height: 1.35; }
 
 // Print and reduced motion: the final state of everything.
