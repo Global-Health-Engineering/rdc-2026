@@ -1,0 +1,177 @@
+/*-- scss:defaults --*/
+$font-family-sans-serif: "Atkinson Hyperlegible Next", "Helvetica Neue", Arial, sans-serif;
+$presentation-font-size-root: 40px;
+$body-bg: #F6F1E7;
+$body-color: #1A1714;
+$link-color: #1A1714;
+
+/*-- scss:rules --*/
+// "Ledger". Paper, ink and one purple from the GHE Colour Palette. The figure is the slide.
+// The purple (#901C6C) marks one thing per slide. It reaches 7 to 1 on paper,
+// so it also carries the subtitle and the funding number.
+:root {
+  --paper: #F6F1E7;
+  --ink: #1A1714;
+  --grey: #4A453E;
+  --accent: #901C6C;
+  --second: #3C2874;
+}
+
+.reveal .slides section.bare { padding: 0; height: 900px; }
+.reveal .slides section .stage {
+  position: absolute; left: 0; top: 0; width: 1600px; height: 900px; overflow: hidden;
+  color: var(--ink); text-align: left; line-height: 1.1;
+  font-variant-numeric: lining-nums;
+}
+.reveal .stage svg { position: absolute; left: 0; top: 0; max-width: none; max-height: none; margin: 0; }
+.reveal .stage img { max-width: none; max-height: none; margin: 0; }
+.reveal .stage svg text { font-family: inherit; fill: var(--ink); }
+.reveal .stage svg .t28 { font-size: 28px; }
+.reveal .stage svg .t32 { font-size: 32px; }
+.reveal .stage svg .t36 { font-size: 36px; }
+.reveal .stage svg .t40 { font-size: 40px; }
+.reveal .stage svg .b { font-weight: 700; }
+.reveal .stage svg .tn { font-variant-numeric: tabular-nums lining-nums; }
+.reveal .stage svg .halo { paint-order: stroke; stroke: var(--paper); stroke-width: 10px; stroke-linejoin: round; }
+.reveal .fragment { transition: none !important; }
+
+// The one headline of a figure slide: it names the subject, top left, modest.
+.reveal .hl {
+  position: absolute; left: 60px; top: 34px; width: 1480px;
+  font-size: 36px; font-weight: 700; line-height: 1.15; letter-spacing: -0.005em;
+}
+.reveal .draft-flag {
+  position: absolute; right: 80px; top: 40px; z-index: 5;
+  font-size: 28px; line-height: 1; padding: 8px 16px 10px;
+  color: var(--ink); border: 2px dashed var(--ink); background: var(--paper);
+}
+
+// The one drawn stroke of the deck, under the opening number.
+.reveal .uw { position: relative; display: inline-block; isolation: isolate; }
+.reveal .uw i {
+  position: absolute; left: 0; width: 100%; bottom: -0.1em; height: 0.075em;
+  background: var(--accent); border-radius: 0.06em; z-index: -1;
+  transform-origin: left center; transform: rotate(-0.35deg) scaleX(1);
+  transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.reveal .uw.pre i { transform: rotate(-0.35deg) scaleX(0); transition: none; }
+.reveal .typing::after { content: ""; display: inline-block; width: 0.06em; height: 0.74em; margin-left: 0.03em; margin-right: -0.09em; background: var(--accent); }
+
+// The number: typed in paper on an ink field, then one cut to paper.
+.reveal .slides section .stage.dark { background: var(--ink); color: var(--paper); }
+.reveal .stage.dark .draft-flag { color: var(--paper); border-color: var(--paper); background: var(--ink); }
+.reveal .s-number .cur { position: absolute; left: 80px; top: 100px; font-size: 64px; font-weight: 800; letter-spacing: 0.02em; }
+.reveal .s-number .bignum {
+  position: absolute; left: 80px; top: 176px; width: 1440px; white-space: nowrap;
+  font-size: 198px; font-weight: 800; line-height: 1;
+}
+.reveal .s-number .req { position: absolute; left: 80px; top: 506px; font-size: 44px; font-weight: 700; }
+.reveal .s-number .tally { position: absolute; left: 80px; top: 640px; width: 1440px; height: 60px; }
+.reveal .s-number .tline { position: absolute; left: 80px; top: 724px; font-size: 44px; font-weight: 700; }
+
+// The key and the question
+.reveal .key {
+  position: absolute; left: 80px; top: 88px; width: 1480px;
+  font-size: 146px; font-weight: 800; line-height: 1.04; letter-spacing: -0.022em;
+}
+.reveal .key .ln { display: block; white-space: nowrap; }
+.reveal .byline {
+  position: absolute; left: 80px; top: 596px; width: 1440px;
+  border-top: 2px solid var(--ink); padding-top: 24px;
+  font-size: 36px; line-height: 1.3;
+}
+.reveal .byline .t { font-weight: 700; margin-bottom: 10px; text-wrap: balance; }
+.reveal .s-key2 .key { top: 214px; color: var(--paper); }
+.reveal .s-question .key { top: 232px; font-size: 128px; }
+
+// The quiet slide: an admission, set at moderate size.
+.reveal .s-quiet .adm { position: absolute; left: 80px; top: 250px; width: 1440px; font-size: 76px; font-weight: 400; line-height: 1.3; letter-spacing: -0.01em; }
+
+// The story: two rows, the swap on the click. Without the photo the text takes the full width.
+.reveal .s-who .photo { position: absolute; left: 80px; top: 80px; width: 500px; height: 740px; object-fit: cover; }
+.reveal .story { position: absolute; left: 660px; top: 70px; width: 860px; }
+.reveal .no-photo .story { left: 80px; width: 1440px; }
+.reveal .story .srow { position: relative; height: 240px; }
+.reveal .story .who { position: absolute; left: 0; top: 0; font-size: 40px; font-weight: 400; }
+.reveal .story .v {
+  position: absolute; left: 0; top: 52px; font-size: 150px; font-weight: 800; line-height: 1; letter-spacing: -0.02em;
+}
+.reveal .story.swapped .srow:nth-child(1) .v { transform: translateY(240px); }
+.reveal .story.swapped .srow:nth-child(2) .v { transform: translateY(-240px); }
+.reveal .s-who .out { position: absolute; left: 660px; top: 620px; width: 860px; font-size: 76px; font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; }
+.reveal .no-photo .out { left: 80px; width: 1440px; font-size: 84px; top: 650px; white-space: nowrap; }
+.reveal .has-photo .out br { display: inline; }
+.reveal .no-photo .out br { display: none; }
+
+// The bridge: the photo full bleed, one line over it on a scrim
+.reveal .s-bridge img { position: absolute; left: 0; top: 0; width: 1600px; height: 900px; object-fit: cover; }
+.reveal .s-bridge .line {
+  position: absolute; left: 0; top: 0; width: 1600px; box-sizing: border-box; padding: 44px 80px 50px;
+  background: rgba(26, 23, 20, 0.9); color: var(--paper);
+  font-size: 92px; font-weight: 800; line-height: 1; letter-spacing: -0.02em;
+}
+
+// The last slide: plain text in two columns
+.reveal .s-end .title { position: absolute; left: 80px; top: 70px; width: 1440px; font-size: 44px; font-weight: 700; line-height: 1.15; text-wrap: balance; }
+.reveal .s-end .cols { position: absolute; left: 80px; top: 240px; width: 1440px; display: grid; grid-template-columns: 1fr 1fr; column-gap: 80px; font-size: 30px; line-height: 1.36; }
+.reveal .s-end .cols p { margin: 0 0 30px; }
+.reveal .s-end .cols b { font-weight: 700; }
+.reveal .s-end .foot { position: absolute; left: 80px; top: 800px; width: 1440px; font-size: 24px; line-height: 1.35; }
+
+// Print and reduced motion: the final state of everything.
+html.is-print .reveal .fragment { opacity: 1 !important; visibility: visible !important; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal .stage *, .reveal .fragment { animation: none !important; transition: none !important; }
+}
+
+// The line that stays: who the speaker is, in indigo.
+.reveal .s-quiet .adm .stay { margin-top: 56px; font-weight: 800; color: var(--second); }
+// One sentence in place of the story.
+// Fixed and growth mindset, then what the data steward does, on a click.
+.reveal .s-mind .lab { position: absolute; left: 80px; font-size: 44px; font-weight: 700; }
+.reveal .s-mind .q { position: absolute; left: 80px; font-size: 130px; line-height: 1.04; letter-spacing: -0.022em; white-space: nowrap; }
+.reveal .s-mind .l1 { top: 110px; color: var(--grey); }
+.reveal .s-mind .q1 { top: 165px; font-weight: 400; color: var(--grey); }
+.reveal .s-mind .l2 { top: 370px; color: var(--second); }
+.reveal .s-mind .q2 { top: 425px; font-weight: 800; }
+.reveal .s-mind .does { position: absolute; left: 80px; top: 700px; width: 1440px; font-size: 52px; font-weight: 700; color: var(--second); white-space: nowrap; }
+// The overview of research intelligence reuses the teaching layout, one line of headline.
+.reveal .s-teach.s-intel ul { top: 320px; }
+.reveal .s-teach.s-intel li { font-size: 56px; margin-bottom: 44px; padding-left: 340px; }
+// The second line that stays: what the role asks for.
+.reveal .s-quiet .adm { top: 150px; }
+.reveal .s-quiet .adm .stay2 { margin-top: 30px; font-weight: 800; color: var(--accent); }
+
+// Funding brought in by the data steward: one number.
+.reveal .s-fund .cur { position: absolute; left: 80px; top: 180px; font-size: 64px; font-weight: 800; letter-spacing: 0.02em; }
+.reveal .s-fund .fnum { position: absolute; left: 80px; top: 250px; font-size: 300px; font-weight: 800; line-height: 1; letter-spacing: -0.02em; color: var(--accent); white-space: nowrap; }
+.reveal .s-fund .fsub { position: absolute; left: 80px; top: 600px; width: 1440px; font-size: 48px; font-weight: 700; }
+// The claim on indigo, and the close.
+.reveal .s-claim .key { top: 150px; color: var(--paper); }
+.reveal .s-claim .three { position: absolute; left: 80px; top: 700px; font-size: 56px; font-weight: 700; color: var(--paper); }
+.reveal .s-question .again { position: absolute; left: 80px; top: 130px; width: 1440px; font-size: 52px; font-weight: 800; color: var(--second); }
+.reveal .s-question .key { top: 290px; }
+
+// Teaching: the one slide with bullets, one row a step, the year in front.
+.reveal .s-teach .th { position: absolute; left: 80px; top: 110px; width: 1440px; font-size: 84px; font-weight: 800; line-height: 1.06; letter-spacing: -0.02em; text-wrap: balance; }
+.reveal .s-teach ul { position: absolute; left: 80px; top: 400px; width: 1440px; margin: 0; padding: 0; list-style: none; }
+.reveal .s-teach li { position: relative; padding-left: 300px; margin: 0 0 30px 0; font-size: 46px; line-height: 1.15; }
+.reveal .s-teach li .yr { position: absolute; left: 0; top: 0; font-weight: 800; color: var(--second); font-variant-numeric: tabular-nums lining-nums; }
+.reveal .s-teach li b { font-weight: 800; }
+// Photos: one large, two stacked.
+.reveal .s-photos .p1 { position: absolute; left: 0; top: 0; width: 1060px; height: 900px; object-fit: cover; max-width: none; max-height: none; margin: 0; }
+.reveal .s-photos .p2, .reveal .s-photos .p3 { position: absolute; left: 1072px; width: 528px; height: 444px; object-fit: cover; max-width: none; max-height: none; margin: 0; }
+.reveal .s-photos .p2 { top: 0; }
+.reveal .s-photos .p3 { top: 456px; }
+.reveal .s-photos .photo-slot { box-sizing: border-box; border: 3px dashed var(--ink); padding: 150px 30px 0 30px; text-align: center; font-size: 32px; font-weight: 700; line-height: 1.25; }
+.reveal .s-photos .photo-slot span { font-size: 24px; font-weight: 400; }
+
+// Title slide, on the screen before the talk.
+.reveal .s-title .tt { position: absolute; left: 80px; top: 120px; width: 1440px; font-size: 104px; font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; text-wrap: balance; }
+.reveal .s-title .ts { position: absolute; left: 80px; top: 470px; width: 1440px; font-size: 52px; font-weight: 700; color: var(--accent); }
+.reveal .s-title .ta { position: absolute; left: 80px; top: 640px; width: 1440px; border-top: 2px solid var(--ink); padding-top: 24px; font-size: 36px; line-height: 1.3; }
+.reveal .s-title .ta .who { font-weight: 700; }
+// The question after the number.
+.reveal .s-why .key { top: 290px; }
+.reveal .s-key .key { top: 210px; }
+.reveal .s-teach li a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 5px; text-underline-offset: 8px; }

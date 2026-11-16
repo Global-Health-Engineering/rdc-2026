@@ -1,0 +1,243 @@
+/*-- scss:defaults --*/
+$font-family-sans-serif: "Atkinson Hyperlegible Next", "Helvetica Neue", Arial, sans-serif;
+$presentation-font-size-root: 40px;
+$body-bg: #000;
+$body-color: #fff;
+$link-color: #ffd400;
+
+/*-- scss:rules --*/
+// Deck A "Signal": black, white, one yellow. Nothing else.
+$k: #000;
+$w: #fff;
+$y: #ffd400;
+
+html, body, .reveal, .reveal-viewport { background: $k; }
+
+.reveal .slides section {
+  box-sizing: border-box;
+  width: 1600px;
+  height: 900px;
+  padding: 0;
+  overflow: hidden;
+  background: $k;
+  color: $w;
+  text-align: left;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.045em;
+  line-height: 0.86;
+  font-variant-numeric: tabular-nums;
+}
+.reveal .slides section > h2 { display: none; }
+.reveal .slides section div,
+.reveal .slides section span,
+.reveal .slides section b { margin: 0; font-weight: 800; }
+.reveal .slides section > div,
+.reveal .slides section > svg,
+.reveal .slides section > img { position: absolute; margin: 0; max-width: none; max-height: none; }
+.reveal .slides section .fit { display: block; white-space: nowrap; letter-spacing: -0.045em; }
+.reveal svg text { font-weight: 800; fill: $w; letter-spacing: -0.03em; text-transform: uppercase; }
+
+// Hard cuts only: fragments switch, they never fade.
+.reveal .slides section .fragment { transition: none !important; }
+html.is-print .reveal .slides section .fragment { opacity: 1 !important; visibility: visible !important; }
+
+// Entry animation: an element stays hidden for its delay, then cuts in.
+@keyframes cut { from { visibility: hidden; } to { visibility: visible; } }
+@media (prefers-reduced-motion: no-preference) {
+  html:not(.is-print) .reveal section.present {
+    .pop, .k, .band, .g-row, .no { animation: cut 1ms steps(1, end) var(--d, 0ms) backwards; }
+  }
+}
+
+.reveal .tag {
+  background: $y; color: $k;
+  font-size: 56px; line-height: 1; padding: 10px 22px 12px;
+  text-transform: none; letter-spacing: -0.03em;
+}
+.reveal .draft-flag {
+  top: 36px; right: 40px;
+  border: 4px solid $y; color: $y;
+  font-size: 28px; line-height: 1; padding: 8px 14px 10px; letter-spacing: 0;
+}
+.reveal .src { left: 40px; bottom: 28px; font-size: 26px; letter-spacing: 0; text-transform: none; font-weight: 600 !important; }
+
+// 1 The number -------------------------------------------------------
+.reveal .s-num {
+  .num-cur { top: 34px; left: 40px; font-size: 96px; color: $y; }
+  .num { top: 128px; left: 40px; width: 1520px; font-size: 230px; line-height: 1; letter-spacing: -0.045em; }
+  .num-sub { top: 384px; left: 44px; font-size: 44px; letter-spacing: -0.02em; }
+  .num-row { top: 478px; left: 40px; width: 1520px; height: 400px; overflow: hidden; display: flex; gap: 60px; }
+  .hit { flex: 1; display: flex; align-items: baseline; gap: 22px; }
+  .hit b { font-size: 400px; line-height: 0.86; letter-spacing: -0.06em; }
+  .hit span { font-size: 84px; }
+  .hit.w { flex: 1.25; }
+  .hit.y { color: $y; }
+}
+.reveal .slides section.s-num.flash {
+  background: $w; color: $k;
+  .num-cur { color: $k; }
+  .draft-flag { color: $k; border-color: $k; }
+}
+
+// 2 and 12 The key sentence, always set the same way ---------------------
+.reveal .slides section.s-key {
+  background: $y; color: $k;
+  .key { top: 0; left: 0; width: 1600px; height: 900px; }
+  .k { position: absolute; left: 40px; }
+  .k1 { top: 52px; --d: 0ms; }
+  .k2 { top: 222px; width: 1520px; height: 440px; background: $k; color: $y; --d: 220ms; overflow: hidden; }
+  .k2 span { position: absolute; left: 34px; top: 22px; line-height: 0.9; letter-spacing: -0.045em; }
+  .k3 { top: 694px; --d: 440ms; }
+  .key-by { right: 40px; bottom: 22px; font-size: 28px; letter-spacing: 0; }
+}
+.reveal .slides section.s-close {
+  .k3 { top: 694px; }
+  .ask { top: 0; left: 0; width: 1600px; height: 900px; background: $k; color: $w; padding: 130px 40px 0; box-sizing: border-box; }
+  .ask .q1 { color: $y; line-height: 0.9; }
+  .ask .q2 { margin-top: 40px; line-height: 1; }
+  &.s1 .key { visibility: hidden; }
+}
+// print: the key sentence and the question share the page
+html.is-print .reveal .slides section.s-close {
+  .key { visibility: visible; transform: scale(0.5); transform-origin: 0 0; }
+  .ask { transform: scale(0.5); transform-origin: 100% 100%; }
+}
+
+// 3 Computer and dolls ----------------------------------------------------
+.reveal .photo-slot {
+  box-sizing: border-box;
+  border: 8px dashed $y; color: $y;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 28px; text-transform: none; letter-spacing: 0; line-height: 1.15;
+  &::before { content: attr(data-label); font-size: 34px; font-weight: 800; }
+  &::after { content: attr(data-file); font-size: 28px; font-weight: 600; margin-top: 12px; }
+}
+.reveal .s-story {
+  .photo-slot { top: 40px; left: 40px; width: 500px; height: 820px; }
+  .st-row { left: 600px; width: 960px; }
+  .r1 { top: 48px; }
+  .r2 { top: 388px; }
+  .st-who { font-size: 64px; }
+  .st-what { position: relative; height: 230px; margin-top: 14px !important; }
+  .st-what span { position: absolute; left: -6px; top: 0; font-size: 176px; line-height: 1; letter-spacing: -0.055em; }
+  .st-what .y { color: $y; }
+  .st-what .b { visibility: hidden; }
+  &.s1 .st-what .a { visibility: hidden; }
+  &.s1 .st-what .b { visibility: visible; }
+  .st-tag { left: 600px; top: 760px; background: $y; color: $k; font-size: 60px; line-height: 1; padding: 16px 24px 18px; }
+}
+
+// 4 No doctorate ----------------------------------------------------------
+.reveal .s-no {
+  .no { left: 40px; line-height: 0.86; }
+  .n1 { top: 44px; color: $y; --d: 0ms; }
+  .n2 { top: 252px; --d: 250ms; }
+  .n3 { top: 448px; --d: 250ms; }
+  .no-band { left: 0; top: 690px; width: 1600px; height: 210px; background: $y; color: $k; }
+  .no-band span { position: absolute; left: 80px; top: 50px; line-height: 1; }
+}
+
+// 5 The role --------------------------------------------------------------
+.reveal .s-role {
+  .band { left: 0; width: 1600px; box-sizing: border-box; padding-left: 40px; display: flex; align-items: center; }
+  .prof { top: 40px; height: 130px; background: $w; color: $k; font-size: 100px; --d: 0ms; }
+  .stew { top: 190px; height: 220px; background: $y; color: $k; font-size: 230px; letter-spacing: -0.055em; --d: 1500ms; }
+  #people { top: 430px; left: 0; }
+  #people .hero { font-size: 300px; letter-spacing: -0.06em; }
+  #people .lab { font-size: 32px; letter-spacing: 0; }
+}
+
+// 6 ghedata ---------------------------------------------------------------
+.reveal .s-repos {
+  .tag { top: 40px; left: 40px; }
+  .rp-big { top: 300px; left: 34px; }
+  .rp-big b { display: block; font-size: 330px; letter-spacing: -0.06em; line-height: 0.82; }
+  .rp-big span { display: block; font-size: 70px; margin-top: 14px; margin-left: 8px; }
+  #repos { top: 50px; left: 640px; }
+  #repos .n { font-size: 84px; letter-spacing: -0.05em; }
+  #repos .lab { font-size: 32px; letter-spacing: 0; }
+}
+
+// 7 The bridge ------------------------------------------------------------
+.reveal .s-bridge {
+  img.bw { top: 0; left: 0; width: 1600px; height: 900px; object-fit: cover; filter: grayscale(1) contrast(1.7) brightness(0.8); }
+  .br-a, .br-b { padding: 26px 40px 30px; }
+  .br-a { top: 0; left: 0; background: $k; color: $w; }
+  .br-b { right: 0; bottom: 0; background: $y; color: $k; }
+  span { display: block; font-size: 54px; letter-spacing: -0.03em; margin-bottom: 10px; }
+  b { display: block; font-size: 200px; line-height: 0.84; letter-spacing: -0.055em; }
+  .br-b b { font-size: 330px; }
+}
+
+// 8 Share of commits with an agent ---------------------------------------
+.reveal .s-share {
+  .sh-title { top: 40px; left: 40px; font-size: 56px; letter-spacing: -0.03em; }
+  .sh-n { top: 112px; }
+  .sh-n b { display: block; font-size: 290px; line-height: 0.84; letter-spacing: -0.06em; }
+  .sh-n span { display: block; font-size: 44px; letter-spacing: 0; margin-top: 2px; margin-left: 10px; }
+  .sh-prev { left: 30px; }
+  .sh-cur { left: 520px; color: $y; }
+  .sh-dp { top: 40px; right: 40px; background: $y; color: $k; padding: 16px 22px 20px; text-align: right; }
+  .sh-dp b { display: block; font-size: 130px; line-height: 0.86; letter-spacing: -0.05em; }
+  .sh-dp span { display: block; font-size: 34px; letter-spacing: 0; margin-top: 6px; }
+  #months { top: 470px; left: 0; }
+  #months .lab { font-size: 36px; letter-spacing: 0; }
+}
+
+// 9 Commits by repository type ---------------------------------------------
+.reveal .s-types {
+  #types { top: 0; left: 0; }
+  #types .lab { font-size: 34px; letter-spacing: 0; }
+  #types .head { font-size: 104px; letter-spacing: -0.05em; }
+  #types .type { font-size: 40px; letter-spacing: -0.01em; }
+  #types .val { font-size: 30px; letter-spacing: 0; }
+  #types .val.big { font-size: 40px; }
+  #types .fac { font-size: 68px; letter-spacing: -0.04em; }
+  #types .share { font-size: 56px; letter-spacing: -0.04em; fill: $y; }
+}
+
+// 10 guluswm --------------------------------------------------------------
+.reveal .s-gulu {
+  .tag { top: 40px; left: 40px; }
+  .g-row { left: 40px; width: 1520px; display: flex; align-items: stretch; }
+  .g-date { flex: 0 0 610px; white-space: nowrap; font-size: 172px; letter-spacing: -0.055em; line-height: 1; display: flex; align-items: center; margin-left: -6px !important; }
+  .g-box { flex: 1; display: flex; align-items: center; justify-content: center; box-sizing: border-box; font-size: 120px; }
+  .g-a { top: 136px; height: 190px; --d: 0ms; }
+  .g-a .g-box { border: 12px solid $w; }
+  .g-b { top: 346px; height: 250px; --d: 450ms; }
+  .g-b .g-box { background: $w; color: $k; }
+  .g-c { top: 616px; height: 190px; --d: 1200ms; }
+  .g-c .g-date { color: $y; }
+  .g-c .g-box { background: $y; color: $k; text-transform: none; }
+  .g-box .fit { line-height: 1; }
+}
+
+// 11 The trade-off ---------------------------------------------------------
+.reveal .s-one {
+  .one { top: 44px; left: 40px; width: 380px; height: 380px; box-sizing: border-box; background: $y; border: 16px solid $y; }
+  &.s1 .one { background: transparent; border-style: dashed; }
+  .o1 { top: 40px; left: 480px; line-height: 0.9; }
+  .o2 { top: 268px; left: 480px; line-height: 1; }
+  .o3 { top: 468px; left: 40px; width: 1520px; height: 424px; overflow: hidden; color: $y; }
+  .o3 div { line-height: 0.88; }
+}
+
+// 13 The end -----------------------------------------------------------------
+.reveal .slides section.s-end {
+  text-transform: none;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  .e-left { top: 44px; left: 40px; width: 1520px; }
+  .tag { display: inline-block; text-transform: uppercase; }
+  .e-ws { font-size: 150px; text-transform: uppercase; letter-spacing: -0.05em; line-height: 0.9; margin-top: 22px !important; }
+  .e-when { font-size: 56px; color: $y; margin-top: 14px !important; }
+  .e-right { top: 424px; left: 40px; width: 1520px; }
+  .e-link { font-size: 44px; letter-spacing: -0.02em; }
+  .e-small { font-size: 28px; font-weight: 600 !important; letter-spacing: 0; margin-top: 18px !important; }
+  .e-foot { left: 40px; bottom: 36px; width: 1520px; border-top: 8px solid $w; padding-top: 18px; letter-spacing: 0; }
+  .e-title { font-size: 28px; }
+  .e-auth { font-size: 34px; color: $y; margin-top: 8px !important; }
+  .e-aff { font-size: 26px; font-weight: 600 !important; margin-top: 6px !important; }
+  .e-aff span { font-weight: 600 !important; }
+}

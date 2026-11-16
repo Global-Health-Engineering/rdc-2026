@@ -1,0 +1,116 @@
+/*-- scss:defaults --*/
+$font-family-sans-serif: "Atkinson Hyperlegible Next", "Helvetica Neue", Arial, sans-serif;
+$presentation-font-size-root: 40px;
+$body-bg: #0b1026;
+$body-color: #e8ecf5;
+$link-color: #ff9d6c;
+
+/*-- scss:rules --*/
+// Deck C: deep navy, soft light marks, one warm accent.
+// #ed6d37 is the accent of the marks. Text in the accent uses the lighter
+// #ff9d6c, which reaches a contrast of 9 to 1 on the navy background.
+:root {
+  --bg: #0b1026;
+  --light: #e8ecf5;
+  --dim: #b4bdd2;
+  --acc: #ed6d37;
+  --acc-text: #ff9d6c;
+  --flag: #ffd84a;
+}
+html, body, .reveal, .reveal .slides { background: var(--bg); }
+.reveal .slides { text-align: left; }
+.reveal .slides section.bare {
+  padding: 0; width: 1600px; height: 900px; box-sizing: border-box;
+  color: var(--light); overflow: hidden;
+}
+.reveal p { margin: 0; }
+.reveal b, .reveal strong { font-weight: 800; }
+
+// the canvas with all marks; one behind the slides on screen, one per slide in print
+canvas.dots {
+  position: absolute; left: 0; top: 0; width: 1600px; height: 900px;
+  z-index: 0; pointer-events: none; display: block;
+}
+.reveal .slides section.bare > *:not(canvas) { z-index: 2; }
+.reveal .fragment.step { position: absolute; width: 0; height: 0; }
+
+// labels written by deck.js
+.labels { position: absolute; left: 0; top: 0; width: 1600px; height: 900px; pointer-events: none; }
+.lab {
+  position: absolute; white-space: nowrap; line-height: 1.12; color: var(--light);
+  transition: opacity 0.5s ease, left 0.8s ease, top 0.8s ease;
+}
+.lab.c, .lab.c.draft-flag { transform: translateX(-50%); text-align: center; }
+.lab.r { transform: translateX(-100%); text-align: right; }
+.lab.b { font-weight: 800; }
+.lab.dim { color: var(--dim); }
+.acc, .lab.acc { color: var(--acc-text); }
+
+// marker for the placeholder proposal numbers; delete the element to remove it
+.draft-flag {
+  font-size: 28px; line-height: 1; font-weight: 600; letter-spacing: 0.02em;
+  color: var(--flag); border: 2px dashed var(--flag); border-radius: 8px; padding: 8px 14px;
+}
+.draft-flag.corner { position: absolute; right: 40px; top: 36px; }
+
+// slide 1: the number
+.chf { position: absolute; left: 62px; top: 150px; font-size: 80px; font-weight: 700; color: var(--dim); }
+.num {
+  position: absolute; left: 0; top: 215px; width: 1600px; text-align: center;
+  font-size: 212px; line-height: 1.1; font-weight: 800; letter-spacing: -0.02em;
+  color: #fff; font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+// one pulse when the count has arrived, well under a second
+.num.pulse { animation: pulse 0.7s ease-out 1; }
+@keyframes pulse {
+  0% { color: #fff; transform: scale(1); text-shadow: 0 0 0 rgba(255, 157, 108, 0); }
+  25% { color: #ffb48e; transform: scale(1.035); text-shadow: 0 0 60px rgba(255, 157, 108, 0.9); }
+  100% { color: #fff; transform: scale(1); text-shadow: 0 0 0 rgba(255, 157, 108, 0); }
+}
+
+// slide 2: the key
+.keyline {
+  position: absolute; left: 800px; top: 228px; font-size: 104px; line-height: 1.07;
+  font-weight: 800; letter-spacing: -0.01em; color: #fff;
+}
+
+// slide 3: photo slot, a large dot that waits for a photo
+.photo-slot, .photo-round {
+  position: absolute; left: 1010px; top: 150px; width: 460px; height: 460px;
+  border-radius: 50%; box-sizing: border-box;
+}
+.photo-round { object-fit: cover; border: 6px solid var(--acc); }
+.photo-slot {
+  border: 4px dashed var(--dim); display: flex; flex-direction: column;
+  align-items: center; justify-content: center; text-align: center; padding: 60px;
+}
+.photo-slot::before { content: attr(data-label); font-size: 30px; line-height: 1.25; color: var(--light); }
+.photo-slot::after { content: attr(data-file); font-size: 28px; margin-top: 14px; color: var(--dim); font-family: ui-monospace, Menlo, monospace; }
+
+// slide 7: photo
+img.bleed { position: absolute; left: 0; top: 0; width: 1600px; height: 900px; object-fit: cover; margin: 0; max-width: none; max-height: none; }
+.photo-text {
+  position: absolute; left: 0; bottom: 0; background: var(--bg);
+  padding: 44px 70px 50px 80px; border-top-right-radius: 28px;
+}
+.photo-text .l1 { font-size: 76px; font-weight: 800; line-height: 1.1; color: #fff; }
+.photo-text .l2 { font-size: 46px; line-height: 1.2; margin-top: 14px; color: var(--acc-text); }
+.one-dot { display: inline-block; width: 40px; height: 40px; border-radius: 50%; background: var(--acc); margin-right: 26px; }
+
+// last slide
+.end { position: absolute; left: 0; top: 0; width: 1600px; height: 900px; }
+.end-title { position: absolute; left: 110px; top: 100px; width: 1380px; font-size: 42px; line-height: 1.2; font-weight: 700; color: #fff; }
+.end-authors { position: absolute; left: 176px; top: 290px; font-size: 40px; line-height: 66px; }
+.end-authors div { height: 66px; white-space: nowrap; }
+.end-aff { position: absolute; left: 110px; top: 610px; font-size: 26px; line-height: 1.45; color: var(--dim); }
+.end-right { position: absolute; left: 820px; top: 296px; width: 720px; }
+.end-head { font-size: 24px; color: var(--dim); margin-top: 30px !important; }
+.end-head:first-child { margin-top: 0 !important; }
+.end-big { font-size: 36px; line-height: 1.2; font-weight: 700; color: var(--acc-text); }
+.end-link { font-size: 26px; line-height: 1.3; white-space: nowrap; font-family: ui-monospace, Menlo, monospace; }
+.end-decl { font-size: 24px; line-height: 1.4; margin-top: 50px !important; color: var(--dim); }
+
+@media (prefers-reduced-motion: reduce) {
+  .lab { transition: none; }
+  .num.pulse { animation: none; }
+}

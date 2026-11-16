@@ -1,0 +1,323 @@
+---
+# "Ledger". Every number on a slide is read from window.TALK (../shared/data.js).
+# Elements with data-v are filled from that file when the deck loads; the text typed
+# in the slide is the same value and only a fallback. All figures are drawn in deck.js.
+pagetitle: "Embedded data stewardship"
+lang: en-GB
+format:
+  revealjs:
+    theme: [default, deck.scss]
+    width: 1600
+    height: 900
+    margin: 0
+    controls: false
+    progress: false
+    slide-number: false
+    menu: false
+    overview: false
+    html-math-method: plain
+    hash: true
+    transition: none
+    embed-resources: true
+    center: false
+    include-in-header:
+      - file: ../shared/font-face.html
+      - text: |
+          <script src="../shared/d3.v7.min.js"></script>
+          <script src="../shared/data.js"></script>
+    include-after-body:
+      - text: |
+          <script src="deck.js"></script>
+---
+
+## {#s-title .bare}
+
+```{=html}
+<div class="stage s-title">
+  <div class="tt">Embedded data stewardship and research intelligence</div>
+  <div class="ts">Five years of practice at a research group at ETH Zurich</div>
+  <div class="ta">
+    <div class="who" data-v="talk.authors" data-f="raw">Lars Schöbitz, Colin Walder, Adriana Clavijo Daza, Elizabeth Tilley</div>
+    <div data-v="talk.affiliation" data-f="raw">Global Health Engineering, ETH Zurich</div>
+    <div data-v="talk.event" data-f="raw">Research Data Conference 2026, Bern, 19 November 2026</div>
+  </div>
+</div>
+```
+
+::: notes
+Title slide, on the screen before the talk starts. [click] The number starts.
+:::
+
+## {#s-number .bare}
+
+```{=html}
+<div class="stage s-number">
+  <div class="cur">CHF</div>
+  <div class="bignum"><span class="uw"><span id="n-amount" data-v="proposals.amount_chf" data-f="chf">32,143,694</span><i></i></span></div>
+  <div class="req">requested since <span data-v="proposals.first_year" data-f="raw">2020</span></div>
+  <div class="tally fragment" data-fragment-index="0" data-act="written"><svg id="c-tally" viewBox="0 0 1440 60" width="1440" height="60"></svg></div>
+  <div class="tline"><span class="fragment" data-fragment-index="0"><span data-v="proposals.written">82</span> proposals written</span><span class="fragment" data-fragment-index="0" data-act="funded">, <span data-v="proposals.funded">24</span> funded</span></div>
+</div>
+```
+
+::: notes
+32 million, 143 thousand, 694 Swiss francs. That is the funding our group would have received if every proposal since 2020 had been funded. [click] We wrote 82. 24 were funded.
+:::
+
+## {#s-why .bare}
+
+```{=html}
+<div class="stage s-why">
+  <div class="key">
+    <span class="ln">Why do we know</span>
+    <span class="ln">this so exactly?</span>
+  </div>
+</div>
+```
+
+::: notes
+Why do we know this so exactly?
+:::
+
+## {#s-intel .bare}
+
+```{=html}
+<div class="stage s-teach s-intel">
+  <div class="th">We keep data on our own group</div>
+  <ul>
+    <li><span class="yr">Proposals</span>every one since <span data-v="proposals.first_year" data-f="raw">2020</span></li>
+    <li><span class="yr">People</span>theses, student projects, positions</li>
+    <li><span class="yr">GitHub</span>repositories and commits</li>
+    <li><span class="yr">Reach</span>LinkedIn statistics, publications</li>
+  </ul>
+</div>
+```
+
+::: notes
+Because we keep data on our own group. Every proposal we submit goes into one table, with the funder, the budget and the answer. Every thesis, every student project and every position goes into a second table. Our repositories and their commits are read from GitHub. We also keep our LinkedIn statistics and a list of our publications. All of this goes into one data package. We call it ghedata, and we call what we learn from it research intelligence. Data like this does not collect itself. Someone has to design it, and everyone in the group has to contribute to it. That takes a person who is part of the group.
+:::
+
+## {#s-key .bare}
+
+```{=html}
+<div class="stage s-key">
+  <div class="key">
+    <span class="ln">Place a data steward</span>
+    <span class="ln">inside the</span>
+    <span class="ln">research group.</span>
+  </div>
+</div>
+```
+
+::: notes
+And that is my one point for the next eight minutes. Place a data steward inside the research group.
+:::
+
+## {#s-quiet .bare}
+
+```{=html}
+<div class="stage s-quiet">
+  <div class="adm">
+    <div>No doctorate.</div>
+    <div>No qualification in statistics.</div>
+    <div>No computer science degree.</div>
+    <div class="stay fragment">An environmental engineer who likes computers.</div>
+    <div class="stay2 fragment">Empathy, patience and persistence.</div>
+  </div>
+</div>
+```
+
+::: notes
+I have no doctorate. I have no qualification in statistics and no degree in computer science. [click] I am an environmental engineer who likes computers. [click] And I have some empathy, patience and persistence. In my experience, these are the qualities a data steward needs.
+:::
+
+## {#s-mind .bare}
+
+```{=html}
+<div class="stage s-mind">
+  <div class="lab l1">Fixed mindset</div>
+  <div class="q q1">“I’m not good.”</div>
+  <div class="lab l2">Growth mindset</div>
+  <div class="q q2">“I can learn.”</div>
+  <div class="does fragment">One to one. Workshops. Strategy. Motivation.</div>
+</div>
+```
+
+::: notes
+Nobody is born a data steward, and nobody is born a programmer. Many researchers come to us with a fixed mindset about computers. I'm not good at this. If people believe that you either have a skill or you lack it, everyone does worse. A growth mindset says: I can learn this. Building that belief is the largest part of my work. [click] I meet each person one to one, on their own project. I host workshops. I develop the data management strategy of the group. And I keep people going when the first attempt fails. All of that needs someone who is there every week.
+:::
+
+## {#s-role .bare}
+
+```{=html}
+<div class="stage s-role">
+  <div class="hl"><span data-v="people.students_total">162</span> student theses and projects since 2021</div>
+  <svg id="c-role" viewBox="0 0 1600 900" width="1600" height="900"></svg>
+</div>
+```
+
+::: notes
+Since 2021, students have done 162 theses and projects in our group, at bachelor, master and doctoral level. Each person arrives with different skills and different gaps. A course cannot cover that. Sitting next to them can.
+:::
+
+## {#s-teach .bare}
+
+```{=html}
+<div class="stage s-teach">
+  <div class="th">The tools and the teaching come from inside the group</div>
+  <ul>
+    <li><span class="yr">Until 2025</span>Git taught one to one and in R courses</li>
+    <li><span class="yr">2025</span>Claude Code introduced in the group</li>
+    <li><span class="yr">2026</span><b>Git for Scientists</b>, a workshop for the foundation</li>
+    <li><span class="yr">2026</span><b>Agents for Scientists</b>, a workshop on coding agents</li>
+    <li><span class="yr">2027</span><a href="https://github.com/Global-Health-Engineering/fair-training"><b>FAIR by Doing</b></a>, proposed for 15 ETH researchers</li>
+  </ul>
+</div>
+```
+
+::: notes
+Git and GitHub are the foundation of our work. For years I taught Git ad hoc, one to one, or in semester long R courses. Since 2026 we have a workshop format that builds the foundation, Git for Scientists. Claude Code came into the group in 2025, and in 2026 we ran Agents for Scientists. For 2027 we have proposed FAIR by Doing, a programme for 15 researchers from across ETH Zurich. The funding decision comes in December. The point is that I keep track of the developments in these fields and bring the tools and the teaching into the group.
+:::
+
+## {#s-photos .bare}
+
+```{=html}
+<!-- Photos. The two slots on the right wait for a file each. To fill a slot: save the
+     photo under the file name on the slot, then replace the <div class="photo-slot">
+     line with the <img> line in the comment below it. -->
+<div class="stage s-photos">
+  <img class="p1" src="../shared/img/workshop-hackathon-2024.jpeg" alt="Six people at laptops around a table at a workshop of the group">
+  <div class="photo-slot p2">Photo: Git for Scientists, July 2026<br><span>img/gitforsci-2026-07.jpg</span></div>
+  <!-- <img class="p2" src="img/gitforsci-2026-07.jpg" alt="Git for Scientists workshop, July 2026"> -->
+  <div class="photo-slot p3">Photo: Agents for Scientists, September 2026<br><span>img/agentsforsci-2026-09.jpg</span></div>
+  <!-- <img class="p3" src="img/agentsforsci-2026-09.jpg" alt="Agents for Scientists workshop, September 2026"> -->
+</div>
+```
+
+::: notes
+This is what it looks like: people at one table, each with their own project, and someone from inside the group sitting next to them.
+:::
+
+## {#s-repos .bare}
+
+```{=html}
+<div class="stage s-repos">
+  <div class="hl"><span data-v="github.repositories_without_learners">345</span> repositories in one data package</div>
+  <svg id="c-repos" viewBox="0 0 1600 900" width="1600" height="900"></svg>
+</div>
+```
+
+::: notes
+Back to the data package. The largest part of it is our work on GitHub. 345 repositories, and 97 of them are data packages. From their commit history we learn how our group works and what we do.
+:::
+
+## {#s-share .bare}
+
+```{=html}
+<div class="stage s-share">
+  <div class="hl">Commits per month by group members</div>
+  <svg id="c-share" viewBox="0 0 1600 900" width="1600" height="900"></svg>
+  <span class="fragment" data-act="agent"></span>
+</div>
+```
+
+::: notes
+Every commit made with an agent says so, and that rule lets us count. [click] In the twelve months before, 8 percent of the commits our group made were made with an agent. In the last twelve months it is 62 percent. We also commit more, 1.5 times as much, and the whole increase is commits made with an agent. A commit is activity. It does not tell you the research is better.
+:::
+
+## {#s-persons .bare}
+
+```{=html}
+<div class="stage s-persons">
+  <div class="hl">Trained is not yet practising</div>
+  <svg id="c-persons" viewBox="0 0 1600 900" width="1600" height="900"></svg>
+</div>
+```
+
+::: notes
+Who makes these commits? 28 people in our group in twelve months. One person makes 43 percent of them, and that is me. 14 colleagues took one of our workshops this year. 7 of them commit in their research repositories since. 7 not yet. A workshop builds the foundation. The practice comes from sitting next to people.
+:::
+
+## {#s-gulu .bare}
+
+```{=html}
+<div class="stage s-gulu">
+  <div class="hl">Open data before the paper</div>
+  <svg id="c-gulu" viewBox="0 0 1600 900" width="1600" height="900"></svg>
+</div>
+```
+
+::: notes
+What does this give us? Open data before the paper. On 30 October, colleagues in Uganda sent me three files on household waste in Gulu City. Four days later the data was published as the data package guluswm, with a DOI. The manuscript is not submitted yet. When it is, it cites the data, and every number in it was checked against the published data.
+:::
+
+## {#s-fund .bare}
+
+```{=html}
+<div class="stage s-fund">
+  <div class="cur">CHF</div>
+  <div class="fnum"><span data-v="proposals.steward_funded_chf" data-f="chf">389,990</span></div>
+  <div class="fsub">brought in by the data steward, <span data-v="proposals.steward_funded">5</span> funded proposals</div>
+</div>
+```
+
+::: notes
+And the role brings funding into the group. Five proposals that I led were funded, 389,990 Swiss francs in total, for projects on open research data. The trade-off is that this is one person, 20 hours a week. If I leave, a lot of this leaves with me.
+:::
+
+## {#s-claim .bare background-color="#3C2874"}
+
+```{=html}
+<div class="stage s-claim">
+  <div class="key">
+    <span class="ln">A group that knows</span>
+    <span class="ln">its own data</span>
+    <span class="ln">can decide.</span>
+  </div>
+  <div class="three">Proposals. People. Repositories.</div>
+</div>
+```
+
+::: notes
+This is what research intelligence means for us. A group that knows its own data can decide: which proposals to write, whom to coach, what to publish. Proposals, people and repositories, in one data package.
+:::
+
+## {#s-question .bare}
+
+```{=html}
+<div class="stage s-question">
+  <div class="again">Place a data steward inside the research group.</div>
+  <div class="key">
+    <span class="ln">What would you</span>
+    <span class="ln">measure to show what</span>
+    <span class="ln">stewardship changes?</span>
+  </div>
+</div>
+```
+
+::: notes
+So place a data steward inside the research group. And then help us with the open question: what would you measure to show what stewardship changes? Come and find me.
+:::
+
+## {#s-end .bare}
+
+```{=html}
+<div class="stage s-end">
+  <div class="title" data-v="talk.title" data-f="raw">Embedded data stewardship and research intelligence: five years of practice at a research group at ETH Zurich</div>
+  <div class="cols">
+    <div>
+      <p><b>Git for Scientists</b><br>Workshop tomorrow, Friday 20 November, 09:30, room Wytsicht</p>
+      <p>Lars Schöbitz, Colin Walder, Adriana Clavijo Daza, Elizabeth Tilley<br><span data-v="talk.affiliation" data-f="raw">Global Health Engineering, ETH Zurich</span></p>
+    </div>
+    <div>
+      <p>The data package ghedata<br><b data-v="talk.package_url" data-f="url">github.com/Global-Health-Engineering/ghedata</b></p>
+      <p>These slides<br><b data-v="talk.slides_repo" data-f="url">github.com/larnsce/rdc-2026</b></p>
+      <p>The data package guluswm<br><b>doi.org/<span data-v="gulu.doi" data-f="raw">10.5281/zenodo.23918126</span></b></p>
+    </div>
+  </div>
+  <div class="foot">
+    <div>Figures: ghedata, snapshot <span data-v="snapshot_date" data-f="date">11 November 2026</span></div>
+    <div>These slides were built with Claude Code. The full declaration is in the slides repository.</div>
+  </div>
+</div>
+```

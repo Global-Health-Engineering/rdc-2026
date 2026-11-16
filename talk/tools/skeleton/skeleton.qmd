@@ -1,0 +1,63 @@
+---
+pagetitle: "Embedded data stewardship"
+format:
+  revealjs:
+    theme: [default, skeleton.scss]
+    width: 1600
+    height: 900
+    margin: 0
+    controls: false
+    progress: false
+    slide-number: false
+    hash: true
+    transition: none
+    embed-resources: true
+    center: false
+    include-in-header:
+      - file: ../../shared/font-face.html
+      - text: |
+          <script src="../../shared/d3.v7.min.js"></script>
+---
+
+## {.bare background-color="#0b0b0b"}
+
+::: {.big}
+<span id="num">CHF 0</span>
+:::
+
+```{=html}
+<script>
+// Pattern for an animation that also prints: the final state is in the HTML,
+// the script only animates towards it when the slide is entered on screen.
+(function () {
+  const el = document.getElementById("num");
+  const target = 35452000.5;
+  const fmt = (v) => "CHF " + v.toLocaleString("de-CH", {minimumFractionDigits: 2, maximumFractionDigits: 2});
+  el.textContent = fmt(target);
+  const isPrint = /print-pdf/.test(location.search);
+  function run() {
+    if (isPrint) return;
+    const t0 = performance.now(), dur = 1800;
+    (function tick(now) {
+      const p = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - p, 4);
+      el.textContent = fmt(target * e);
+      if (p < 1) requestAnimationFrame(tick);
+    })(t0);
+  }
+  window.addEventListener("load", () => {
+    Reveal.on("slidechanged", (ev) => { if (ev.currentSlide.contains(el)) run(); });
+    Reveal.on("ready", (ev) => { if (ev.currentSlide.contains(el)) run(); });
+  });
+})();
+</script>
+```
+
+## {.bare}
+
+```{=html}
+<svg id="chart" viewBox="0 0 1600 900" style="width:1600px;height:900px"></svg>
+<script>
+d3.select("#chart").selectAll("rect").data([3,5,9,14,30]).join("rect")
+  .attr("x",(d,i)=>200+i*240).attr("width",180).attr("y",d=>800-d*24).attr("height",d=>d*24).attr("fill","#ED6D37");
+</script>
+```

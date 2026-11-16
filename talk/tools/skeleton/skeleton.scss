@@ -1,0 +1,6 @@
+/*-- scss:defaults --*/
+$font-family-sans-serif: "Atkinson Hyperlegible Next", "Helvetica Neue", Arial, sans-serif;
+$presentation-font-size-root: 40px;
+/*-- scss:rules --*/
+.reveal .slides section.bare { padding: 0; height: 900px; }
+.reveal .big { font-size: 150px; font-weight: 800; color: #ffd400; position: absolute; top: 340px; left: 0; width: 1600px; text-align: center; font-variant-numeric: tabular-nums; }

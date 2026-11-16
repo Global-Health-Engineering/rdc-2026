@@ -1,0 +1,193 @@
+/*-- scss:defaults --*/
+$font-family-sans-serif: "Atkinson Hyperlegible Next", "Helvetica Neue", Arial, sans-serif;
+$presentation-font-size-root: 40px;
+$body-bg: #000;
+$body-color: #fff;
+$link-color: #ffd400;
+
+/*-- scss:rules --*/
+// "Signal": black, white, one yellow. A neutral grey (#777) only for data marks.
+// Loud slides (.loud: the number, the key, the bridge, the close) are set in
+// capitals. Figure slides (.fig) carry one headline and one figure, nothing else.
+$k: #000;
+$w: #fff;
+$y: #ffd400;
+$n: #777777;
+
+html, body, .reveal, .reveal-viewport { background: $k; }
+
+.reveal .slides section {
+  box-sizing: border-box;
+  width: 1600px;
+  height: 900px;
+  padding: 0;
+  overflow: hidden;
+  background: $k;
+  color: $w;
+  text-align: left;
+  font-weight: 800;
+  text-transform: none;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.reveal .slides section.loud { text-transform: uppercase; letter-spacing: -0.045em; line-height: 0.86; }
+.reveal .slides section > h2 { display: none; }
+.reveal .slides section div,
+.reveal .slides section span,
+.reveal .slides section b { margin: 0; font-weight: 800; }
+.reveal .slides section > div,
+.reveal .slides section > svg,
+.reveal .slides section > img { position: absolute; margin: 0; max-width: none; max-height: none; }
+.reveal .slides section .fit { display: block; white-space: nowrap; letter-spacing: -0.045em; }
+.reveal svg text { font-weight: 800; letter-spacing: -0.02em; }
+.reveal svg text:not([fill]) { fill: $w; }
+
+// Hard cuts only: fragments switch, they never fade.
+.reveal .slides section .fragment { transition: none !important; }
+html.is-print .reveal .slides section .fragment { opacity: 1 !important; visibility: visible !important; }
+
+// Entry animation: a mark stays hidden for its delay, then cuts in.
+// No delay in this deck is longer than 1.1 s.
+@keyframes cut { from { visibility: hidden; } to { visibility: visible; } }
+@media (prefers-reduced-motion: no-preference) {
+  html:not(.is-print) .reveal section.present {
+    .pop, .k { animation: cut 1ms steps(1, end) var(--d, 0ms) backwards; }
+  }
+}
+
+.reveal .draft-flag {
+  top: 36px; right: 40px;
+  border: 4px solid $y; color: $y;
+  font-size: 28px; line-height: 1; padding: 8px 14px 10px; letter-spacing: 0;
+}
+
+// Figure slides: one modest headline top left, the figure takes the rest.
+.reveal .fig {
+  .head { top: 38px; left: 40px; font-size: 44px; font-weight: 700; letter-spacing: -0.02em; white-space: nowrap; }
+  .head span { font-weight: 700; }
+  svg { top: 0; left: 0; }
+  svg .name { font-size: 40px; letter-spacing: -0.02em; }
+  svg .val { font-size: 44px; letter-spacing: -0.03em; }
+  svg .lab { font-size: 32px; font-weight: 700; letter-spacing: 0; }
+  svg .ax { font-size: 30px; font-weight: 600; letter-spacing: 0; }
+  svg .dl { font-size: 30px; letter-spacing: -0.01em; }
+  svg .band-t { font-size: 56px; letter-spacing: -0.03em; }
+}
+
+// Holding slide: empty and dark.
+.reveal .slides section#s-hold { background: $k; }
+
+// The number (loud) ---------------------------------------------------------
+.reveal #s-num {
+  .num-cur { top: 196px; left: 40px; font-size: 96px; color: $y; }
+  .num { top: 290px; left: 40px; width: 1520px; font-size: 230px; line-height: 1; }
+  .num-sub { top: 552px; left: 44px; font-size: 48px; letter-spacing: -0.02em; }
+  .num-line { top: 622px; left: 44px; font-size: 48px; letter-spacing: -0.02em; white-space: nowrap; }
+}
+// one flash to the deck yellow
+.reveal .slides section#s-num.flash {
+  background: $y; color: $k;
+  .num-cur { color: $k; }
+  .draft-flag { color: $k; border-color: $k; }
+}
+
+// The key sentence (loud), always set the same way -----------------------------
+.reveal .slides section.s-key {
+  background: $y; color: $k;
+  .key { top: 0; left: 0; width: 1600px; height: 900px; }
+  .k { position: absolute; left: 40px; }
+  .k1 { top: 52px; --d: 0ms; }
+  .k2 { top: 222px; width: 1520px; height: 440px; background: $k; color: $y; --d: 220ms; overflow: hidden; }
+  .k2 span { position: absolute; left: 34px; top: 22px; line-height: 0.9; }
+  .k3 { top: 686px; --d: 440ms; }
+  .key-by { left: 44px; bottom: 22px; font-size: 28px; letter-spacing: 0; text-transform: none; white-space: nowrap; }
+}
+// The close: on the click the key moves into a yellow band, the question below.
+.reveal .slides section#s-close {
+  &.s1 .key { visibility: hidden; }
+  .ask { top: 0; left: 0; width: 1600px; height: 900px; background: $k; }
+  .ask-key { position: absolute; top: 0; left: 0; width: 1600px; height: 290px; box-sizing: border-box; background: $y; color: $k; padding: 34px 40px 0; }
+  .ak1 { display: flex; align-items: center; gap: 28px; font-size: 104px; line-height: 1; letter-spacing: -0.045em; white-space: nowrap; }
+  .ak1 b { background: $k; color: $y; padding: 6px 22px 10px; letter-spacing: -0.045em; }
+  .ak2 { font-size: 104px; line-height: 1; letter-spacing: -0.045em; margin-top: 10px !important; white-space: nowrap; }
+  .ask-q { position: absolute; top: 334px; left: 40px; width: 1520px; color: $w; }
+  .q1 { line-height: 0.9; }
+  .q2 { margin-top: 30px !important; line-height: 1; }
+}
+
+// No doctorate (quiet) --------------------------------------------------------
+.reveal #s-no {
+  .no { left: 120px; top: 310px; font-size: 96px; font-weight: 700; line-height: 1.25; letter-spacing: -0.02em; }
+}
+
+// Computer and dolls ----------------------------------------------------------
+// Without a photo the two rows take the full width. With the photo (class
+// has-photo, set by deck.js when the file loads) they move to the right.
+.reveal #s-story {
+  img.photo { display: none; top: 40px; left: 40px; width: 500px; height: 820px; object-fit: cover; filter: grayscale(1) contrast(1.5); }
+  .st-row { left: 120px; width: 1440px; }
+  .r1 { top: 70px; }
+  .r2 { top: 350px; }
+  .st-who { font-size: 48px; font-weight: 700; letter-spacing: -0.01em; }
+  .st-what { position: relative; height: 190px; margin-top: 8px !important; }
+  .st-what span { position: absolute; left: -6px; top: 0; font-size: 170px; line-height: 1.05; letter-spacing: -0.045em; white-space: nowrap; }
+  .st-what .b { visibility: hidden; }
+  .st-last { left: 120px; top: 710px; font-size: 72px; color: $y; white-space: nowrap; }
+  &.has-photo {
+    img.photo { display: block; }
+    .st-row, .st-last { left: 620px; }
+    .st-row { width: 940px; }
+    .st-what span { font-size: 128px; }
+    .st-last { font-size: 62px; }
+  }
+}
+// The swap lasts one click. The last line returns the rows to the true state,
+// which is also what the PDF shows.
+.reveal #s-story.s1:not(.s2) {
+  .st-what .a { visibility: hidden; }
+  .st-what .b { visibility: visible; }
+}
+
+// The bridge (loud): the photo full bleed, one line over a scrim ---------------
+.reveal #s-bridge {
+  img.bw { top: 0; left: 0; width: 1600px; height: 900px; object-fit: cover; filter: grayscale(1) contrast(1.6) brightness(0.85); }
+  .br {
+    left: 0; bottom: 0; width: 1600px; height: 420px; box-sizing: border-box;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 42%, rgba(0, 0, 0, 0.96) 100%);
+  }
+  .br .fit { position: absolute; left: 60px; bottom: 56px; color: $w; line-height: 1; }
+}
+
+// The trade-off: the role figure again; on the click the steward bar becomes
+// an empty outline and its links go (hard cut) --------------------------------
+.reveal #s-one.s1 #anchor {
+  .stew-band { fill: none; stroke: $n; }
+  .stew-t { fill: $n; }
+  .link { visibility: hidden; }
+}
+
+// guluswm ---------------------------------------------------------------------
+.reveal #s-gulu {
+  svg .tick { font-size: 44px; font-weight: 700; letter-spacing: -0.01em; }
+  svg .ev { font-size: 52px; letter-spacing: -0.02em; }
+}
+
+// The end: plain text in two columns ---------------------------------------------
+.reveal .slides section#s-end {
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  .e-col { top: 60px; }
+  .e-a { left: 40px; width: 780px; }
+  .e-b { left: 880px; width: 680px; }
+  .e-pre { font-size: 44px; font-weight: 700; }
+  .e-ws { font-size: 104px; letter-spacing: -0.045em; line-height: 1; margin-top: 10px !important; }
+  .e-when { font-size: 44px; font-weight: 700; margin-top: 22px !important; }
+  .e-links { margin-top: 90px !important; font-size: 34px; }
+  .e-links div { font-weight: 700; margin-top: 10px !important; overflow-wrap: anywhere; }
+  .e-title { font-size: 36px; line-height: 1.2; }
+  .e-auth { font-size: 30px; font-weight: 700; margin-top: 26px !important; }
+  .e-aff { font-size: 28px; font-weight: 600 !important; margin-top: 10px !important; }
+  .e-aff span, .e-small span { font-weight: 600 !important; }
+  .e-small { font-size: 26px; font-weight: 600 !important; letter-spacing: 0; margin-top: 30px !important; }
+}
