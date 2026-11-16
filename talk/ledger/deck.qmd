@@ -311,7 +311,7 @@ So place a data steward inside the research group. And then help us with the ope
     </div>
     <div>
       <p>The data package ghedata<br><b data-v="talk.package_url" data-f="url">github.com/Global-Health-Engineering/ghedata</b></p>
-      <p>These slides<br><b data-v="talk.slides_repo" data-f="url">github.com/larnsce/rdc-2026</b></p>
+      <p>These slides<br><b data-v="talk.slides_repo" data-f="url">github.com/Global-Health-Engineering/rdc-2026</b></p>
       <p>The data package guluswm<br><b>doi.org/<span data-v="gulu.doi" data-f="raw">10.5281/zenodo.23918126</span></b></p>
     </div>
   </div>

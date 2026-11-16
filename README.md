@@ -6,5 +6,6 @@ Submissions to the Swiss Research Data Support Network (SRDSN) Research Data Con
 
 - `abstract-talk.md` - Talk submission: "Embedded data stewardship and research intelligence: five years of practice at a research group at ETH Zurich" (Colin Walder, Lars Schöbitz)
 - `abstract-workshop.md` - Workshop submission: "Git for Scientists: a 120-minute hands-on workshop, taught from the learner's seat and pitched to educators" (Lars Schöbitz)
+- `talk/` - Slides of the talk, with the decks, the reviews and the declaration on the use of AI tools that led to them. See [talk/README.md](talk/README.md)
 - `prompts/` - Prompts used while drafting the submissions
 - `references/` - Call for proposals and earlier drafts

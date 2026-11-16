@@ -261,7 +261,7 @@ data <- list(
     event = "Research Data Conference 2026, Bern, 19 November 2026",
     workshop = "Git for Scientists, Friday 20 November, 09:30, room Wytsicht",
     package_url = "https://github.com/Global-Health-Engineering/ghedata",
-    slides_repo = "https://github.com/larnsce/rdc-2026"
+    slides_repo = "https://github.com/Global-Health-Engineering/rdc-2026"
   )
 )
 
