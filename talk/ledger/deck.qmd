@@ -157,7 +157,7 @@ Nobody is born a data steward, and nobody is born a programmer. Many researchers
 ```
 
 ::: notes
-Since 2021, students have done 162 theses and projects in our group, at bachelor, master and doctoral level. Each person arrives with different skills and different gaps. A course cannot cover that. Sitting next to them can.
+And these are the people who have to build that belief. Since 2021, students have done 162 theses and projects in our group, at bachelor, master and doctoral level. Each person arrives with different skills, and some bring Git with them. So far we teach Git and GitHub actively only to our doctoral students. For bachelor and master students we do not do that yet. We want to expand the training, so that they learn the workflows for working together early on.
 :::
 
 ## {#s-teach .bare}
