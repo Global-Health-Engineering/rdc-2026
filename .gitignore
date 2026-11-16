@@ -3,3 +3,15 @@
 .RData
 .Ruserdata
 .positai
+.DS_Store
+
+# Talk: sources only. Rendered decks, PDFs and screenshots are rebuilt from
+# the sources (see talk/README.md).
+talk/**/deck.html
+talk/**/deck.pdf
+talk/**/deck_files/
+talk/**/shots/
+talk/tools/skeleton/skeleton.html
+
+# Photo with recognisable people; stays out until everyone on it has agreed.
+talk/**/workshop-hackathon-2024.*
