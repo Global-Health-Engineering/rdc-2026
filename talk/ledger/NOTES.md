@@ -6,7 +6,7 @@ Paper, ink and one purple. The colours are from the GHE Colour Palette: purple `
 
 ## Slides and clicks
 
-Every click inside a slide is marked "[click]" in the speaker notes. The PDF has 18 pages, one per slide.
+Every click inside a slide is marked "[click]" in the speaker notes. The PDF has 17 pages, one per slide.
 
 | Slide | Content | Clicks on the slide |
 |---|---|---|
@@ -20,20 +20,19 @@ Every click inside a slide is marked "[click]" in the speaker notes. The PDF has
 | 8 | Student theses and projects by degree and year | 0 |
 | 9 | Tools and teaching from inside the group: five steps from 2025 to 2027 (bullets) | 0 |
 | 10 | Photos: one workshop photo and two photo slots | 0 |
-| 11 | Repositories by type | 0 |
+| 11 | GitHub repositories, sorted by what they hold | 0 |
 | 12 | Commits per month by group members | 1: the part made with an agent |
-| 13 | "Trained is not yet practising": commits by group member, ranked, without names; a dot for each person who took a workshop, an empty box for those without a commit since | 0 |
-| 14 | guluswm: open data before the paper | 0 |
-| 15 | Funding brought in by the data steward; the trade-off is in the notes | 0 |
-| 16 | "A group that knows its own data can decide." on indigo | 0 |
-| 17 | The key again, small, and the question | 0 |
-| 18 | Workshop, links, DOI, authors, figures line | 0 |
+| 13 | Commits by group member, ranked, without names: each bar is one person; a dot for each person who took a workshop, an empty box for those without a commit since | 0 |
+| 14 | "What the commits tell us": four rows read from the data (bullets) | 0 |
+| 15 | Funding brought in by the data steward, and the proposals submitted this autumn (typed by hand until the proposals table is rebuilt); the trade-off is in the notes | 0 |
+| 16 | The key again, small, and the question | 0 |
+| 17 | Workshop, links, authors, figures line | 0 |
 
 Nothing runs by itself for longer than 1.5 seconds. Only data moves; text cuts in. Going back shows a slide in its final state. Going back to the title slide and forward again replays the opening.
 
 ## Open in the notes of deck.qmd
 
-- Slide 4: "Place a data steward" chosen on 16 November (slides 5 and 17).
+- Slide 4: "Place a data steward" chosen on 16 November (slides 5 and 16).
 - Slide 10: two photo slots wait for a file each (`img/gitforsci-2026-07.jpg`, `img/agentsforsci-2026-09.jpg`). The comment above the slide in `deck.qmd` says how to fill them. The slots have to be filled or removed before the PDF goes to the organisers.
 
 ## Render and PDF

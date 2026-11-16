@@ -202,13 +202,13 @@ This is what it looks like: people at one table, each with their own project, an
 
 ```{=html}
 <div class="stage s-repos">
-  <div class="hl"><span data-v="github.repositories_without_learners">345</span> repositories in one data package</div>
+  <div class="hl">Our <span data-v="github.repositories_without_learners">345</span> GitHub repositories, sorted by what they hold</div>
   <svg id="c-repos" viewBox="0 0 1600 900" width="1600" height="900"></svg>
 </div>
 ```
 
 ::: notes
-Back to the data package. The largest part of it is our work on GitHub. 345 repositories, and 97 of them are data packages. From their commit history we learn how our group works and what we do.
+Back to the data package. The largest part of it is our work on GitHub. We have sorted our 345 repositories by what they hold, and 97 of them are data packages. From their commit history we learn how our group works and what we do.
 :::
 
 ## {#s-share .bare}
@@ -229,26 +229,31 @@ Every commit made with an agent says so, and that rule lets us count. [click] In
 
 ```{=html}
 <div class="stage s-persons">
-  <div class="hl">Trained is not yet practising</div>
+  <div class="hl">Commits by group member: each bar is one person</div>
   <svg id="c-persons" viewBox="0 0 1600 900" width="1600" height="900"></svg>
 </div>
 ```
 
 ::: notes
-Who makes these commits? 28 people in our group in twelve months. One person makes 43 percent of them, and that is me. 14 colleagues took one of our workshops this year. 7 of them commit in their research repositories since. 7 not yet. A workshop builds the foundation. The practice comes from sitting next to people.
+Who makes these commits? Each bar is one person in our group, 28 in twelve months, ranked by commits. The purple part is made with an agent. A dot marks everyone who took one of our workshops this year. An empty box means: trained, and no commit since.
 :::
 
-## {#s-gulu .bare}
+## {#s-learn .bare}
 
 ```{=html}
-<div class="stage s-gulu">
-  <div class="hl">Open data before the paper</div>
-  <svg id="c-gulu" viewBox="0 0 1600 900" width="1600" height="900"></svg>
+<div class="stage s-teach s-intel s-learn">
+  <div class="th">What the commits tell us</div>
+  <ul>
+    <li><span class="yr">1 of <span data-v="github.persons">28</span></span>makes <span data-v="github.first_person_share_pct">43</span> percent of the commits</li>
+    <li><span class="yr"><span data-v="github.persons_with_agent">10</span> of <span data-v="github.persons">28</span></span>commit with an agent</li>
+    <li><span class="yr"><span data-v="github.trained_practising">7</span> of <span data-v="github.trained">14</span></span>who took a workshop commit since</li>
+    <li><span class="yr"><span data-v="github.trained_practising_with_agent">6</span> of <span data-v="github.trained_practising">7</span></span>of these work with an agent</li>
+  </ul>
 </div>
 ```
 
 ::: notes
-What does this give us? Open data before the paper. On 30 October, colleagues in Uganda sent me three files on household waste in Gulu City. Four days later the data was published as the data package guluswm, with a DOI. The manuscript is not submitted yet. When it is, it cites the data, and every number in it was checked against the published data.
+What do we learn from this? One person makes 43 percent of the commits. The group depends on me more than it should. 10 of 28 commit with an agent. 14 colleagues took one of our workshops this year. 7 of them commit in their research repositories since, and 6 of these 7 work with an agent. So training and practice go together. And the other 7 are the work ahead. A workshop builds the foundation. The practice comes from sitting next to people, on their own project.
 :::
 
 ## {#s-fund .bare}
@@ -258,28 +263,12 @@ What does this give us? Open data before the paper. On 30 October, colleagues in
   <div class="cur">CHF</div>
   <div class="fnum"><span data-v="proposals.steward_funded_chf" data-f="chf">389,990</span></div>
   <div class="fsub">brought in by the data steward, <span data-v="proposals.steward_funded">5</span> funded proposals</div>
+  <div class="fsub2">3 more submitted this autumn</div>
 </div>
 ```
 
 ::: notes
-And the role brings funding into the group. Five proposals that I led were funded, 389,990 Swiss francs in total, for projects on open research data. The trade-off is that this is one person, 20 hours a week. If I leave, a lot of this leaves with me.
-:::
-
-## {#s-claim .bare background-color="#3C2874"}
-
-```{=html}
-<div class="stage s-claim">
-  <div class="key">
-    <span class="ln">A group that knows</span>
-    <span class="ln">its own data</span>
-    <span class="ln">can decide.</span>
-  </div>
-  <div class="three">Proposals. People. Repositories.</div>
-</div>
-```
-
-::: notes
-This is what research intelligence means for us. A group that knows its own data can decide: which proposals to write, whom to coach, what to publish. Proposals, people and repositories, in one data package.
+And the role brings funding into the group. Five proposals that I led were funded, 389,990 Swiss francs in total, for projects on open research data. Three more that I lead were submitted this autumn, and the decisions come in December. The trade-off is that this is one person, 20 hours a week. If I leave, a lot of this leaves with me.
 :::
 
 ## {#s-question .bare}
@@ -312,7 +301,6 @@ So place a data steward inside the research group. And then help us with the ope
     <div>
       <p>The data package ghedata<br><b data-v="talk.package_url" data-f="url">github.com/Global-Health-Engineering/ghedata</b></p>
       <p>These slides<br><b data-v="talk.slides_repo" data-f="url">github.com/Global-Health-Engineering/rdc-2026</b></p>
-      <p>The data package guluswm<br><b>doi.org/<span data-v="gulu.doi" data-f="raw">10.5281/zenodo.23918126</span></b></p>
     </div>
   </div>
   <div class="foot">
