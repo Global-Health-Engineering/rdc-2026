@@ -448,6 +448,13 @@
         if (s) s.frag(f.dataset.act, shown, !STILL, s);
       });
     }
+    // The print view numbers its pages without the total; add it, as on screen.
+    setTimeout(function () {
+      var total = Reveal.getTotalSlides();
+      document.querySelectorAll(".slide-number-pdf").forEach(function (el) {
+        if (el.textContent.indexOf("/") < 0) el.textContent = el.textContent.trim() + " / " + total;
+      });
+    }, 500);
     Reveal.on("slidechanged", enter);
     Reveal.on("fragmentshown", function (ev) { fr(ev, true); });
     Reveal.on("fragmenthidden", function (ev) { fr(ev, false); });

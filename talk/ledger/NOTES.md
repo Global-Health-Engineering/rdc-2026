@@ -29,7 +29,7 @@ Every click inside a slide is marked "[click]" in the speaker notes. The PDF has
 | 17 | The three sentences (keep data on your own group, place a data steward inside it, know what is going on), small, and the question "What would you measure to show what data stewardship changes?" | 0 |
 | 18 | "Thank you", workshop, authors, links to ghedata and the slides, Lars's GitHub, LinkedIn and newsletter, a link to the declaration of AI use, figures line | 0 |
 
-Slide numbers show bottom right from slide 3 on (the two opening slides are dark).
+Slide numbers show top right as "slide/total" from slide 3 on (the two opening slides are dark).
 
 Nothing runs by itself for longer than 1.5 seconds. Only data moves; text cuts in. Going back shows a slide in its final state. Going back to the title slide and forward again replays the opening.
 
