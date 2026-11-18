@@ -19,3 +19,6 @@ talk/**/workshop-hackathon-2024.*
 # Workshop photos of 29 September 2026 with recognisable people.
 talk/**/2026-09-29-agentsforsci-1.jpg
 talk/**/2026-09-29-agentsforsci-2.jpg
+
+# Dated exports of the deck. They go out as release assets, not into git.
+export/
