@@ -25,9 +25,9 @@ Every click inside a slide is marked "[click]" in the speaker notes. The PDF has
 | 13 | GitHub repositories, sorted by what they hold | 0 |
 | 14 | Commits per month by group members | 1: the part made with an agent |
 | 15 | Commits by group member, ranked, without names: each bar is one person; a dot for each person who took a workshop, an empty box for those without a commit since | 0 |
-| 16 | A reviewer's caution that commits are imperfect proxies for competency (quoted from the decision letter of a rejected proposal, April 2026) | 0 |
+| 16 | Headline "GitHub activity as an indicator for competency?" and a reviewer's caution that commits are imperfect proxies for competency (quoted from the decision letter of a rejected proposal, April 2026) | 0 |
 | 17 | The three sentences (keep data on your own group, place a data steward inside it, know what is going on), small, and the question "What would you measure to show what data stewardship changes?" | 0 |
-| 18 | Workshop, authors, links to ghedata and the slides, Lars's GitHub, LinkedIn and newsletter, a link to the declaration of AI use, figures line | 0 |
+| 18 | "Thank you", workshop, authors, links to ghedata and the slides, Lars's GitHub, LinkedIn and newsletter, a link to the declaration of AI use, figures line | 0 |
 
 Slide numbers show bottom right from slide 3 on (the two opening slides are dark).
 
