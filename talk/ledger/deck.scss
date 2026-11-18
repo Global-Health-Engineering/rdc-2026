@@ -190,3 +190,20 @@ html.is-print .reveal .fragment { opacity: 1 !important; visibility: visible !im
 // Slide numbers, bottom right, for questions after the talk.
 .reveal .slide-number, .reveal .slide-number-pdf { right: 28px !important; bottom: 18px !important; padding: 0 !important; background: none !important; color: var(--grey) !important; font-size: 28px !important; font-family: inherit !important; font-variant-numeric: tabular-nums lining-nums; }
 .reveal .slide-number a { color: inherit; }
+
+// The third part opens with its own slide, and the close names all three parts.
+.reveal .s-know .sub { position: absolute; left: 80px; top: 640px; width: 1440px; border-top: 2px solid var(--ink); padding-top: 24px; font-size: 52px; font-weight: 700; }
+.reveal .s-question .again.three { top: 96px; }
+.reveal .s-question .again.three span { display: block; line-height: 1.25; }
+.reveal .s-question .again.three + .key { top: 360px; font-size: 116px; }
+
+// Photos: three portrait photos side by side.
+.reveal .s-photos .c1, .reveal .s-photos .c2, .reveal .s-photos .c3 { position: absolute; top: 0; width: 528px; height: 900px; object-fit: cover; max-width: none; max-height: none; margin: 0; }
+.reveal .s-photos .c1 { left: 0; }
+.reveal .s-photos .c2 { left: 536px; }
+.reveal .s-photos .c3 { left: 1072px; }
+// The voices slide carries a headline, so both quotes sit lower.
+.reveal .s-voices .v1 { top: 130px; }
+.reveal .s-voices .v2 { top: 520px; }
+// The link to the declaration of AI use on the last slide, marked like the links on the teaching slide.
+.reveal .s-end .cols a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 4px; text-underline-offset: 6px; }

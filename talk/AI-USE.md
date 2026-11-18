@@ -14,7 +14,7 @@ Claude Code (Anthropic), run on the speaker's laptop in several sessions between
 - The abstract, written with the co-authors.
 - The brief for the slides: the content of each part, the speaker notes, and the wish for a deck with few words, large numbers and figures drawn in the browser.
 - The data: the proposals table, the people table and the rules of the group for Git, kept over five years.
-- Every decision on content: which deck to use, which numbers to show, how to count (every proposal since 2020, group members only, workshop exercises left out), who is a group member, which colours, and which slides to add or drop.
+- Every decision on content: which deck to use, which numbers to show, how to count (every proposal since 2021, group members only, workshop exercises left out), who is a group member, which colours, and which slides to add or drop.
 - Review of each version, with corrections written into the speaker notes.
 
 ## What Claude Code did
