@@ -136,17 +136,13 @@ html.is-print .reveal .fragment { opacity: 1 !important; visibility: visible !im
 .reveal .s-mind .q2 { top: 425px; font-weight: 800; }
 .reveal .s-mind .does { position: absolute; left: 80px; top: 700px; width: 1440px; font-size: 52px; font-weight: 700; color: var(--second); white-space: nowrap; }
 // The overview of research intelligence reuses the teaching layout, one line of headline.
-.reveal .s-teach.s-intel ul { top: 320px; }
-.reveal .s-teach.s-intel li { font-size: 56px; margin-bottom: 44px; padding-left: 340px; }
+.reveal .s-teach.s-intel ul { top: 290px; }
+.reveal .s-teach.s-intel li { font-size: 56px; margin-bottom: 38px; padding-left: 340px; }
 // The second line that stays: what the role asks for.
 .reveal .s-quiet .adm { top: 150px; }
 .reveal .s-quiet .adm .stay2 { margin-top: 30px; font-weight: 800; color: var(--accent); }
 
 // Funding brought in by the data steward: one number.
-.reveal .s-fund .cur { position: absolute; left: 80px; top: 180px; font-size: 64px; font-weight: 800; letter-spacing: 0.02em; }
-.reveal .s-fund .fnum { position: absolute; left: 80px; top: 250px; font-size: 300px; font-weight: 800; line-height: 1; letter-spacing: -0.02em; color: var(--accent); white-space: nowrap; }
-.reveal .s-fund .fsub { position: absolute; left: 80px; top: 600px; width: 1440px; font-size: 48px; font-weight: 700; }
-.reveal .s-fund .fsub2 { position: absolute; left: 80px; top: 680px; width: 1440px; font-size: 48px; font-weight: 400; }
 // The claim on indigo, and the close.
 .reveal .s-claim .key { top: 150px; color: var(--paper); }
 .reveal .s-claim .three { position: absolute; left: 80px; top: 700px; font-size: 56px; font-weight: 700; color: var(--paper); }
@@ -176,3 +172,38 @@ html.is-print .reveal .fragment { opacity: 1 !important; visibility: visible !im
 .reveal .s-why .key { top: 290px; }
 .reveal .s-key .key { top: 210px; }
 .reveal .s-teach li a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 5px; text-underline-offset: 8px; }
+
+// A reviewer's caution on commits, alone on the slide.
+.reveal .s-learn .rev { position: absolute; left: 80px; top: 200px; width: 1440px; }
+.reveal .s-learn .rev .rq { font-size: 88px; font-weight: 800; line-height: 1.08; letter-spacing: -0.01em; color: var(--accent); }
+.reveal .s-learn .rev .rs { margin-top: 44px; font-size: 36px; color: var(--grey); }
+
+// Two voices from the group.
+.reveal .s-voices .v { position: absolute; left: 80px; width: 1440px; }
+.reveal .s-voices .v1 { top: 90px; }
+.reveal .s-voices .v2 { top: 500px; }
+.reveal .s-voices .rq { font-size: 52px; font-weight: 700; line-height: 1.18; }
+.reveal .s-voices .v1 .rq { color: var(--accent); }
+.reveal .s-voices .v2 .rq { color: var(--second); }
+.reveal .s-voices .rs { margin-top: 18px; font-size: 30px; color: var(--grey); }
+
+// Slide numbers, bottom right, for questions after the talk.
+.reveal .slide-number, .reveal .slide-number-pdf { right: 28px !important; bottom: 18px !important; padding: 0 !important; background: none !important; color: var(--grey) !important; font-size: 28px !important; font-family: inherit !important; font-variant-numeric: tabular-nums lining-nums; }
+.reveal .slide-number a { color: inherit; }
+
+// The third part opens with its own slide, and the close names all three parts.
+.reveal .s-know .sub { position: absolute; left: 80px; top: 640px; width: 1440px; border-top: 2px solid var(--ink); padding-top: 24px; font-size: 52px; font-weight: 700; }
+.reveal .s-question .again.three { top: 96px; }
+.reveal .s-question .again.three span { display: block; line-height: 1.25; }
+.reveal .s-question .again.three + .key { top: 360px; font-size: 116px; }
+
+// Photos: three portrait photos side by side.
+.reveal .s-photos .c1, .reveal .s-photos .c2, .reveal .s-photos .c3 { position: absolute; top: 0; width: 528px; height: 900px; object-fit: cover; max-width: none; max-height: none; margin: 0; }
+.reveal .s-photos .c1 { left: 0; }
+.reveal .s-photos .c2 { left: 536px; }
+.reveal .s-photos .c3 { left: 1072px; }
+// The voices slide carries a headline, so both quotes sit lower.
+.reveal .s-voices .v1 { top: 130px; }
+.reveal .s-voices .v2 { top: 520px; }
+// The link to the declaration of AI use on the last slide, marked like the links on the teaching slide.
+.reveal .s-end .cols a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 4px; text-underline-offset: 6px; }

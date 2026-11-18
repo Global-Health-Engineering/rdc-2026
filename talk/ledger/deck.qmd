@@ -12,7 +12,7 @@ format:
     margin: 0
     controls: false
     progress: false
-    slide-number: false
+    slide-number: c
     menu: false
     overview: false
     html-math-method: plain
@@ -45,7 +45,7 @@ format:
 ```
 
 ::: notes
-Title slide, on the screen before the talk starts. [click] The number starts.
+Thank you very much for the introduction. I am very happy to be here and to talk about something very dear to me, data stewardship, because that is what I am: an embedded data steward. With Adriana and Colin, the other data stewards who have supported me over time in our group, Global Health Engineering, we have been working on something we call research intelligence. This talk is about what five years of practice have shown us. [click] The number starts.
 :::
 
 ## {#s-number .bare}
@@ -53,15 +53,15 @@ Title slide, on the screen before the talk starts. [click] The number starts.
 ```{=html}
 <div class="stage s-number">
   <div class="cur">CHF</div>
-  <div class="bignum"><span class="uw"><span id="n-amount" data-v="proposals.amount_chf" data-f="chf">32,143,694</span><i></i></span></div>
-  <div class="req">requested since <span data-v="proposals.first_year" data-f="raw">2020</span></div>
+  <div class="bignum"><span class="uw"><span id="n-amount" data-v="proposals.amount_chf" data-f="chf">34,010,433</span><i></i></span></div>
+  <div class="req">requested since <span data-v="proposals.first_year" data-f="raw">2021</span></div>
   <div class="tally fragment" data-fragment-index="0" data-act="written"><svg id="c-tally" viewBox="0 0 1440 60" width="1440" height="60"></svg></div>
-  <div class="tline"><span class="fragment" data-fragment-index="0"><span data-v="proposals.written">82</span> proposals written</span><span class="fragment" data-fragment-index="0" data-act="funded">, <span data-v="proposals.funded">24</span> funded</span></div>
+  <div class="tline"><span class="fragment" data-fragment-index="0"><span data-v="proposals.written">81</span> proposals written</span><span class="fragment" data-fragment-index="0" data-act="funded">, <span data-v="proposals.funded">23</span> funded</span></div>
 </div>
 ```
 
 ::: notes
-32 million, 143 thousand, 694 Swiss francs. That is the funding our group would have received if every proposal since 2020 had been funded. [click] We wrote 82. 24 were funded.
+34 million, 10 thousand, 433 Swiss francs. That is the amount of funding we have requested since 2021. [click] We have written 81 proposals for that, and 23 of them were funded.
 :::
 
 ## {#s-why .bare}
@@ -85,16 +85,17 @@ Why do we know this so exactly?
 <div class="stage s-teach s-intel">
   <div class="th">We keep data on our own group</div>
   <ul>
-    <li><span class="yr">Proposals</span>every one since <span data-v="proposals.first_year" data-f="raw">2020</span></li>
+    <li><span class="yr">Proposals</span>every one since <span data-v="proposals.first_year" data-f="raw">2021</span></li>
     <li><span class="yr">People</span>theses, student projects, positions</li>
     <li><span class="yr">GitHub</span>repositories and commits</li>
+    <li><span class="yr">Downloads</span>our records on Zenodo</li>
     <li><span class="yr">Reach</span>LinkedIn statistics, publications</li>
   </ul>
 </div>
 ```
 
 ::: notes
-Because we keep data on our own group. Every proposal we submit goes into one table, with the funder, the budget and the answer. Every thesis, every student project and every position goes into a second table. Our repositories and their commits are read from GitHub. We also keep our LinkedIn statistics and a list of our publications. All of this goes into one data package. We call it ghedata, and we call what we learn from it research intelligence. Data like this does not collect itself. Someone has to design it, and everyone in the group has to contribute to it. That takes a person who is part of the group.
+We know it because we practice a data first culture in our group. We collect a lot of metadata on ourselves. Every proposal we write is documented in one table, and people contribute to it. We make a point of it. So we keep such data on our own group, and we make it public: there is a data package where you can verify these numbers yourselves. It holds every proposal since 2021. It holds a people table with theses, student projects and positions, so basically anyone who has ever gone through our group. You can imagine that this comes with questions about personal data, and we are looking at those. We track our work on GitHub, because we work a lot with Git in our group and use it as the foundation of how we work together. We count how often our records on Zenodo are viewed and downloaded. And we look at our reach through LinkedIn statistics and publications. All of that is in one data package, and the numbers on these slides are generated from it.
 :::
 
 ## {#s-key .bare}
@@ -110,7 +111,7 @@ Because we keep data on our own group. Every proposal we submit goes into one ta
 ```
 
 ::: notes
-And that is my one point for the next eight minutes. Place a data steward inside the research group.
+This is the argument I bring when we talk about data stewardship. The question comes up: do we need this at the institutional level, as a service? Our argument is to place the data steward inside the research group, because a data steward does a lot more than technical work and service work. It is someone who sits between the professor, the staff and the students, and helps to navigate these spaces when it comes to how a group and its data are managed.
 :::
 
 ## {#s-quiet .bare}
@@ -128,7 +129,7 @@ And that is my one point for the next eight minutes. Place a data steward inside
 ```
 
 ::: notes
-I have no doctorate. I have no qualification in statistics and no degree in computer science. [click] I am an environmental engineer who likes computers. [click] And I have some empathy, patience and persistence. In my experience, these are the qualities a data steward needs.
+A few words about myself and what a data steward needs. I have no doctorate. I have no qualification in statistics and no computer science degree, against the common belief that these are what you need to become a data steward. [click] What I am is an environmental engineer who likes computers. I received a computer very early in my life from my dad. I often argue that if my sister had received the computer, she would be here today. [click] What I also think I have, and you may ask the group whether they confirm this, is empathy, patience and particularly persistence. These things do not come easy, and they often need a change of beliefs and culture.
 :::
 
 ## {#s-mind .bare}
@@ -144,20 +145,29 @@ I have no doctorate. I have no qualification in statistics and no degree in comp
 ```
 
 ::: notes
-Nobody is born a data steward, and nobody is born a programmer. Many researchers come to us with a fixed mindset about computers. I'm not good at this. If people believe that you either have a skill or you lack it, everyone does worse. A growth mindset says: I can learn this. Building that belief is the largest part of my work. [click] I meet each person one to one, on their own project. I host workshops. I develop the data management strategy of the group. And I keep people going when the first attempt fails. All of that needs someone who is there every week.
+Something we try to practice in our group is a growth mindset. We motivate everyone to believe that they can learn. Many arrive with a more fixed mindset, often the result of someone telling them: you are not good at this. That belief has been disproven many times over. Yet we still see a quite typical type of person doing this type of work, and that is something we are working against. [click] We do that through one to one meetings with our staff, through workshops that we host, through an overall strategy, and by investing a lot into motivation. We keep people motivated by making the workshops as authentic as possible to their own work.
 :::
 
-## {#s-role .bare}
+## {#s-voices .bare}
 
 ```{=html}
-<div class="stage s-role">
-  <div class="hl"><span data-v="people.students_total">162</span> student theses and projects since 2021</div>
-  <svg id="c-role" viewBox="0 0 1600 900" width="1600" height="900"></svg>
+<!-- Two voices from the group. Wording from my notes of the group meeting of
+     16 November 2026; both confirm their sentence before the PDF goes out. -->
+<div class="stage s-voices">
+  <div class="hl">Voices from GHE</div>
+  <div class="v v1">
+    <div class="rq">“People need to be reminded, and that works better with a personal relationship. I would never write an email to a central service: please help me organise my data.”</div>
+    <div class="rs">Jules, doctoral student</div>
+  </div>
+  <div class="v v2">
+    <div class="rq">“You have sector specific knowledge. You know how to do lab experiments. Having the thematic background is very useful.”</div>
+    <div class="rs">Elizabeth, head of the group, to the data steward</div>
+  </div>
 </div>
 ```
 
 ::: notes
-And these are the people who have to build that belief. Since 2021, students have done 162 theses and projects in our group, at bachelor, master and doctoral level. Each person arrives with different skills, and some bring Git with them. So far we teach Git and GitHub actively only to our doctoral students. For bachelor and master students we do not do that yet. We want to expand the training, so that they learn the workflows for working together early on.
+Why inside the group, and not in a central service? I asked my colleagues this week. Jules, a doctoral student, said: people need to be reminded, and that works better with a personal relationship. I would never write an email to a central service and ask for help with organising my data. And Liz, who leads the group, said: you know the sector, and you know how to do lab experiments.
 :::
 
 ## {#s-teach .bare}
@@ -168,34 +178,60 @@ And these are the people who have to build that belief. Since 2021, students hav
   <ul>
     <li><span class="yr">Until 2025</span>Git taught one to one and in R courses</li>
     <li><span class="yr">2025</span>Claude Code introduced in the group</li>
-    <li><span class="yr">2026</span><b>Git for Scientists</b>, a workshop for the foundation</li>
-    <li><span class="yr">2026</span><b>Agents for Scientists</b>, a workshop on coding agents</li>
+    <li><span class="yr">2026</span><a href="https://gitforsci-ghe.github.io/website/"><b>Git for Scientists</b></a>, a workshop for the foundation</li>
+    <li><span class="yr">2026</span><a href="https://agentsforsci-ghe.github.io/website/"><b>Agents for Scientists</b></a>, a workshop on coding agents</li>
     <li><span class="yr">2027</span><a href="https://github.com/Global-Health-Engineering/fair-training"><b>FAIR by Doing</b></a>, proposed for 15 ETH researchers</li>
   </ul>
 </div>
 ```
 
 ::: notes
-Git and GitHub are the foundation of our work. For years I taught Git ad hoc, one to one, or in semester long R courses. Since 2026 we have a workshop format that builds the foundation, Git for Scientists. Claude Code came into the group in 2025, and in 2026 we ran Agents for Scientists. For 2027 we have proposed FAIR by Doing, a programme for 15 researchers from across ETH Zurich. The funding decision comes in December. The point is that I keep track of the developments in these fields and bring the tools and the teaching into the group.
+What are these workshops and tools? They come from inside the group. In my first four years in the group I taught Git in one to one meetings to those who were interested, and in the courses that I taught. We have never applied force. We have always let people work with the tools they choose, hoping that we are convincing enough. It became more structured when we introduced Claude Code in July 2025. It made me realise that now is the time to make sure we work responsibly with these tools, and working responsibly with an agent has Git and GitHub as its foundation. So we teach Git for Scientists. There is a workshop tomorrow at this conference, taught from a learner's perspective, where you can give me feedback on the approach. More recently we have hosted Agents for Scientists. Next year we hope to combine both with FAIR data publishing in a programme called FAIR by Doing, a proposal for 15 researchers at ETH Zurich.
 :::
 
 ## {#s-photos .bare}
 
 ```{=html}
-<!-- Photos. The two slots on the right wait for a file each. To fill a slot: save the
-     photo under the file name on the slot, then replace the <div class="photo-slot">
-     line with the <img> line in the comment below it. -->
+<!-- Three photos of the Agents for Scientists workshop of 29 September 2026, side by side. -->
 <div class="stage s-photos">
-  <img class="p1" src="../shared/img/workshop-hackathon-2024.jpeg" alt="Six people at laptops around a table at a workshop of the group">
-  <div class="photo-slot p2">Photo: Git for Scientists, July 2026<br><span>img/gitforsci-2026-07.jpg</span></div>
-  <!-- <img class="p2" src="img/gitforsci-2026-07.jpg" alt="Git for Scientists workshop, July 2026"> -->
-  <div class="photo-slot p3">Photo: Agents for Scientists, September 2026<br><span>img/agentsforsci-2026-09.jpg</span></div>
-  <!-- <img class="p3" src="img/agentsforsci-2026-09.jpg" alt="Agents for Scientists workshop, September 2026"> -->
+  <img class="c1" src="img/2026-09-29-agentsforsci-1.jpg" alt="Four people in conversation at a long table with laptops, in a wood panelled room">
+  <img class="c2" src="img/2026-09-29-agentsforsci-2.jpg" alt="Two people writing in small hand folded booklets at a table">
+  <img class="c3" src="img/2026-09-29-agentsforsci-3.jpg" alt="Hand made booklets on a table, one titled AI agents 101">
 </div>
 ```
 
 ::: notes
-This is what it looks like: people at one table, each with their own project, and someone from inside the group sitting next to them.
+A few images of what that looks like. We are always very interactive. We spend time in nice locations and facilitate our workshops in a way that is conducive to learning.
+:::
+
+## {#s-know .bare}
+
+```{=html}
+<div class="stage s-question s-know">
+  <div class="again">Keep data on your own group, and you</div>
+  <div class="key">
+    <span class="ln">know what</span>
+    <span class="ln">is going on.</span>
+  </div>
+  <div class="sub">Examples of what we measure</div>
+</div>
+```
+
+::: notes
+Back to the data. Keep data on your own group, and you know what is going on. What I show next are examples of what we measure.
+:::
+
+## {#s-role .bare}
+
+```{=html}
+<div class="stage s-role">
+  <div class="hl"><span data-v="people.students_total">176</span> student theses and projects since 2021</div>
+  <svg id="c-role" viewBox="0 0 1600 900" width="1600" height="900"></svg>
+</div>
+```
+
+::: notes
+The first one: 176 student theses and projects since 2021. You can see the growth. It has slowed down a bit this year. The teal columns are the doctorates started in each year. We have invested a lot into our doctoral students and our staff, in data sharing and the skills underneath. We are not yet teaching our bachelor and master students to the same level. These students often bring competencies with them, and we are looking into doing the same for them.
 :::
 
 ## {#s-repos .bare}
@@ -208,7 +244,9 @@ This is what it looks like: people at one table, each with their own project, an
 ```
 
 ::: notes
-Back to the data package. The largest part of it is our work on GitHub. We have sorted our 345 repositories by what they hold, and 97 of them are data packages. From their commit history we learn how our group works and what we do.
+These are our 345 GitHub repositories across our GitHub organisations, sorted by what they hold. A lot of the work goes into data packages and into teaching and training material. Research projects, and quite a few proposals and reports, are documented through Git and GitHub. Interestingly, software is relatively little. It is what people most commonly think Git and GitHub are for, and it is not really what we do. We work on proposals and data.
+
+If someone asks about "Other": 47 repositories, namely 11 manuscripts, 10 student projects, 10 websites and communication, 7 for group management, 7 organisation profiles and 2 templates.
 :::
 
 ## {#s-share .bare}
@@ -222,7 +260,7 @@ Back to the data package. The largest part of it is our work on GitHub. We have 
 ```
 
 ::: notes
-Every commit made with an agent says so, and that rule lets us count. [click] In the twelve months before, 8 percent of the commits our group made were made with an agent. In the last twelve months it is 62 percent. We also commit more, 1.5 times as much, and the whole increase is commits made with an agent. A commit is activity. It does not tell you the research is better.
+This shows the number of commits per month by our group members, around 400 each month. [click] In purple you can see the commits made with an agent. Every commit made with an agent says so, and that lets us count. You can see significant growth since about July this year. This does not show the quality of research, and it does not show how many papers we have published. It shows the direction we want to take: a group that collaborates through GitHub and uses agentic AI effectively.
 :::
 
 ## {#s-persons .bare}
@@ -235,57 +273,39 @@ Every commit made with an agent says so, and that rule lets us count. [click] In
 ```
 
 ::: notes
-Who makes these commits? Each bar is one person in our group, 28 in twelve months, ranked by commits. The purple part is made with an agent. A dot marks everyone who took one of our workshops this year. An empty box means: trained, and no commit since.
+Each bar is one group member, ranked by the number of commits. You may guess that the first bar, 43 percent, is me. I publish a lot of datasets for the WASH sector, the sector we work in, and my workflow has switched completely to working with an agent. A dot marks the people who were trained in our workshops. And the figure shows that we still have quite a bit of work to do: despite the workshops and the support, half of the people who took a workshop have no commit since.
 :::
 
 ## {#s-learn .bare}
 
 ```{=html}
-<div class="stage s-teach s-intel s-learn">
-  <div class="th">What the commits tell us</div>
-  <ul>
-    <li><span class="yr">1 of <span data-v="github.persons">28</span></span>makes <span data-v="github.first_person_share_pct">43</span> percent of the commits</li>
-    <li><span class="yr"><span data-v="github.persons_with_agent">10</span> of <span data-v="github.persons">28</span></span>commit with an agent</li>
-    <li><span class="yr"><span data-v="github.trained_practising">7</span> of <span data-v="github.trained">14</span></span>who took a workshop commit since</li>
-    <li><span class="yr"><span data-v="github.trained_practising_with_agent">6</span> of <span data-v="github.trained_practising">7</span></span>of these work with an agent</li>
-  </ul>
+<div class="stage s-learn">
+  <div class="rev">
+    <div class="rq">“useful process indicators, but they are imperfect proxies for genuine competency”</div>
+    <div class="rs">A reviewer of one of our proposals, April 2026, on commits and repository counts</div>
+  </div>
 </div>
 ```
 
 ::: notes
-What do we learn from this? One person makes 43 percent of the commits. The group depends on me more than it should. 10 of 28 commit with an agent. 14 colleagues took one of our workshops this year. 7 of them commit in their research repositories since, and 6 of these 7 work with an agent. So training and practice go together. And the other 7 are the work ahead. A workshop builds the foundation. The practice comes from sitting next to people, on their own project.
-:::
-
-## {#s-fund .bare}
-
-```{=html}
-<div class="stage s-fund">
-  <div class="cur">CHF</div>
-  <div class="fnum"><span data-v="proposals.steward_funded_chf" data-f="chf">389,990</span></div>
-  <div class="fsub">brought in by the data steward, <span data-v="proposals.steward_funded">5</span> funded proposals</div>
-  <div class="fsub2">3 more submitted this autumn</div>
-</div>
-```
-
-::: notes
-And the role brings funding into the group. Five proposals that I led were funded, 389,990 Swiss francs in total, for projects on open research data. Three more that I lead were submitted this autumn, and the decisions come in December. The trade-off is that this is one person, 20 hours a week. If I leave, a lot of this leaves with me.
+These are useful process indicators, but they are imperfect proxies for genuine competency. That is a comment we received from a reviewer of one of our proposals, when we tried to measure the effect of our teaching. It is something we want to get better at.
 :::
 
 ## {#s-question .bare}
 
 ```{=html}
 <div class="stage s-question">
-  <div class="again">Place a data steward inside the research group.</div>
+  <div class="again three"><span>Keep data on your own group.</span><span>Place a data steward inside it.</span><span>Know what is going on.</span></div>
   <div class="key">
-    <span class="ln">What would you</span>
-    <span class="ln">measure to show what</span>
+    <span class="ln">What would you measure</span>
+    <span class="ln">to show what data</span>
     <span class="ln">stewardship changes?</span>
   </div>
 </div>
 ```
 
 ::: notes
-So place a data steward inside the research group. And then help us with the open question: what would you measure to show what stewardship changes? Come and find me.
+So keep data on your own group. Place a data steward inside it. And you know what is going on. And this is what I am looking for in this room: conversations about how we can measure this better, beyond imperfect proxies for competency. What would you measure to show what data stewardship changes? Thank you very much.
 :::
 
 ## {#s-end .bare}
@@ -297,15 +317,16 @@ So place a data steward inside the research group. And then help us with the ope
     <div>
       <p><b>Git for Scientists</b><br>Workshop tomorrow, Friday 20 November, 09:30, room Wytsicht</p>
       <p>Lars Schöbitz, Colin Walder, Adriana Clavijo Daza, Elizabeth Tilley<br><span data-v="talk.affiliation" data-f="raw">Global Health Engineering, ETH Zurich</span></p>
+      <p>Declaration of AI use<br><a href="https://github.com/Global-Health-Engineering/rdc-2026/blob/main/talk/AI-USE.md"><b>rdc-2026/talk/AI-USE.md</b></a></p>
     </div>
     <div>
       <p>The data package ghedata<br><b data-v="talk.package_url" data-f="url">github.com/Global-Health-Engineering/ghedata</b></p>
       <p>These slides<br><b data-v="talk.slides_repo" data-f="url">github.com/Global-Health-Engineering/rdc-2026</b></p>
+      <p>Lars Schöbitz<br><b>github.com/larnsce</b><br><b>linkedin.com/in/larsschoebitz</b><br>Newsletter (in German): <b>buttondown.com/bitz</b></p>
     </div>
   </div>
   <div class="foot">
-    <div>Figures: ghedata, snapshot <span data-v="snapshot_date" data-f="date">11 November 2026</span></div>
-    <div>These slides were built with Claude Code. The full declaration is in the slides repository.</div>
+    <div>Figures: ghedata, November 2026.</div>
   </div>
 </div>
 ```

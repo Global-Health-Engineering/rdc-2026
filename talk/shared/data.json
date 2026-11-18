@@ -3,17 +3,17 @@
   "snapshot_date": "2026-11-11",
   "proposals": {
     "note": "From the ghedata proposals table. Amounts in other currencies are converted to CHF with the rate of 1 July of the year of submission. Proposals without a budget or a currency are not in the amounts.",
-    "amount_chf": 32143694,
-    "amount_funded_chf": 3006431,
-    "written": 82,
-    "funded": 24,
+    "amount_chf": 34010433,
+    "amount_funded_chf": 2986253,
+    "written": 81,
+    "funded": 23,
     "rejected": 49,
     "pending": 8,
     "withdrawn": 1,
-    "without_amount": 6,
-    "first_year": 2020,
-    "first_submitted": "2020-05-01",
-    "years": 6,
+    "without_amount": 2,
+    "first_year": 2021,
+    "first_submitted": "2021-04-14",
+    "years": 5,
     "steward_funded": 5,
     "steward_funded_chf": 389990
   },
@@ -25,33 +25,33 @@
   },
   "people": {
     "note": "Engagements in the group since 2021 from the ghedata people table: theses, semester projects and staff.",
-    "total": 186,
+    "total": 205,
     "by_group": [
       {
         "group": "Master theses",
-        "n": 63
+        "n": 69
       },
       {
         "group": "Semester projects",
-        "n": 48
+        "n": 52
       },
       {
         "group": "Bachelor theses",
-        "n": 42
+        "n": 44
       },
       {
         "group": "Staff, interns and assistants",
-        "n": 26
+        "n": 31
       },
       {
         "group": "Doctoral theses",
-        "n": 7
+        "n": 9
       }
     ],
     "by_year": [
       {
         "year": 2021,
-        "n": 2
+        "n": 4
       },
       {
         "year": 2022,
@@ -59,11 +59,11 @@
       },
       {
         "year": 2023,
-        "n": 27
+        "n": 28
       },
       {
         "year": 2024,
-        "n": 44
+        "n": 45
       },
       {
         "year": 2025,
@@ -71,10 +71,13 @@
       },
       {
         "year": 2026,
-        "n": 32
+        "n": 46
+      },
+      {
+        "n": 1
       }
     ],
-    "students_total": 162,
+    "students_total": 176,
     "students_by_degree_year": [
       {
         "year": 2021,
@@ -154,17 +157,29 @@
       {
         "year": 2026,
         "degree": "bsc",
-        "n": 9
+        "n": 11
       },
       {
         "year": 2026,
         "degree": "msc",
-        "n": 17
+        "n": 27
       },
       {
         "year": 2026,
         "degree": "phd",
-        "n": 2
+        "n": 3
+      },
+      {
+        "degree": "bsc",
+        "n": 0
+      },
+      {
+        "degree": "msc",
+        "n": 0
+      },
+      {
+        "degree": "phd",
+        "n": 1
       }
     ]
   },
@@ -4154,6 +4169,15 @@
     "days_to_release": 4,
     "questions_to_authors": 50,
     "days_until_answered": 3
+  },
+  "reach": {
+    "note": "From the ghedata table zenodo_records.",
+    "zenodo": {
+      "records": 66,
+      "views": 13347,
+      "downloads": 3706,
+      "snapshot_date": "2026-11-18"
+    }
   },
   "talk": {
     "title": "Embedded data stewardship and research intelligence: five years of practice at a research group at ETH Zurich",

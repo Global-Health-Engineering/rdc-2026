@@ -203,13 +203,16 @@
     draw: function (on) {
       var svg = d3.select("#c-role");
       svg.selectAll("*").remove();
-      var rows = D.people.students_by_degree_year;
+      // a row without a year (a doctorate with no start date) has no column
+      var rows = D.people.students_by_degree_year.filter(function (d) { return d.year != null; });
       var years = Array.from(new Set(rows.map(function (d) { return d.year; }))).sort();
       var DEG = [{ k: "bsc", label: "BSc", fill: C.ink }, { k: "msc", label: "MSc", fill: C.accent }, { k: "phd", label: "PhD", fill: "#1E8B99" }];
       var X0 = 60, X1 = 1540, BASE = 720, H = 540, GW = (X1 - X0) / years.length, BW = 66, GAP = 8;
       var y = d3.scaleLinear().domain([0, d3.max(rows, function (d) { return d.n; })]).range([0, H]);
       var lastYear = years[years.length - 1], snap = +D.snapshot_date.slice(0, 4);
       svg.append("line").attr("x1", X0).attr("x2", X1).attr("y1", BASE).attr("y2", BASE).attr("stroke", C.ink).attr("stroke-width", 2);
+      // every column counts the students who started in that year
+      svg.append("text").attr("class", "t32").attr("x", X0).attr("y", 150).text("Each column: students who started in that year");
       var bars = [];
       years.forEach(function (yr, yi) {
         var gx = X0 + yi * GW + (GW - (3 * BW + 2 * GAP)) / 2;
