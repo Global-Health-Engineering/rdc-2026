@@ -176,7 +176,7 @@ Why inside the group, and not in a central service? I asked my colleagues this w
 <div class="stage s-teach">
   <div class="th">The tools and the teaching come from inside the group</div>
   <ul>
-    <li><span class="yr">Until 2025</span>Git taught one to one and in R courses</li>
+    <li><span class="yr">2021 to 2025</span>Git taught one to one and in R courses</li>
     <li><span class="yr">2025</span>Claude Code introduced in the group</li>
     <li><span class="yr">2026</span><a href="https://gitforsci-ghe.github.io/website/"><b>Git for Scientists</b></a>, a workshop for the foundation</li>
     <li><span class="yr">2026</span><a href="https://agentsforsci-ghe.github.io/website/"><b>Agents for Scientists</b></a>, a workshop on coding agents</li>
@@ -324,7 +324,7 @@ So keep data on your own group. Place a data steward inside it. And you know wha
     <div>
       <p>The data package ghedata<br><a href="https://github.com/Global-Health-Engineering/ghedata"><b data-v="talk.package_url" data-f="url">github.com/Global-Health-Engineering/ghedata</b></a></p>
       <p>These slides<br><a href="https://github.com/Global-Health-Engineering/rdc-2026"><b data-v="talk.slides_repo" data-f="url">github.com/Global-Health-Engineering/rdc-2026</b></a></p>
-      <p>Lars Schöbitz<br><a href="https://github.com/larnsce"><b>github.com/larnsce</b></a><br><a href="https://www.linkedin.com/in/larsschoebitz"><b>linkedin.com/in/larsschoebitz</b></a><br>Newsletter (in German): <a href="https://buttondown.com/bitz"><b>buttondown.com/bitz</b></a></p>
+      <p>Lars Schöbitz<br><a href="https://github.com/larnsce"><b>github.com/larnsce</b></a><br><a href="https://www.linkedin.com/in/larsschoebitz"><b>linkedin.com/in/larsschoebitz</b></a><br>Newsletter (German and English): <a href="https://buttondown.com/bitz"><b>buttondown.com/bitz</b></a></p>
     </div>
   </div>
   <div class="foot">

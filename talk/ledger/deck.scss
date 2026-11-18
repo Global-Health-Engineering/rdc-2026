@@ -212,3 +212,5 @@ html.is-print .reveal .fragment { opacity: 1 !important; visibility: visible !im
 .reveal .s-end .title { top: 190px; font-size: 40px; }
 .reveal .s-end .cols { top: 340px; }
 .reveal .s-end .foot { top: 830px; }
+// "2021 to 2025" needs a wider first column on the teaching slide.
+.reveal .s-teach:not(.s-intel) li { padding-left: 345px; }
