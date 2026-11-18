@@ -207,3 +207,8 @@ html.is-print .reveal .fragment { opacity: 1 !important; visibility: visible !im
 .reveal .s-voices .v2 { top: 520px; }
 // The link to the declaration of AI use on the last slide, marked like the links on the teaching slide.
 .reveal .s-end .cols a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 4px; text-underline-offset: 6px; }
+// The last slide opens with the thanks; title, columns and figures line sit lower.
+.reveal .s-end .ty { position: absolute; left: 80px; top: 56px; font-size: 96px; font-weight: 800; line-height: 1; letter-spacing: -0.02em; color: var(--accent); }
+.reveal .s-end .title { top: 190px; font-size: 40px; }
+.reveal .s-end .cols { top: 340px; }
+.reveal .s-end .foot { top: 830px; }

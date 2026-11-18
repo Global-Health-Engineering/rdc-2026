@@ -280,6 +280,7 @@ Each bar is one group member, ranked by the number of commits. You may guess tha
 
 ```{=html}
 <div class="stage s-learn">
+  <div class="hl">GitHub activity as an indicator for competency?</div>
   <div class="rev">
     <div class="rq">“useful process indicators, but they are imperfect proxies for genuine competency”</div>
     <div class="rs">A reviewer of one of our proposals, April 2026, on commits and repository counts</div>
@@ -312,17 +313,18 @@ So keep data on your own group. Place a data steward inside it. And you know wha
 
 ```{=html}
 <div class="stage s-end">
+  <div class="ty">Thank you</div>
   <div class="title" data-v="talk.title" data-f="raw">Embedded data stewardship and research intelligence: five years of practice at a research group at ETH Zurich</div>
   <div class="cols">
     <div>
-      <p><b>Git for Scientists</b><br>Workshop tomorrow, Friday 20 November, 09:30, room Wytsicht</p>
+      <p><a href="https://gitforsci-ghe.github.io/website/"><b>Git for Scientists</b></a><br>Workshop tomorrow, Friday 20 November, 09:30, room Wytsicht</p>
       <p>Lars Schöbitz, Colin Walder, Adriana Clavijo Daza, Elizabeth Tilley<br><span data-v="talk.affiliation" data-f="raw">Global Health Engineering, ETH Zurich</span></p>
       <p>Declaration of AI use<br><a href="https://github.com/Global-Health-Engineering/rdc-2026/blob/main/talk/AI-USE.md"><b>rdc-2026/talk/AI-USE.md</b></a></p>
     </div>
     <div>
-      <p>The data package ghedata<br><b data-v="talk.package_url" data-f="url">github.com/Global-Health-Engineering/ghedata</b></p>
-      <p>These slides<br><b data-v="talk.slides_repo" data-f="url">github.com/Global-Health-Engineering/rdc-2026</b></p>
-      <p>Lars Schöbitz<br><b>github.com/larnsce</b><br><b>linkedin.com/in/larsschoebitz</b><br>Newsletter (in German): <b>buttondown.com/bitz</b></p>
+      <p>The data package ghedata<br><a href="https://github.com/Global-Health-Engineering/ghedata"><b data-v="talk.package_url" data-f="url">github.com/Global-Health-Engineering/ghedata</b></a></p>
+      <p>These slides<br><a href="https://github.com/Global-Health-Engineering/rdc-2026"><b data-v="talk.slides_repo" data-f="url">github.com/Global-Health-Engineering/rdc-2026</b></a></p>
+      <p>Lars Schöbitz<br><a href="https://github.com/larnsce"><b>github.com/larnsce</b></a><br><a href="https://www.linkedin.com/in/larsschoebitz"><b>linkedin.com/in/larsschoebitz</b></a><br>Newsletter (in German): <a href="https://buttondown.com/bitz"><b>buttondown.com/bitz</b></a></p>
     </div>
   </div>
   <div class="foot">
