@@ -48,6 +48,23 @@ format:
 Thank you very much for the introduction. I am very happy to be here and to talk about something very dear to me, data stewardship, because that is what I am: an embedded data steward. With Adriana and Colin, the other data stewards who have supported me over time in our group, Global Health Engineering, we have been working on something we call research intelligence. This talk is about what five years of practice have shown us. [click] The number starts.
 :::
 
+## {#s-hands .bare}
+
+```{=html}
+<div class="stage s-teach s-intel">
+  <div class="th">A show of hands: where do you work?</div>
+  <ul>
+    <li><span class="yr">Central</span>a library, scientific IT, a central service</li>
+    <li><span class="yr">Embedded</span>in a department, platform or research group</li>
+    <li><span class="yr">Researcher</span>I do research and look after the data</li>
+  </ul>
+</div>
+```
+
+::: notes
+Before I start, a quick show of hands. Who works in a central service, a library or scientific IT? Who is embedded in a department, a platform or a research group? And who is a researcher who looks after the data alongside the research? [count the hands out loud]
+:::
+
 ## {#s-number .bare}
 
 ```{=html}
